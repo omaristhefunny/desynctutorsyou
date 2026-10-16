@@ -1,0 +1,74 @@
+.hm-wrap { max-width: 860px; margin: 0 auto; }
+.hm-head { text-align: center; margin-bottom: 28px; }
+.hm-head .ol-h1 { font-weight: 700; }
+.hm-head .ol-sub { margin-top: 8px; }
+
+.hm-game {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.hm-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-raised);
+}
+.hm-gallows { width: 100%; max-width: 220px; height: auto; color: #fff; }
+.hm-gallows .hm-part { opacity: 0; transition: opacity 0.2s ease; }
+.hm-gallows .hm-part.show { opacity: 1; }
+.hm-lives { font-size: 13px; color: var(--text-dim); letter-spacing: 0.06em; }
+
+.hm-play { display: flex; flex-direction: column; gap: 18px; }
+.hm-word {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: clamp(28px, 6vw, 44px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.hm-slot {
+  min-width: 0.7em;
+  padding-bottom: 4px;
+  border-bottom: 3px solid var(--line-strong);
+  text-align: center;
+}
+.hm-slot.filled { border-bottom-color: transparent; }
+.hm-slot.missed { color: var(--text-faint); }
+
+.hm-status { min-height: 22px; font-size: 15px; color: var(--text-dim); }
+.hm-status.won { color: #fff; font-weight: 600; }
+.hm-status.lost { color: var(--text-dim); }
+
+.hm-keys { display: grid; grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)); gap: 8px; }
+.hm-key {
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease, transform 0.1s ease;
+}
+.hm-key:hover:not(:disabled) { background: #fff; color: #000; }
+.hm-key:active:not(:disabled) { transform: translateY(1px); }
+.hm-key.hit { background: rgba(255,255,255,0.16); border-color: var(--line-strong); }
+.hm-key.miss { opacity: 0.28; cursor: default; }
+.hm-key:disabled { cursor: default; }
+
+.hm-new { align-self: start; }
+
+@media (max-width: 720px) {
+  .hm-game { grid-template-columns: 1fr; }
+  .hm-stage { order: -1; }
+}

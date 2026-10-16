@@ -1,0 +1,135 @@
+    body { 
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      background: #0a0a0a;
+      min-height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: none;
+      margin: 0;
+      padding: 120px 24px 60px;
+    }
+
+    .container > * {
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .header h1 {
+      color: #ffffff;
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+
+    .header p {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 16px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .notice-box {
+      background: rgba(93, 92, 92, 0.1);
+      border: 1px solid rgba(138, 137, 136, 0.3);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .notice-box p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 15px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .email-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(86, 86, 85, 0.15);
+      border: 1px solid rgba(245, 243, 242, 0.4);
+      border-radius: var(--radius);
+      padding: 14px 24px;
+      margin: 20px 0;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .email-box a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .email-box a:hover {
+      text-decoration: underline;
+    }
+
+    .section {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .section:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(92, 91, 90, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .section-title {
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .section p {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.7;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background: rgba(96, 96, 96, 0.2);
+      border-radius: 50%;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 600;
+      margin-right: 10px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer p {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 14px;
+    }
+  

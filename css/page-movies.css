@@ -1,0 +1,16 @@
+.ol-stage.movies {
+  height: 100vh;
+  padding: 0;
+}
+
+.movies-frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: var(--bg);
+}
+
+@media (max-width: 820px) {
+  body .ol-stage.movies { padding-bottom: 80px; }
+}
