@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="position: fixed; inset: 0;">
+  <foreignObject x="0" y="0" width="100%" height="100%">
+    <body xmlns="http://www.w3.org/1999/xhtml" style="margin: 0; width: 100%; height: 100%; overflow: hidden; background: #020810;">
+      <iframe src="https://suntree.network/" style="border: 0; width: 100%; height: 100%; display: block;" allow="fullscreen; autoplay; clipboard-read; clipboard-write; microphone; camera; gamepad" allowfullscreen="true"></iframe>
+    </body>
+  </foreignObject>
+</svg>
