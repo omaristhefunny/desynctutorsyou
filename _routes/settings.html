@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="s3-shim.js?v=0049504ae2"></script>
+  <meta charset="UTF-8">
+  <script src="j/6b6ab3d4fb.js"></script>
+  <title>Settings | desync</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="desync settings"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/ui.css?v=8">
+  <link rel="stylesheet" href="css/page-settings.css?v=2">
+</head>
+<body>
+
+  <main class="ol-stage settings-page">
+    <div class="ol-page-head">
+      <h1 class="ol-page-title">Settings</h1>
+      <p class="ol-page-sub">Appearance, privacy, and how desync behaves on this device.</p>
+    </div>
+
+    <nav class="settings-nav" aria-label="Settings sections">
+      <a href="#appearance">Appearance</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#proxy">Proxy</a>
+      <a href="#chat">Chat</a>
+      <a href="#ads">Ads</a>
+      <a href="#data">Data</a>
+    </nav>
+
+    <div class="settings-sections">
+
+      <section class="settings-section" id="appearance">
+        <h2 class="settings-section-title">Appearance</h2>
+
+        <div class="ol-box">
+          <div class="ol-box-head">
+            <div class="ol-box-eyebrow">Theme</div>
+            <div class="ol-box-title">Accent colour</div>
+            <p class="ol-box-desc">
+              Sets the colour used across the site — buttons, the active sidebar item,
+              focus rings and highlights. White is the default; the wordmark stays
+              white either way.
+            </p>
+          </div>
+          <div class="ol-box-body">
+            <div class="ol-row-stack">
+              <div class="ol-row-main">
+                <div class="ol-row-label">Presets</div>
+                <div class="ol-row-desc">Applies immediately. No reload needed.</div>
+              </div>
+              <div class="ol-row-control">
+                <div class="swatches" id="themeSwatches" role="radiogroup" aria-label="Accent colour presets"></div>
+              </div>
+            </div>
+
+            <div class="ol-row">
+              <div class="ol-row-main">
+                <div class="ol-row-label">Custom colour</div>
+                <div class="ol-row-desc">Pick anything, or type a hex value like #ff9900.</div>
+              </div>
+              <div class="ol-row-control">
+                <input type="color" class="color-well" id="themeColorInput" aria-label="Custom accent colour">
+                <input type="text" class="ol-input hex-input" id="themeHexInput" placeholder="#4d7cff"
+                       spellcheck="false" autocomplete="off" aria-label="Accent colour hex value">
+              </div>
+            </div>
+
+            <div class="ol-row">
+              <div class="ol-row-main">
+                <div class="ol-row-label">Reset to default</div>
+                <div class="ol-row-desc">Puts the accent back to white.</div>
+              </div>
+              <div class="ol-row-control">
+                <button class="ol-btn" type="button" id="themeResetBtn">Reset</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ol-box">
+          <div class="ol-box-head">
+            <div class="ol-box-eyebrow">Layout</div>
+            <div class="ol-box-title">Interface shape</div>
+            <p class="ol-box-desc">
+              How corners are drawn across the site — panels, buttons, inputs
+              and the sidebar. Boxed is the default.
+            </p>
+          </div>
+          <div class="ol-box-body">
+            <div class="ol-row-stack">
+              <div class="ol-row-main">
+                <div class="ol-row-label">Style</div>
+                <div class="ol-row-desc">Applies immediately. No reload needed.</div>
+              </div>
+              <div class="ol-row-control">
+                <div class="shape-options" id="shapeOptions" role="radiogroup" aria-label="Interface shape"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ol-box">
+          <div class="ol-box-head">
+            <div class="ol-box-eyebrow">Background</div>
+            <div class="ol-box-title">Motion and effects</div>
+            <p class="ol-box-desc">Turn these off to save battery, or if they get in the way.</p>
+          </div>
+          <div class="ol-box-body">
+            <div class="ol-row">
+              <div class="ol-row-main">
+                <div class="ol-row-label">Gradient background</div>
+                <div class="ol-row-desc">The animated aurora behind every page. Falls back to a static gradient without WebGL.</div>
+              </div>
+              <div class="ol-row-control">
+                <label class="ol-switch">
+                  <input type="checkbox" id="bgGradientToggle">
+                  <span class="ol-switch-track"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="ol-row">
+              <div class="ol-row-main">
+                <div class="ol-row-label">Particles</div>
+                <div class="ol-row-desc">Drifting dots layered over the background.</div>
+              </div>
+              <div class="ol-row-control">
+                <label class="ol-switch">
+                  <input type="checkbox" id="particlesToggle">
+                  <span class="ol-switch-track"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="ol-row">
+              <div class="ol-row-main">
+                <div class="ol-row-label">Loading screen</div>
+                <div class="ol-row-desc">The full-screen splash shown while a page loads.</div>
+              </div>
+              <div class="ol-row-control">
+                <label class="ol-switch">
+                  <input type="checkbox" id="loadingScreenToggle">
+                  <span class="ol-switch-track"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="settings-section" id="privacy">
+        <h2 class="settings-section-title">Privacy</h2>
+
+        <div class="ol-box">
+          <div class="ol-box-head">
+            <div class="ol-box-eyebrow">Tab cover</div>
+            <div class="ol-box-title">Tab disguise</div>
+            <p class="ol-box-desc">Change the tab's title and icon to blend in. Applies everywhere, and persists.</p>
+          </div>
+          <div class="ol-box-body">
+            <div class="ol-row">
+              <div class="ol-row-main">
+                <div class="ol-row-label">Disguise as</div>
+                <div class="ol-row-desc">Choose Custom to write your own title and icon.</div>
+              </div>
+              <div class="ol-row-control">
+                <select class="ol-select" id="tabCloakSelect">
+                  <option value="disd">DISD | Information</option>
+                  <option value="quizlet">Quizlet</option>
+                  <option value="google">Google</option>
+                  <option value="google-classroom">Google Classroom</option>
+                  <option value="google-docs">Google Docs</option>
+                  <option value="google-drive">Google Drive</option>
+                  <option value="khan-academy">Khan Academy</option>
+                  <option value="wikipedia">Wikipedia</option>
+                  <option value="youtube">YouTube</option>
+                  <option value="outlook">Outlook</option>
+                  <option value="ixl">IXL</option>
+                  <option value="peardeck">Pear Deck</option>
+                  <option value="classroom">Canvas</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="ol-row-stack" id="cloakCustomRow" hidden>
+              <div class="ol-row-main">
+                <div class="ol-row-label">Tab name</div>
+                <div class="ol-row-desc">The text shown in the browser tab.</div>
+              </div>
+              <div class="ol-row-control">
+                <input type="text" class="ol-input" id="cloakTitleInput"
+                       placeholder="DISD | Information" autocomplete="off">
+              </div>
+            </div>
+
+            <div class="ol-row-stack" id="cloakPreviewRow">
+              <div class="ol-row-main">
+                <div class="ol-row-label">Preview</div>
+                <div class="ol-row-desc">How the browser tab will look.</div>
+              </div>
+              <div class="ol-row-control">
+                <div id="cloakPreview" class="cloak-prev">
+                  <img class="cloak-prev-icon" alt="">
+                  <span class="cloak-prev-title"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ol-box">
+          <div class="ol-box-head">
+            <div class="ol-box-eyebrow">Panic</div>
+            <div class="ol-box-title">Panic key</div>
+            <p class="ol-box-desc">
+              Press the bound key and the whole tab leaves for the address below.
+              It is ignored while you are typing in a text box, so a letter key
+              is still safe to bind.
+            </p>
+          </div>
+          <div class="ol-box-body">
+            <div class="ol-row">
+              <div class="ol-row-main">
+                <div class="ol-row-label">Bound key</div>
+                <div class="ol-row-desc">Click Rebind, then press any key.</div>
+              </div>
+              <div class="ol-row-control">
+                <kbd class="key-display" id="panicKeyDisplay">`</kbd>
+                <button class="ol-btn" type="button" id="panicRebindBtn">Rebind</button>
+                <button class="ol-btn" type="button" id="panicClearBtn">Unbind</button>
+              </div>
+            </div>
+
+            <div class="ol-row-stack">
+              <div class="ol-row-main">
+                <div class="ol-row-label">Panic destination</div>
+                <div class="ol-row-desc">Where the tab goes. Leave as about:blank for a plain empty page.</div>
+              </div>
+              <div class="ol-row-control">
+                <input type="text" class="ol-input" id="panicUrlInput"
+                       placeholder="about:blank" spellcheck="false" autocomplete="off">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ol-box">
+          <div class="ol-box-head">
+            <div class="ol-box-eyebrow">Cloaking</div>
+            <div class="ol-box-title">Open in about:blank</div>
+            <p class="ol-box-desc">
+              Runs desync inside a blank window so it leaves no trace in your
+              browser history. Your browser may ask you to allow popups the
+              first time.
+            </p>
+          </div>
+          <div class="ol-box-body">
+            <div class="ol-row">
+              <div class="ol-row-main">
+                <div class="ol-row-label">Do this automatically on launch</div>
+                <div class="ol-row-desc">Every time you open desync, it moves itself into a blank window.</div>
+              </div>
+              <div class="ol-row-control">
+                <label class="ol-switch">
+                  <input type="checkbox" id="autoBlankToggle">
+                  <span class="ol-switch-track"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="ol-row">
+              <div class="ol-row-main">
+                <div class="ol-row-label">Window type</div>
+                <div class="ol-row-desc">about:blank is the usual choice; blob works where about:blank is blocked.</div>
+              </div>
+              <div class="ol-row-control">
+                <select class="ol-select" id="abTypeSelect">
+                  <option value="blank">about:blank</option>
+                  <option value="blob">blob</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="ol-row">
+              <div class="ol-row-main">
+                <div class="ol-row-label">Do it now</div>
+                <div class="ol-row-desc">Move this session into a blank window right away.</div>
+              </div>
+              <div class="ol-row-control">
+                <button class="ol-btn" type="button" id="abOpenBtn">Open</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="settings-section" id="proxy">
+        <h2 class="settings-section-title">Proxy</h2>
+
+        <div class="ol-box">
+          <div class="ol-box-head">
+            <div class="ol-box-eyebrow">Engine</div>
+            <div class="ol-box-title">How sites are loaded</div>
+            <p class="ol-box-desc">
+              Ultraviolet is lighter and quicker to start. Scramjet handles
+              modern sites better but is heavier. Auto picks the one that
+              works best for each site. If a site misbehaves, try choosing an
+              engine yourself.
+            </p>
+          </div>
+          <div class="ol-box-body">
+            <div class="ol-row">
+              <div class="ol-row-main">
+                <div class="ol-row-label">Proxy engine</div>
+                <div class="ol-row-desc">Applies to the next site you open.</div>
+              </div>
+              <div class="ol-row-control">
+                <select class="ol-select" id="proxyBackend">
+                  <option value="auto">Auto (recommended)</option>
+                  <option value="uv">Ultraviolet</option>
+                  <option value="scramjet">Scramjet</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="settings-section" id="chat">
+        <h2 class="settings-section-title">Chat</h2>
+
+        <div class="ol-box">
+          <div class="ol-box-head">
+            <div class="ol-box-eyebrow">Notifications</div>
+            <div class="ol-box-title">Direct messages</div>
+            <p class="ol-box-desc">Only applies to messages that arrive while chat is open.</p>
+          </div>
+          <div class="ol-box-body">
+            <div class="ol-row">
+              <div class="ol-row-main">
+                <div class="ol-row-label">Play a sound on new DMs</div>
+                <div class="ol-row-desc">Off by default.</div>
+              </div>
+              <div class="ol-row-control">
+                <label class="ol-switch">
+                  <input type="checkbox" id="dmSoundToggle">
+                  <span class="ol-switch-track"></span>
+                </label>
+              </div>
+            </div>
+            <div class="ol-row">
+              <div class="ol-row-main">
+                <div class="ol-row-label">Silence incoming calls</div>
+                <div class="ol-row-desc">Do Not Disturb — reject all voice/video call requests.</div>
+              </div>
+              <div class="ol-row-control">
+                <label class="ol-switch">
+                  <input type="checkbox" id="callsDndToggle">
+                  <span class="ol-switch-track"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ol-box">
+          <div class="ol-box-head">
+            <div class="ol-box-eyebrow">Safety</div>
+            <div class="ol-box-title">Moderation and blocking</div>
+            <p class="ol-box-desc">
+              Public rooms are checked automatically before a message is shown to
+              anyone. Direct messages are never sent to moderation — they are
+              private, and unwanted DMs are handled by blocking instead.
+            </p>
+          </div>
+          <div class="ol-box-body">
+            <div class="ol-row">
+              <div class="ol-row-main">
+                <div class="ol-row-label">Blocked people</div>
+                <div class="ol-row-desc">Blocking is managed from a person's name in chat. A block hides their messages and stops their DMs reaching you.</div>
+              </div>
+              <div class="ol-row-control">
+                <a class="ol-btn" href="chat.html">Open chat</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="settings-section" id="ads">
+        <h2 class="settings-section-title">Ads</h2>
+
+        <div class="ol-box">
+          <div class="ol-box-head">
+            <div class="ol-box-eyebrow">Your plan</div>
+            <div class="ol-box-title">Ads on this account</div>
+            <p class="ol-box-desc">
+              desync is free to use. Ads pay for the servers and go toward
+              charity, so leaving them on helps keep it that way.
+            </p>
+          </div>
+          <div class="ol-box-body">
+            <div class="ol-row">
+              <div class="ol-row-main">
+                <div class="ol-row-label">Current plan</div>
+                <div class="ol-row-desc" id="adsPlanDesc">Checking…</div>
+              </div>
+              <div class="ol-row-control">
+                <span class="plan-pill" id="adsPlanPill">…</span>
+              </div>
+            </div>
+
+            <div class="ol-row">
+              <div class="ol-row-main">
+                <div class="ol-row-label">Remove ads</div>
+                <div class="ol-row-desc">
+                  Plans start at $1 and add more AI prompts every day, the better
+                  AI models, and VIP support.
+                </div>
+              </div>
+              <div class="ol-row-control">
+                <a class="ol-btn ol-btn-primary" id="adsUpgradeBtn" href="account.html">Get a plan</a>
+              </div>
+            </div>
+
+            <div class="ol-row">
+              <div class="ol-row-main">
+                <div class="ol-row-label">Why am I seeing ads?</div>
+                <div class="ol-row-desc">Reopen the explainer shown to new visitors.</div>
+              </div>
+              <div class="ol-row-control">
+                <button class="ol-btn" type="button" id="adsNoticeBtn">Show notice</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="settings-section" id="data">
+        <h2 class="settings-section-title">Data</h2>
+
+        <div class="ol-box">
+          <div class="ol-box-head">
+            <div class="ol-box-eyebrow">Local storage</div>
+            <div class="ol-box-title">Your saved data</div>
+            <p class="ol-box-desc">
+              Everything on this page is stored in this browser only. Export it to
+              carry your settings, apps and preferences to another device.
+            </p>
+          </div>
+          <div class="ol-box-body">
+            <div class="ol-row">
+              <div class="ol-row-main">
+                <div class="ol-row-label">Export</div>
+                <div class="ol-row-desc">Downloads a JSON file of your settings.</div>
+              </div>
+              <div class="ol-row-control">
+                <button class="ol-btn" type="button" onclick="exportData()">Export data</button>
+              </div>
+            </div>
+
+            <div class="ol-row">
+              <div class="ol-row-main">
+                <div class="ol-row-label">Import</div>
+                <div class="ol-row-desc">Restores from a file you exported earlier.</div>
+              </div>
+              <div class="ol-row-control">
+                <input type="file" id="importFileInput" hidden accept=".json,.txt" onchange="importData(event)">
+                <button class="ol-btn" type="button"
+                        onclick="document.getElementById('importFileInput').click()">Import data</button>
+              </div>
+            </div>
+
+            <div class="ol-row">
+              <div class="ol-row-main">
+                <div class="ol-row-label">Clear everything</div>
+                <div class="ol-row-desc">Wipes all local data, including your login. This cannot be undone.</div>
+              </div>
+              <div class="ol-row-control">
+                <button class="ol-btn ol-btn-danger" type="button" onclick="clearData()">Clear data</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="j/4eade0f45c.js"></script>
+  <script src="j/055642f055.js"></script>
+  <script src="j/a7cfb14b7b.js"></script>
+  <script src="j/620ec4c114.js"></script>
+  <script src="j/d1f1ead3dd.js"></script>
+  <script src="j/5668425741.js"></script>
+  <script src="j/dfe49a831e.js"></script>
+  <script src="j/8837362b8d.js"></script>
+  <script src="j/5ddb9491ec.js"></script>
+  <script src="j/466cad5483.js"></script>
+  <script type="module" src="j/5ee1141a23.js"></script>
+</body>
+</html>

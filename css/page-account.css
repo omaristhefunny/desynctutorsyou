@@ -113,6 +113,11 @@
       border: 1px solid rgba(168, 85, 247, 0.58);
       color: #d6b0ff;
     }
+    .badge-admin {
+      background: linear-gradient(135deg, rgba(255, 31, 61, 0.24), rgba(255, 122, 61, 0.24));
+      border: 1px solid rgba(255, 45, 70, 0.6);
+      color: #ff8a95;
+    }
     .badge-owner {
       background: linear-gradient(135deg, rgba(255, 214, 107, 0.26), rgba(240, 163, 38, 0.26));
       border: 1px solid rgba(240, 163, 38, 0.6);
@@ -534,3 +539,45 @@
 @media (max-width: 480px) {
   .name-edit-row { flex-direction: column; align-items: stretch; }
 }
+
+/* Log in / sign up form shown on the page when signed out: big and centred */
+@keyframes acct-auth-in { from { opacity: 0; transform: translateY(16px) scale(0.98); } to { opacity: 1; transform: none; } }
+.not-logged-in {
+  display: grid; place-items: center;
+  min-height: calc(100vh - 140px); min-height: calc(100dvh - 140px);
+  padding: 24px 16px;
+}
+.not-logged-in .account-auth {
+  position: relative; width: 100%; max-width: 480px; margin: 0 auto;
+  padding: 92px 44px 40px; text-align: left; color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)), rgba(10, 11, 16, 0.78);
+  backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  animation: acct-auth-in 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+/* user badge at the top */
+.account-auth::before {
+  content: ""; position: absolute; top: 30px; left: 50%; width: 46px; height: 46px; margin-left: -23px;
+  border-radius: var(--radius); background: var(--accent, #8b5cf6);
+  box-shadow: 0 10px 30px var(--accent-glow, rgba(139, 92, 246, 0.45));
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E") center / 26px no-repeat, linear-gradient(#000, #000);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+}
+.account-auth .af-title { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; }
+.account-auth .af-blurb { font-size: 15px; margin-top: 10px; }
+.account-auth .af-form { gap: 12px; margin-top: 26px; }
+.account-auth .ol-input { min-height: 52px; font-size: 15px; border-radius: var(--radius); padding: 0 16px; transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease; }
+.account-auth .ol-input:focus { box-shadow: 0 0 0 4px var(--accent-soft, rgba(139, 92, 246, 0.18)); }
+.account-auth .af-otp-box { min-height: 60px; border-radius: var(--radius); }
+.account-auth .af-submit { min-height: 52px; font-size: 15.5px; font-weight: 700; border-radius: var(--radius); margin-top: 4px; transition: transform 0.15s ease, filter 0.2s ease; }
+.account-auth .af-submit:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.account-auth .af-submit:active { transform: scale(0.98); }
+.account-auth .af-link { font-size: 14px; margin-top: 14px; transition: color 0.2s ease; }
+.account-auth .af-error { font-size: 13.5px; }
+@media (max-width: 520px) {
+  .not-logged-in { min-height: calc(100dvh - 180px); padding: 12px 0; }
+  .not-logged-in .account-auth { padding: 84px 22px 30px; }
+  .account-auth .af-title { font-size: 24px; }
+}
+@media (prefers-reduced-motion: reduce) { .account-auth { animation: none; } }

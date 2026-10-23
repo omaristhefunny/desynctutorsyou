@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="s3-shim.js?v=0049504ae2"></script>
+  <meta charset="UTF-8">
+
+  <script src="j/6b6ab3d4fb.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IXL | Math, Language Arts, Science, Social Studies, and Spanish</title>
+  <link rel="icon" href="images/onlylessons.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Studying utilities for students.">
+  <script src="baremux/index.js"></script>
+  <script src="uv/uv.bundle.js"></script>
+  <script src="uv/uv.config.js"></script>
+  <script src="scram/scramjet.js"></script>
+  <script src="controller/controller.api.js"></script>
+  <script src="j/d78f7ff4c4.js"></script>
+  <script src="lessons/embed.js?v=2"></script>
+  <script src="j/1243bf129b.js"></script>
+  <script src="j/efae00c7ce.js"></script>
+  <script src="j/8837362b8d.js"></script>
+  <script src="j/055642f055.js"></script>
+
+  <link rel="stylesheet" href="css/ui.css?v=8">
+  <link rel="stylesheet" href="css/proxy-shell.css?v=4">
+</head>
+<body class="with-tabs with-favs">
+  <div class="proxy-tabs">
+    <div class="tab-list" id="tab-list" role="tablist" aria-label="Tabs"></div>
+    <button class="tab-new" id="tab-new" type="button" title="New tab (Alt+T)" aria-label="New tab">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+    </button>
+  </div>
+
+  <div class="proxy-bar">
+    <div class="proxy-cluster">
+      <button class="proxy-btn" id="back-btn" type="button" title="Back" aria-label="Back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+      </button>
+      <button class="proxy-btn" id="forward-btn" type="button" title="Forward" aria-label="Forward">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </button>
+      <button class="proxy-btn" id="refresh-btn" type="button" title="Reload" aria-label="Reload">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="proxy-omni" id="omnibox">
+      <span class="proxy-scheme" id="url-scheme" data-state="blank">
+        <svg class="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+        <svg class="i-warn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+          <path d="M12 9v4M12 17h.01"/>
+        </svg>
+        <svg class="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path>
+        </svg>
+      </span>
+      <button class="proxy-display" id="url-display" type="button" title="Click to edit the address">
+        <span class="u-placeholder">Search or enter a URL</span>
+      </button>
+      <input type="text" class="proxy-url" id="browser-url" placeholder="Search or enter a URL" autocomplete="off" spellcheck="false" enterkeyhint="go" aria-label="Search or enter a URL">
+      <button class="proxy-star" id="fav-star" type="button" aria-pressed="false" title="Add to favorites (Ctrl+D)" aria-label="Add to favorites" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+          <path d="M12 2.8l2.84 5.76 6.36.93-4.6 4.48 1.08 6.33L12 17.3l-5.68 3 1.08-6.33-4.6-4.48 6.36-.93z"/>
+        </svg>
+      </button>
+    </div>
+
+    <a class="proxy-engine" id="engine-chip" href="settings" data-nav title="Proxy engine — change it in Settings">···</a>
+
+    <div class="proxy-cluster">
+      <button class="proxy-btn" id="fav-all-top" type="button" title="All favorites" aria-label="All favorites" aria-haspopup="dialog" aria-expanded="false" aria-controls="fav-panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 21l-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+        </svg>
+      </button>
+      <button class="proxy-btn" id="newtab-btn" type="button" title="Pop out into a new browser tab" aria-label="Pop out into a new browser tab">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+          <path d="M15 3h6v6M10 14 21 3"/>
+        </svg>
+      </button>
+      <button class="proxy-btn" id="fullscreen-btn" type="button" title="Fullscreen" aria-label="Fullscreen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M16 21h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+        </svg>
+      </button>
+      <button class="proxy-btn" id="hide-bar-btn" type="button" title="Hide bar" aria-label="Hide bar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 15l-6-6-6 6"/>
+        </svg>
+      </button>
+      <button class="proxy-btn" id="home-btn" type="button" title="Home" aria-label="Home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <div class="proxy-progress" id="proxy-progress"></div>
+  </div>
+
+  <nav class="proxy-favs" aria-label="Favorites">
+    <div class="fav-list" id="fav-list"></div>
+    <button class="fav-all" id="fav-all" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="fav-panel" title="All favorites">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
+      </svg>
+      <span>All favorites</span>
+      <span class="fav-count" id="fav-count"></span>
+    </button>
+  </nav>
+
+  <div class="fav-panel" id="fav-panel" role="dialog" aria-label="All favorites" hidden>
+    <div class="fav-panel-head">
+      <h2>Favorites</h2>
+      <label class="fav-switch">
+        <input type="checkbox" id="fav-bar-toggle" checked>
+        <span>Show bar</span>
+      </label>
+    </div>
+    <input type="search" class="fav-filter" id="fav-filter" placeholder="Filter favorites" autocomplete="off" spellcheck="false" aria-label="Filter favorites">
+    <div class="fav-panel-list" id="fav-panel-list"></div>
+  </div>
+
+  <button class="proxy-reveal" id="reveal-bar" type="button" title="Show bar" aria-label="Show bar" aria-expanded="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 9l6 6 6-6"/>
+    </svg>
+  </button>
+
+  <iframe id="proxy-iframe" class="proxy-iframe" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals allow-pointer-lock allow-downloads allow-top-navigation" allow="fullscreen; autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen></iframe>
+
+  <div id="empty-state" class="empty-state">
+    <canvas class="load-particles" aria-hidden="true"></canvas>
+    <div class="empty-content">
+      <h2 class="empty-title">Search for anything</h2>
+      <p class="empty-subtitle">Type a website address or a search in the bar above, and it opens here through the proxy.</p>
+      <div class="empty-favs" id="empty-favs" hidden></div>
+      <p class="empty-hint">Press <kbd>Ctrl</kbd> <kbd>L</kbd> to jump to the address bar, <kbd>Ctrl</kbd> <kbd>D</kbd> to favorite a page.</p>
+    </div>
+  </div>
+
+  <div id="loading-overlay" class="loading-overlay">
+    <canvas class="load-particles" aria-hidden="true"></canvas>
+    <div id="loading-container">
+      <div class="load-spinner" aria-hidden="true"></div>
+      <h1 id="theh1">Loading</h1>
+      <p id="thep">Please Wait</p>
+    </div>
+  </div>
+  <script src="j/43e4d81fdf.js"></script>
+</body>
+</html>

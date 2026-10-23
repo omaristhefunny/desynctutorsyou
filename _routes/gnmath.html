@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="s3-shim.js?v=0049504ae2"></script>
+  <meta charset="UTF-8">
+ 
+  <script src="j/6b6ab3d4fb.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IXL | Math, Language Arts, Science, Social Studies, and Spanish</title>
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" type="image/png" href="images/ixl.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/ui.css?v=8">
+  <link rel="stylesheet" href="css/games.css?v=6">
+  <link rel="stylesheet" href="css/games-enhanced.css?v=4">
+</head>
+<body>
+  <main class="ol-stage">
+    <div class="games-head">
+      <div class="games-head-top">
+        <div>
+          <h1 class="ol-h1">GN-Math games</h1>
+          <p class="ol-sub">A much bigger library, taken as-is from an outside source.</p>
+        </div>
+        <div class="per-row" id="perRow" role="group" aria-label="Games per row">
+          <span class="per-row-label">Per row</span>
+          <button type="button" data-cols="5" aria-pressed="false">5</button>
+          <button type="button" data-cols="6" aria-pressed="false">6</button>
+          <button type="button" data-cols="7" aria-pressed="false">7</button>
+          <button type="button" data-cols="8" aria-pressed="false">8</button>
+        </div>
+      </div>
+
+      <div class="lib-switch" role="tablist" aria-label="Game library">
+        <a class="lib-tab" data-href="g" role="tab" tabindex="0" aria-selected="false">Games</a>
+        <a class="lib-tab active" data-href="gnmath" role="tab" tabindex="0" aria-selected="true">GN-Math Games</a>
+      </div>
+
+      <p class="games-warning">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M12 9v4M12 17h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+        </svg>
+        <span>More games, but they might be broken and riddled with ads. These ones aren't hosted by us, so we can't fix them.</span>
+      </p>
+
+      <div class="games-tools">
+        <div class="games-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path>
+          </svg>
+          <input type="text" class="ol-input" id="searchBar" placeholder="Search more games" autocomplete="off" aria-label="Search games">
+        </div>
+        <select class="games-sort" id="sortBy" aria-label="Sort games">
+          <option value="name">A–Z</option>
+          <option value="id">Newest</option>
+        </select>
+        <span class="games-count" id="gamesCount"></span>
+      </div>
+    </div>
+
+    <section class="games-section popular" id="popSection" hidden aria-label="Popular games">
+      <div class="popular-head">
+        <h2>Popular games</h2>
+      </div>
+      <div class="popular-viewport">
+        <div class="popular-track" id="popTrack"></div>
+      </div>
+    </section>
+
+    <section class="games-section" id="favSection" hidden>
+      <h2>Favorites <span id="favCount"></span></h2>
+      <div class="games-grid" id="favGrid"></div>
+    </section>
+
+    <section class="games-section">
+      <h2 id="allHeading">All games</h2>
+      <div class="games-grid" id="allGrid"></div>
+      <div class="games-status" id="status">Loading games…</div>
+    </section>
+  </main>
+
+  <div id="player" aria-hidden="true">
+    <div class="player-bar">
+      <h2 id="playerTitle"></h2>
+      <div class="player-actions">
+        <button class="ol-btn ol-btn-sm" id="playerFull" type="button">Fullscreen</button>
+        <button class="ol-btn ol-btn-sm ol-btn-danger" id="playerClose" type="button">Close</button>
+      </div>
+    </div>
+    <iframe id="playerFrame" allowfullscreen
+      sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-pointer-lock"></iframe>
+  </div>
+
+  <script src="j/5ddb9491ec.js"></script>
+  <script src="j/055642f055.js"></script>
+  <script src="j/dfe49a831e.js"></script>
+  <script src="j/8837362b8d.js"></script>
+
+  <script src="j/cba208f6b8.js"></script>
+  <script src="j/10edcd3ec2.js"></script>
+  <script src="j/466cad5483.js"></script>
+
+  <script type="module" src="j/5ee1141a23.js"></script>
+</body>
+</html>
