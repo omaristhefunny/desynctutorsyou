@@ -549,20 +549,12 @@
 }
 .not-logged-in .account-auth {
   position: relative; width: 100%; max-width: 480px; margin: 0 auto;
-  padding: 92px 44px 40px; text-align: left; color: var(--text);
+  padding: 44px 44px 40px; text-align: left; color: var(--text);
   border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-lg);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)), rgba(10, 11, 16, 0.78);
+  background: rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
   animation: acct-auth-in 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-}
-/* user badge at the top */
-.account-auth::before {
-  content: ""; position: absolute; top: 30px; left: 50%; width: 46px; height: 46px; margin-left: -23px;
-  border-radius: var(--radius); background: var(--accent, #8b5cf6);
-  box-shadow: 0 10px 30px var(--accent-glow, rgba(139, 92, 246, 0.45));
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E") center / 26px no-repeat, linear-gradient(#000, #000);
-  -webkit-mask-composite: xor; mask-composite: exclude;
 }
 .account-auth .af-title { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; }
 .account-auth .af-blurb { font-size: 15px; margin-top: 10px; }
@@ -577,7 +569,7 @@
 .account-auth .af-error { font-size: 13.5px; }
 @media (max-width: 520px) {
   .not-logged-in { min-height: calc(100dvh - 180px); padding: 12px 0; }
-  .not-logged-in .account-auth { padding: 84px 22px 30px; }
+  .not-logged-in .account-auth { padding: 34px 22px 30px; }
   .account-auth .af-title { font-size: 24px; }
 }
 @media (prefers-reduced-motion: reduce) { .account-auth { animation: none; } }
