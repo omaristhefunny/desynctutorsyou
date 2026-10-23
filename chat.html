@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="s3-shim.js?v=0049504ae2"></script>
+  <meta charset="UTF-8">
+  <script src="j/6b6ab3d4fb.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IXL | Math, Language Arts, Science, Social Studies, and Spanish</title>
+  <link rel="icon" href="images/onlylessons.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/ui.css?v=8">
+  <link rel="stylesheet" href="css/page-chat.css?v=10">
+</head>
+<body>
+  <main class="ol-stage">
+    <section class="ol-panel join-card hidden" id="joinCard">
+      <h1 class="ol-h2">Sign in to chat</h1>
+      <p class="ol-sub">The chat is for accounts only, so your name, friends, and groups stay yours. An account is free.</p>
+      <div class="join-grid">
+        <p class="ol-sub hidden" id="joinError" style="color:var(--danger);font-size:13px;"></p>
+        <button class="ol-btn ol-btn-primary" id="accountBtn" type="button">Sign in or sign up</button>
+      </div>
+    </section>
+
+    <div class="chat-shell hidden" id="chatShell">
+      <aside class="ol-panel roster">
+        <div class="roster-head">
+          <h1 class="ol-h2">desync</h1>
+          <span class="dot" id="status">Connecting</span>
+        </div>
+
+        <div class="roster-scroll">
+          <div class="roster-label">Channels</div>
+          <div class="channel-list" id="channelList"></div>
+
+          <div class="roster-section" id="friendsSection">
+            <div class="roster-label">
+              Friends
+              <span class="label-hint" id="friendCount"></span>
+            </div>
+            <div class="friend-requests" id="friendRequests"></div>
+            <div class="friend-list" id="friendList"></div>
+          </div>
+
+          <div class="roster-section" id="groupsSection">
+            <div class="roster-label">
+              Groups
+              <button class="roster-add" id="newGroupBtn" type="button" title="New group">+</button>
+            </div>
+            <div class="group-list" id="groupList"></div>
+          </div>
+
+          <div class="roster-label">Online</div>
+          <div class="members" id="members"></div>
+        </div>
+      </aside>
+
+      <section class="ol-panel thread">
+        <div class="thread-head">
+          <div style="min-width:0;">
+            <h2 id="threadTitle"># General</h2>
+            <p id="threadSub">Anything goes — the main room.</p>
+          </div>
+          <div class="thread-actions" id="threadActions">
+            <button class="ol-btn ol-btn-sm hidden" id="callVoiceBtn" type="button" title="Voice call" aria-label="Voice call"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></button>
+            <button class="ol-btn ol-btn-sm hidden" id="callVideoBtn" type="button" title="Video call" aria-label="Video call"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></button>
+            <button class="ol-btn ol-btn-sm" id="gameBtn" type="button" title="Play Hangman">Hangman</button>
+            <button class="ol-btn ol-btn-sm hidden" id="groupInviteBtn" type="button">Invite</button>
+            <button class="ol-btn ol-btn-sm ol-btn-danger hidden" id="leaveGroupBtn" type="button">Leave</button>
+            <button class="ol-btn ol-btn-sm hidden" id="backBtn" type="button">Back</button>
+          </div>
+        </div>
+
+        <div class="game-panel hidden" id="gamePanel"></div>
+
+        <div class="messages" id="messages"></div>
+
+        <div class="reply-bar hidden" id="replyBar">
+          <svg class="reply-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 17l-6-6 6-6"/><path d="M3 11h10a8 8 0 0 1 8 8v1"/>
+          </svg>
+          <div class="reply-bar-text">
+            <span class="reply-bar-to" id="replyBarTo"></span>
+            <span class="reply-bar-quote" id="replyBarQuote"></span>
+          </div>
+          <button class="reply-cancel" id="replyCancel" type="button" aria-label="Cancel reply">&times;</button>
+        </div>
+
+        <form class="composer" id="composer">
+          <input class="ol-input" id="messageInput" maxlength="500" autocomplete="off" placeholder="Message #general" aria-label="Message">
+          <button class="ol-btn ol-btn-primary" type="submit">Send</button>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="groupModal">
+    <div class="ol-panel modal">
+      <h2 class="ol-h2">New group</h2>
+      <p class="ol-sub" style="font-size:13px;">Name it, then pick friends to add.</p>
+      <input class="ol-input" id="groupName" maxlength="40" placeholder="Group name" autocomplete="off">
+      <div class="group-pick" id="groupPick"></div>
+      <p class="ol-sub hidden" id="groupModalError" style="color:var(--danger);font-size:13px;"></p>
+      <div class="modal-actions">
+        <button class="ol-btn" id="groupCancel" type="button">Cancel</button>
+        <button class="ol-btn ol-btn-primary" id="groupCreate" type="button">Create</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="inviteModal">
+    <div class="ol-panel modal">
+      <h2 class="ol-h2">Invite to group</h2>
+      <p class="ol-sub" style="font-size:13px;">Add a friend to this group.</p>
+      <div class="group-pick" id="invitePick"></div>
+      <div class="modal-actions">
+        <button class="ol-btn" id="inviteCancel" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="banModal">
+    <form class="ol-panel modal" id="banForm" role="dialog" aria-modal="true" aria-labelledby="banModalTitle">
+      <h2 class="ol-h2" id="banModalTitle">Ban from chat</h2>
+      <p class="ol-sub" style="font-size:13px;">They can still use the rest of the site.</p>
+      <div class="ban-choices" id="banChoices" role="radiogroup" aria-label="Ban length">
+        <button type="button" class="ban-choice" data-days="1" role="radio">1 day</button>
+        <button type="button" class="ban-choice" data-days="3" role="radio">3 days</button>
+        <button type="button" class="ban-choice" data-days="7" role="radio">7 days</button>
+        <button type="button" class="ban-choice" data-days="30" role="radio">30 days</button>
+        <button type="button" class="ban-choice ban-choice-perm" data-days="forever" role="radio">Forever</button>
+      </div>
+      <label class="ban-days">
+        <span>Or enter days</span>
+        <input class="ol-input" id="banDays" type="number" min="1" max="3650" step="1" inputmode="numeric" placeholder="e.g. 14">
+      </label>
+      <p class="ban-error" id="banError" hidden></p>
+      <div class="modal-actions">
+        <button class="ol-btn" id="banCancel" type="button">Cancel</button>
+        <button class="ol-btn ol-btn-danger" id="banConfirm" type="submit">Ban</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-overlay" id="linkModal">
+    <div class="ol-panel modal">
+      <h2 class="ol-h2">Links aren't allowed</h2>
+      <p class="ol-sub" id="linkModalText" style="font-size:13px;"></p>
+      <div class="modal-actions">
+        <button class="ol-btn ol-btn-primary" id="linkModalOk" type="button" disabled></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="j/5ddb9491ec.js"></script>
+  <script src="j/055642f055.js"></script>
+  <script src="j/dfe49a831e.js"></script>
+  <script src="j/8837362b8d.js"></script>
+
+  <script src="j/9f5f971114.js"></script>
+  <script src="j/1ffe49d9bd.js"></script>
+  <script src="j/466cad5483.js"></script>
+  <script type="module" src="j/5ee1141a23.js"></script>
+</body>
+</html>

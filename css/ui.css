@@ -36,9 +36,9 @@
   --radius-pill: 0px;
 
   --rail-inset: 12px;
-  --rail-w: 56px;
+  --rail-w: 42px;
   --rail-w-open: 216px;
-  --rail: 80px;
+  --rail: 70px;
   --rail-open: 240px;
   --gap: 16px;
 
@@ -500,6 +500,25 @@ body.rail-open .ol-toggle svg { transform: rotate(0deg); }
 }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
 
+/* Desktop: the side menu sits flush against the left edge, full height. */
+@media (min-width: 821px) {
+  .ol-sidebar {
+    inset: 0 auto 0 0;
+    width: calc(var(--rail-w) + 12px);
+    padding: 10px 6px;
+    gap: 6px;
+    background: rgba(6, 7, 11, 0.82);
+    border-right: 1px solid var(--line);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+  body.rail-open .ol-sidebar { width: calc(var(--rail-w-open) + 12px); }
+  /* Collapsed: square buttons with the icon dead centre. */
+  body:not(.rail-open) .ol-link, body:not(.rail-open) .ol-toggle { justify-content: center; gap: 0; padding: 0; width: var(--rail-w); min-height: var(--rail-w); }
+  body:not(.rail-open) .ol-rail { align-items: center; }
+  .ol-group { background: none; border: 0; border-radius: 0; padding: 0; backdrop-filter: none; -webkit-backdrop-filter: none; }
+}
+
 @media (max-width: 820px) {
   .ol-sidebar {
     inset: auto var(--rail-inset) var(--rail-inset) var(--rail-inset);
@@ -525,4 +544,21 @@ body.rail-open .ol-toggle svg { transform: rotate(0deg); }
 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
+}
+
+/* Page entrance: content fades up in a short stagger when a page opens. */
+@keyframes ol-enter { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes ol-rail-in { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: none; } }
+@keyframes ol-pick { 0% { transform: scale(0.94); } 60% { transform: scale(1.03); } 100% { transform: scale(1); } }
+.ol-stage > * { animation: ol-enter 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.ol-stage > *:nth-child(2) { animation-delay: 0.06s; }
+.ol-stage > *:nth-child(3) { animation-delay: 0.12s; }
+.ol-stage > *:nth-child(n+4) { animation-delay: 0.18s; }
+.ol-sidebar .ol-link { animation: ol-rail-in 0.4s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.ol-sidebar .ol-link.active { animation: ol-rail-in 0.4s cubic-bezier(0.2, 0.7, 0.2, 1) both, ol-pick 0.45s ease 0.15s; }
+.ol-link { transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease; }
+.ol-link:active { transform: scale(0.94); }
+@media (prefers-reduced-motion: reduce) {
+  .ol-stage > *, .ol-sidebar .ol-link, .ol-sidebar .ol-link.active { animation: none; }
+  .ol-link:active { transform: none; }
 }

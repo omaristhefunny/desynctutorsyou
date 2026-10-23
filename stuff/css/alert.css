@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Clash Display';
-    src: url('/Fonts/ClashDisplay-Bold.otf') format('otf'),
-         url('/Fonts/ClashDisplay-Semibold.otf') format('otf');
+    src: url('https://desynctutoring.com/Fonts/ClashDisplay-Bold.otf') format('otf'),
+         url('https://desynctutoring.com/Fonts/ClashDisplay-Semibold.otf') format('otf');
 
 }
             .message-box {
