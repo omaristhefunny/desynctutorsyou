@@ -207,6 +207,9 @@ body.rail-open .player { left: var(--rail-open); }
 }
 .player-play:hover { background: #e2e2e2; color: #000; }
 .player-lyrics-btn.active { color: #fff; background: var(--surface-hover); }
+.player-mini { color: var(--text-faint); }
+.player-mini.on { color: #fff; }
+.player-mini[hidden] { display: none; }
 
 .player-seek { display: flex; align-items: center; gap: 10px; }
 .player-time { font-size: 11.5px; color: var(--text-faint); font-variant-numeric: tabular-nums; min-width: 34px; text-align: center; }
