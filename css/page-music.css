@@ -696,3 +696,24 @@ body.overlay .lib-side { display: none; }
   .track-card.playing, .player:not([hidden]), .player.track-change #pThumb,
   .player.track-change #pTitle, .player.track-change #pArtist { animation: none; }
 }
+
+/* Create playlist: name only */
+.np-modal .np-label, .np-modal .np-options, .np-modal #npArtist, .np-modal .np-count { display: none !important; }
+.np-modal #npName { margin-bottom: 4px; }
+
+/* Desktop: the library panel sits right against the site menu, full height */
+@media (min-width: 901px) {
+  body:not(.overlay) .ol-stage.music { grid-template-columns: minmax(0, 1fr); margin-left: calc(var(--rail-w) + 12px + 236px); }
+  body.rail-open:not(.overlay) .ol-stage.music { margin-left: calc(var(--rail-w-open) + 12px + 236px); }
+  body:not(.overlay) .lib-side {
+    position: fixed; top: 0; bottom: 0; left: calc(var(--rail-w) + 12px); z-index: 50;
+    width: 236px; max-height: none; padding: 18px 10px 120px; gap: 12px;
+    border: 0; border-right: 1px solid var(--line); border-radius: 0;
+    background: rgba(6, 7, 11, 0.6); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    transition: left 0.18s ease;
+  }
+  body.rail-open:not(.overlay) .lib-side { left: calc(var(--rail-w-open) + 12px); }
+  .lib-side .lib-brand { font-size: 24px; margin: 4px 10px 10px; }
+  .lib-side .lib-nav-item { height: 38px; font-size: 14px; }
+  .lib-side .lib-art { width: 40px; height: 40px; }
+}
