@@ -573,3 +573,23 @@
   .account-auth .af-title { font-size: 24px; }
 }
 @media (prefers-reduced-motion: reduce) { .account-auth { animation: none; } }
+
+/* Signed out: the login box is pinned in the middle and the page doesn't scroll */
+body:has(#notLoggedIn:not([style*="none"])) { overflow: hidden; }
+.not-logged-in {
+  position: fixed; top: 0; right: 0; bottom: 0; left: var(--rail);
+  min-height: 0; padding: 16px; overflow: hidden;
+}
+body.rail-open .not-logged-in { left: var(--rail-open); }
+.not-logged-in .account-auth { max-width: 424px; padding: 34px 32px 28px; }
+.account-auth .af-title { font-size: 24px; }
+.account-auth .af-blurb { font-size: 14px; margin-top: 8px; }
+.account-auth .af-form { gap: 10px; margin-top: 22px; }
+.account-auth .ol-input { min-height: 46px; font-size: 14.5px; }
+.account-auth .af-otp-box { min-height: 52px; }
+.account-auth .af-submit { min-height: 46px; font-size: 15px; }
+.account-auth .af-link { font-size: 13.5px; margin-top: 12px; }
+@media (max-width: 820px) {
+  .not-logged-in { left: 0; bottom: 84px; }
+  .not-logged-in .account-auth { padding: 28px 22px 24px; }
+}
