@@ -8,6 +8,12 @@
     </body>
   </foreignObject>
   <script><![CDATA[
+  // Settings for the mini player: no page shim runs here, so give it full URLs.
+  window.__desyncApiBase = "https://desynctutoring.com";
+  window.__desyncMusicUrl = new URL("music.html", location.href).href;
+  ]]></script>
+  <script href="j/678ac57b26.js"></script>
+  <script><![CDATA[
   (function () {
     var BASE = new URL("./", location.href).href;
     var frame = document.getElementById("homeFrame");
