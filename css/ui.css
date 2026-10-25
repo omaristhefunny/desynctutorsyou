@@ -562,3 +562,10 @@ body.rail-open .ol-toggle svg { transform: rotate(0deg); }
   .ol-stage > *, .ol-sidebar .ol-link, .ol-sidebar .ol-link.active { animation: none; }
   .ol-link:active { transform: none; }
 }
+
+/* Active sidebar item: light -> deep accent gradient and a glow that isn't cut off */
+.ol-link.active, .ol-link.active:hover {
+  background: linear-gradient(135deg, var(--acc-light, var(--accent)) 0%, var(--acc-mid, var(--accent)) 45%, var(--acc-deep, var(--accent)) 100%);
+  box-shadow: 0 6px 22px var(--acc-tint-glow, var(--accent-glow));
+}
+@media (min-width: 821px) { .ol-group { overflow: visible; } }
