@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="s3-shim.js?v=e33be8fbff"></script>
+  <script src="s3-shim.js?v=a40d318471"></script>
   <meta charset="UTF-8">
   <script src="j/6b6ab3d4fb.js"></script>
   <title>IXL | Math, Language Arts, Science, Social Studies, and Spanish</title>
@@ -90,13 +90,21 @@
   </div>
 
   <aside id="lyricsPanel" class="lyrics-panel" hidden aria-label="Lyrics">
-    <div class="lyrics-head">
+    <div class="lyrics-head" id="lyricsHead" title="Drag to move">
       <span id="lyricsTitle" class="lyrics-title">Lyrics</span>
+      <button id="lyricsExpand" class="player-btn lyrics-expand" type="button" aria-label="Expand lyrics" title="Expand">
+        <svg class="ic-grow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        <svg class="ic-shrink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14h6v6M20 10h-6V4M14 10l7-7M3 21l7-7"/></svg>
+      </button>
       <button id="lyricsClose" class="player-btn" type="button" aria-label="Close lyrics">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3 10.6 10.6 16.9 4.3z"/></svg>
       </button>
     </div>
     <div id="lyricsBody" class="lyrics-body"></div>
+    <span class="lyrics-resize" data-corner="nw" aria-hidden="true"></span>
+    <span class="lyrics-resize" data-corner="ne" aria-hidden="true"></span>
+    <span class="lyrics-resize" data-corner="sw" aria-hidden="true"></span>
+    <span class="lyrics-resize" data-corner="se" aria-hidden="true"></span>
   </aside>
 
   <div class="modal-overlay" id="favModal">
@@ -142,8 +150,8 @@
   <script src="j/6a7f3a2b04.js"></script>
   <script src="j/74ee0ac289.js"></script>
   <script src="j/8837362b8d.js"></script>
-  <script src="j/022f47882a.js"></script>
+  <script src="j/414e079964.js"></script>
   <script type="module" src="j/5ee1141a23.js"></script>
-  <script src="j/268efa9685.js"></script>
+  <script src="j/fa98a12d86.js"></script>
 </body>
 </html>
