@@ -8,7 +8,7 @@ OnlyProxy.ready.then(() => { swReady = true; }).catch(() => {});
 let forcedEngine = null;
 try {
   const e = new URLSearchParams(location.search).get('engine');
-  if (e === 'uv' || e === 'scramjet') forcedEngine = e;
+  if (e === 'scramjet') forcedEngine = e;
 } catch (e) {}
 
 let proxyFailed = false;
@@ -133,21 +133,12 @@ function setEditing(on) {
 }
 
 function paintEngineChip() {
+  // Scramjet is the only engine; its traffic leaves through a VPN.
   const chip = document.getElementById('engine-chip');
   if (!chip) return;
-  const label = { uv: 'Ultraviolet', scramjet: 'Scramjet' };
-  const auto = !forcedEngine && OnlyProxy.getPreference() === 'auto';
-  let engine = forcedEngine || OnlyProxy.getBackend(currentDestination || undefined);
-  const frame = typeof activeFrame === 'function' ? activeFrame() : null;
-  try {
-    const served = frame && OnlyProxy.engineOf(frame.contentWindow.location.href);
-    if (served && currentDestination) engine = served;
-  } catch (e) {}
-  const short = engine === 'scramjet' ? 'SJ' : 'UV';
-  chip.textContent = auto ? 'Auto · ' + short : short;
-  chip.classList.toggle('is-auto', auto);
-  chip.title = (auto ? 'Auto: ' : '') + (label[engine] || engine) +
-    (auto ? ' for this site' : '') + ' — change the engine in Settings';
+  chip.textContent = 'SJ';
+  chip.classList.remove('is-auto');
+  chip.title = 'Scramjet';
 }
 
 function announceDestination() {
