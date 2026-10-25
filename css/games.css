@@ -188,3 +188,10 @@
   cursor: pointer;
 }
 
+
+/* Account save sync status in the player bar (game-saves.js) */
+.player-sync { margin: 0 auto 0 14px; font-size: 12.5px; color: var(--text-dim, rgba(255,255,255,.6)); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.player-sync[data-kind="ok"]::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 7px; border-radius: 50%; background: #22c55e; vertical-align: 1px; }
+.player-sync[data-kind="busy"] { opacity: .8; }
+.player-sync[data-kind="warn"] { color: #fbbf24; }
+@media (max-width: 600px) { .player-sync { display: none; } }
