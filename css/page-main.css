@@ -160,3 +160,26 @@
     @media (max-width: 820px) {
       .more-links-btn { top: 12px; right: 12px; }
     }
+
+/* Wordmark: Sora, light -> deep gold (from the accent), with a matching glow.
+   Padding keeps the gradient from clipping the last letter and the descender:
+   the fill only paints inside the box, and tight letter-spacing pushes the
+   glyphs past it. */
+.hero-wordmark {
+  font-family: "Sora", Inter, system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  padding: 0 0.09em 0.08em;
+  background: linear-gradient(120deg, var(--acc-light, #fde68a) 0%, var(--acc-mid, #f5b942) 55%, var(--acc-deep, #b7791f) 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  filter: drop-shadow(0 0 26px var(--acc-tint-glow, rgba(245, 185, 66, 0.45)));
+}
+.hero::before {
+  background: radial-gradient(50% 50% at 50% 50%,
+    var(--acc-tint-glow, rgba(245, 185, 66, 0.45)),
+    transparent 70%);
+  opacity: 0.55;
+  width: 460px;
+  height: 200px;
+}
