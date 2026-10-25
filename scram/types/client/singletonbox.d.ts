@@ -6,6 +6,7 @@ export declare class SingletonBox {
     clients: ScramjetClient[];
     globals: Map<Self, ScramjetClient>;
     documents: Map<Document, ScramjetClient>;
+    histories: Map<History, ScramjetClient>;
     locations: Map<Location, ScramjetClient>;
     writeRewriters: WeakMap<Document, IncrementalHtmlRewriter>;
     unproxy: Map<any, any>;

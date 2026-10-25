@@ -38,18 +38,14 @@
   });
 })();
 
-importScripts("uv/uv.bundle.js");
-importScripts("uv/uv.config.js");
-importScripts("uv/uv.sw.js");
+// Scramjet only (Ultraviolet was removed; its traffic exposed the server's IP).
 importScripts("controller/controller.sw.js");
-
-const uv = new UVServiceWorker();
 
 // ---- ad blocker ------------------------------------------------------------
 // Requests made by sites viewed THROUGH the proxy are checked against a list of
 // ad/tracker domains (adblock/domains.txt, from StevenBlack/hosts) and answered
 // with an empty response. Desync's own pages and ads are never touched: only
-// proxied (UV / Scramjet prefixed) requests are checked, and page navigations
+// proxied (Scramjet-prefixed) requests are checked, and page navigations
 // always go through so a site never fails to open.
 // Relative to this worker, so it also works when the site lives in a folder (S3).
 const ADBLOCK_LIST = new URL("adblock/domains.txt", self.location).href;
@@ -96,10 +92,6 @@ function isAdHost(host) {
 function proxiedTarget(request) {
   try {
     const url = new URL(request.url);
-    const uvPrefix = self.location.origin + __uv$config.prefix;
-    if (request.url.startsWith(uvPrefix)) {
-      return new URL(__uv$config.decodeUrl(request.url.slice(uvPrefix.length)));
-    }
     if (url.pathname.includes("/~/sj/")) {
       const m = /(https?:\/\/[^\s]+)/i.exec(decodeURIComponent(url.pathname.slice(url.pathname.indexOf("/~/sj/"))));
       if (m) return new URL(m[1]);
@@ -132,10 +124,7 @@ self.addEventListener("activate", (event) => event.waitUntil(Promise.all([self.c
 
 self.addEventListener("fetch", (event) => {
   loadAdList();
-  if (uv.route(event)) {
-    if (shouldBlock(event)) return event.respondWith(blockedResponse(event.request));
-    event.respondWith(uv.fetch(event));
-  } else if ($scramjetController.shouldRoute(event)) {
+  if ($scramjetController.shouldRoute(event)) {
     if (shouldBlock(event)) return event.respondWith(blockedResponse(event.request));
     event.respondWith($scramjetController.route(event));
   }
