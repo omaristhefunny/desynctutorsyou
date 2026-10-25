@@ -195,3 +195,11 @@
 .player-sync[data-kind="busy"] { opacity: .8; }
 .player-sync[data-kind="warn"] { color: #fbbf24; }
 @media (max-width: 600px) { .player-sync { display: none; } }
+
+.player-sync-btn { display: inline-flex; align-items: center; gap: 6px; }
+.player-sync-btn[hidden] { display: none; }
+.player-sync-btn svg { width: 14px; height: 14px; }
+.player-sync-btn:disabled { opacity: .6; cursor: progress; }
+.player-sync-btn:disabled svg { animation: player-sync-spin .9s linear infinite; }
+@keyframes player-sync-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .player-sync-btn:disabled svg { animation: none; } }
