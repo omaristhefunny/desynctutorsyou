@@ -33,6 +33,12 @@ export declare function isJavascriptMimeType(mime: string | ParsedMimeType): boo
  */
 export declare function isJavascriptMimeTypeEssenceMatch(s: string): boolean;
 /**
+ * Script block type string for a `<script>` element (prepare a script).
+ * Resolves `type` when present; otherwise maps obsolete `language` to `text/…`.
+ * @see https://html.spec.whatwg.org/multipage/scripting.html#prepare-a-script
+ */
+export declare function getScriptBlockTypeString(type: string | null | undefined, language: string | null | undefined, hasTypeAttribute?: boolean, hasLanguageAttribute?: boolean): string;
+/**
  * Whether a `<script type="...">` value denotes executable JavaScript
  * (classic or module script), not a data block or import map.
  * @see https://html.spec.whatwg.org/multipage/scripting.html#attr-script-type
