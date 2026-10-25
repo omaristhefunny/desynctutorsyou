@@ -772,3 +772,90 @@ body.overlay .lib-side { display: none; }
   .lyrics-panel, .lyrics-panel.closing { animation: none !important; }
   .lyrics-panel.animate-size { transition: none; }
 }
+
+/* ---- Music bar: full width along the bottom, thin progress line on top ---- */
+@media (min-width: 821px) {
+  .player {
+    left: calc(var(--rail-w) + 12px); right: 0; bottom: 0;
+    height: 66px; padding: 0 22px;
+    grid-template-columns: minmax(200px, 1fr) auto minmax(200px, 1fr);
+    gap: 24px;
+    border: 0; border-top: 1px solid rgba(255, 255, 255, 0.06);
+    background: linear-gradient(180deg, rgba(14, 17, 24, 0.92), rgba(6, 8, 12, 0.96));
+    box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.45);
+  }
+  body.rail-open .player { left: calc(var(--rail-w-open) + 12px); }
+  .player-center { display: block; }
+  .player-controls { gap: 14px; }
+  .player-right { justify-self: end; }
+  /* The progress line: the seek bar stretched along the top edge, no times */
+  .player-seek { position: absolute; left: 0; right: 0; top: -1px; height: 3px; gap: 0; }
+  .player-time { display: none; }
+  .player-seek .player-range {
+    height: 3px; border-radius: 0; margin: 0;
+    background: linear-gradient(90deg, var(--acc-mid, #fff) 0 var(--pct, 0%), rgba(255, 255, 255, 0.10) var(--pct, 0%) 100%);
+    transition: height 0.15s ease;
+  }
+  .player-seek .player-range::-webkit-slider-thumb { width: 10px; height: 10px; background: var(--acc-light, #fff); opacity: 0; transition: opacity 0.15s ease; }
+  .player-seek .player-range::-moz-range-thumb { width: 10px; height: 10px; background: var(--acc-light, #fff); opacity: 0; }
+  .player-seek .player-range::-moz-range-progress { background: transparent; }
+  .player-seek:hover .player-range { height: 5px; }
+  .player-seek:hover .player-range::-webkit-slider-thumb { opacity: 1; }
+  .player-seek:hover .player-range::-moz-range-thumb { opacity: 1; }
+  /* Play button in the accent colour */
+  .player-play { width: 42px; height: 42px; background: var(--acc-mid, #fff); color: var(--acc-ink, #000); box-shadow: 0 6px 18px color-mix(in srgb, var(--acc-mid, #fff) 30%, transparent); }
+  .player-play:hover { background: var(--acc-light, #fff); color: var(--acc-ink, #000); transform: scale(1.05); }
+  .player-play svg { width: 18px; height: 18px; }
+  .player-thumb { width: 44px; height: 44px; border-radius: 8px; }
+  .player-vol { max-width: 110px; }
+  .ol-stage.music { padding-bottom: 96px; }
+}
+
+/* Search in the sidebar */
+.music-search.in-side { min-width: 0; flex: none; width: auto; max-width: none; margin: 0 2px 12px; height: 40px; padding: 0 12px; gap: 10px; border-radius: 10px; }
+.music-search.in-side svg { width: 16px; height: 16px; }
+.music-search.in-side .music-search-input { font-size: 14px; }
+.music-head:not(:has(.music-search)) { min-height: 0; margin-bottom: 18px; }
+
+/* ---- Lyrics: colours from the cover art, smooth line animations ---- */
+@property --ly-c1 { syntax: "<color>"; inherits: true; initial-value: rgb(40 40 48); }
+@property --ly-c2 { syntax: "<color>"; inherits: true; initial-value: rgb(20 20 24); }
+.lyrics-panel {
+  --ly-c1: color-mix(in srgb, var(--acc-mid, #555) 70%, #222);
+  --ly-c2: color-mix(in srgb, var(--acc-deep, #333) 60%, #111);
+  background:
+    linear-gradient(170deg,
+      color-mix(in srgb, var(--ly-c1) 62%, #0b0b0f) 0%,
+      color-mix(in srgb, var(--ly-c2) 34%, #0b0b0f) 55%,
+      #08080b 100%);
+  transition: --ly-c1 0.9s ease, --ly-c2 0.9s ease;
+}
+.lyrics-head { border-bottom-color: rgba(255, 255, 255, 0.06); }
+.lyrics-art { width: 34px; height: 34px; border-radius: 6px; object-fit: cover; flex-shrink: 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); }
+.lyrics-art[hidden] { display: none; }
+.lyrics-heading { display: flex; flex-direction: column; min-width: 0; flex: 1; }
+.lyrics-heading .lyrics-title { font-size: 14px; font-weight: 700; }
+.lyrics-artist { font-size: 12px; color: rgba(255, 255, 255, 0.55); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lyrics-body {
+  gap: 14px; padding: 26px 20px 50%;
+  /* soft fade at the top and bottom edges */
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 12%, #000 82%, transparent 100%);
+          mask-image: linear-gradient(180deg, transparent 0, #000 12%, #000 82%, transparent 100%);
+  scrollbar-width: none;
+}
+.lyrics-body::-webkit-scrollbar { display: none; }
+.lyric-line {
+  font-size: 18px; font-weight: 700; line-height: 1.35; letter-spacing: -0.01em;
+  color: #fff; opacity: 0.42;
+  transform-origin: left center;
+  transition: opacity 0.45s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.45s ease, text-shadow 0.45s ease;
+  filter: blur(0.3px);
+}
+.lyric-line.past { opacity: 0.26; }
+.lyric-line.next { opacity: 0.66; }
+.lyric-line.active {
+  opacity: 1; transform: scale(1.04); filter: none;
+  text-shadow: 0 0 18px rgba(255, 255, 255, 0.35);
+}
+.lyric-line.plain { opacity: 0.8; font-size: 16px; font-weight: 600; filter: none; }
+@media (prefers-reduced-motion: reduce) { .lyric-line { transition: none; } .lyrics-panel { transition: none; } }

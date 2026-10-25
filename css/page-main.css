@@ -161,12 +161,12 @@
       .more-links-btn { top: 12px; right: 12px; }
     }
 
-/* Wordmark: Sora, light -> deep gold (from the accent), with a matching glow.
+/* Wordmark: Outfit, light -> accent -> deep (from the accent), with a matching glow.
    Padding keeps the gradient from clipping the last letter and the descender:
    the fill only paints inside the box, and tight letter-spacing pushes the
    glyphs past it. */
 .hero-wordmark {
-  font-family: "Sora", Inter, system-ui, sans-serif;
+  font-family: "Outfit", "Manrope", system-ui, sans-serif;
   font-weight: 800;
   letter-spacing: -0.04em;
   padding: 0 0.09em 0.08em;
@@ -183,3 +183,24 @@
   width: 460px;
   height: 200px;
 }
+
+/* Quick links under the search bar: four evenly spaced round buttons */
+.home-quick { display: flex; justify-content: center; gap: clamp(18px, 4vw, 34px); margin-top: 22px; }
+.home-quick-btn { display: flex; flex-direction: column; align-items: center; gap: 8px; text-decoration: none; color: var(--text-dim, rgba(255,255,255,.65)); }
+.home-quick-ic {
+  display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+.home-quick-ic svg { width: 20px; height: 20px; }
+.home-quick-label { font-size: 12px; font-weight: 600; letter-spacing: 0.01em; transition: color 0.2s ease; }
+.home-quick-btn:hover .home-quick-ic, .home-quick-btn:focus-visible .home-quick-ic {
+  transform: translateY(-2px); color: var(--acc-light, #fff);
+  background: color-mix(in srgb, var(--acc-mid, #fff) 14%, transparent);
+  border-color: color-mix(in srgb, var(--acc-light, #fff) 35%, transparent);
+  box-shadow: 0 8px 22px color-mix(in srgb, var(--acc-mid, #fff) 22%, transparent);
+}
+.home-quick-btn:hover .home-quick-label { color: var(--text, #fff); }
+.home-quick-btn:focus-visible { outline: none; }
+@media (prefers-reduced-motion: reduce) { .home-quick-ic { transition: none; } .home-quick-btn:hover .home-quick-ic { transform: none; } }
