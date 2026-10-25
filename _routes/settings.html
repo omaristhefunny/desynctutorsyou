@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="s3-shim.js?v=1b6d685aca"></script>
+  <script src="s3-shim.js?v=810e4ac78d"></script>
   <meta charset="UTF-8">
   <script src="j/6b6ab3d4fb.js"></script>
   <title>Settings | desync</title>
@@ -157,55 +157,52 @@
         <div class="ol-box">
           <div class="ol-box-head">
             <div class="ol-box-eyebrow">Tab cover</div>
-            <div class="ol-box-title">Tab disguise</div>
-            <p class="ol-box-desc">Change the tab's title and icon to blend in. Applies everywhere, and persists.</p>
           </div>
           <div class="ol-box-body">
             <div class="ol-row">
               <div class="ol-row-main">
-                <div class="ol-row-label">Disguise as</div>
-                <div class="ol-row-desc">Choose Custom to write your own title and icon.</div>
+                <div class="ol-row-label">Tab disguise</div>
+                <div class="ol-row-desc">Change the tab's title and icon to blend in.</div>
               </div>
               <div class="ol-row-control">
                 <select class="ol-select" id="tabCloakSelect">
-                  <option value="disd">DISD | Information</option>
-                  <option value="quizlet">Quizlet</option>
-                  <option value="google">Google</option>
-                  <option value="google-classroom">Google Classroom</option>
+                  <option value="google-forms">Google Forms</option>
                   <option value="google-docs">Google Docs</option>
+                  <option value="google-slides">Google Slides</option>
+                  <option value="google-sheets">Google Sheets</option>
                   <option value="google-drive">Google Drive</option>
+                  <option value="google-classroom">Google Classroom</option>
+                  <option value="gmail">Gmail</option>
+                  <option value="google">Google</option>
+                  <option value="canvas">Canvas</option>
+                  <option value="clever">Clever</option>
+                  <option value="quizlet">Quizlet</option>
                   <option value="khan-academy">Khan Academy</option>
-                  <option value="wikipedia">Wikipedia</option>
-                  <option value="youtube">YouTube</option>
-                  <option value="outlook">Outlook</option>
                   <option value="ixl">IXL</option>
-                  <option value="peardeck">Pear Deck</option>
-                  <option value="classroom">Canvas</option>
+                  <option value="wikipedia">Wikipedia</option>
+                  <option value="disd">DISD | Information</option>
+                  <option value="custom">Custom</option>
                 </select>
               </div>
             </div>
 
-            <div class="ol-row-stack" id="cloakCustomRow" hidden>
+            <div class="ol-row-stack">
               <div class="ol-row-main">
-                <div class="ol-row-label">Tab name</div>
-                <div class="ol-row-desc">The text shown in the browser tab.</div>
+                <div class="ol-row-label">Tab title</div>
               </div>
               <div class="ol-row-control">
-                <input type="text" class="ol-input" id="cloakTitleInput"
-                       placeholder="DISD | Information" autocomplete="off">
+                <input type="text" class="ol-input" id="cloakTitleInput" maxlength="120"
+                       placeholder="Untitled form - Google Forms" spellcheck="false" autocomplete="off">
               </div>
             </div>
 
-            <div class="ol-row-stack" id="cloakPreviewRow">
+            <div class="ol-row-stack">
               <div class="ol-row-main">
-                <div class="ol-row-label">Preview</div>
-                <div class="ol-row-desc">How the browser tab will look.</div>
+                <div class="ol-row-label">Favicon URL</div>
               </div>
               <div class="ol-row-control">
-                <div id="cloakPreview" class="cloak-prev">
-                  <img class="cloak-prev-icon" alt="">
-                  <span class="cloak-prev-title"></span>
-                </div>
+                <input type="url" class="ol-input" id="cloakFaviconInput" maxlength="500"
+                       placeholder="https://ssl.gstatic.com/docs/spreadsheets/forms/forms_icon_2023q4.ico" spellcheck="false" autocomplete="off">
               </div>
             </div>
           </div>
@@ -250,18 +247,19 @@
         <div class="ol-box">
           <div class="ol-box-head">
             <div class="ol-box-eyebrow">Cloaking</div>
-            <div class="ol-box-title">Open in about:blank</div>
+            <div class="ol-box-title">Cover tab</div>
             <p class="ol-box-desc">
-              Runs desync inside a blank window so it leaves no trace in your
-              browser history. Your browser may ask you to allow popups the
-              first time.
+              Moves desync into a blank cover tab that wears your tab disguise
+              and leaves nothing in your history. This tab then goes to the real
+              site you're disguised as. Your browser may ask you to allow popups
+              the first time.
             </p>
           </div>
           <div class="ol-box-body">
             <div class="ol-row">
               <div class="ol-row-main">
-                <div class="ol-row-label">Do this automatically on launch</div>
-                <div class="ol-row-desc">Every time you open desync, it moves itself into a blank window.</div>
+                <div class="ol-row-label">Open in a cover tab on launch</div>
+                <div class="ol-row-desc">Every time you open desync, it moves itself into a cover tab.</div>
               </div>
               <div class="ol-row-control">
                 <label class="ol-switch">
@@ -273,24 +271,11 @@
 
             <div class="ol-row">
               <div class="ol-row-main">
-                <div class="ol-row-label">Window type</div>
-                <div class="ol-row-desc">about:blank is the usual choice; blob works where about:blank is blocked.</div>
-              </div>
-              <div class="ol-row-control">
-                <select class="ol-select" id="abTypeSelect">
-                  <option value="blank">about:blank</option>
-                  <option value="blob">blob</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="ol-row">
-              <div class="ol-row-main">
                 <div class="ol-row-label">Do it now</div>
-                <div class="ol-row-desc">Move this session into a blank window right away.</div>
+                <div class="ol-row-desc">Move this session into a cover tab right away.</div>
               </div>
               <div class="ol-row-control">
-                <button class="ol-btn" type="button" id="abOpenBtn">Open</button>
+                <button class="ol-btn" type="button" id="coverOpenBtn">Open cover tab</button>
               </div>
             </div>
           </div>
@@ -465,10 +450,10 @@
   <script src="j/a7cfb14b7b.js"></script>
   <script src="j/620ec4c114.js"></script>
   <script src="j/d1f1ead3dd.js"></script>
-  <script src="j/5668425741.js"></script>
-  <script src="j/197113a689.js"></script>
+  <script src="j/05554c3540.js"></script>
+  <script src="j/723d4aed23.js"></script>
   <script src="j/8837362b8d.js"></script>
-  <script src="j/5ddb9491ec.js"></script>
+  <script src="j/6a7f3a2b04.js"></script>
   <script src="j/466cad5483.js"></script>
   <script type="module" src="j/5ee1141a23.js"></script>
 </body>
