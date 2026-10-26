@@ -546,16 +546,25 @@ body.rail-open .ol-toggle svg { transform: rotate(0deg); }
   * { transition: none !important; animation: none !important; }
 }
 
-/* Page entrance: content fades up in a short stagger when a page opens. */
-@keyframes ol-enter { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+/* Page changes: the browser keeps the old page on screen until the new one
+   has painted, then cross-fades (no black or empty frame in between). The
+   side menu is the same on every page, so it stays put instead of fading. */
+@view-transition { navigation: auto; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.16s; animation-timing-function: ease-out; }
+.ol-sidebar { view-transition-name: ol-rail; }
+::view-transition-group(ol-rail) { animation: none; }
+
+/* Page entrance: content is visible from the first frame and settles up
+   quickly; it never starts from blank. */
+@keyframes ol-enter { from { opacity: 0.55; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 @keyframes ol-rail-in { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: none; } }
 @keyframes ol-pick { 0% { transform: scale(0.94); } 60% { transform: scale(1.03); } 100% { transform: scale(1); } }
-.ol-stage > * { animation: ol-enter 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
-.ol-stage > *:nth-child(2) { animation-delay: 0.06s; }
-.ol-stage > *:nth-child(3) { animation-delay: 0.12s; }
-.ol-stage > *:nth-child(n+4) { animation-delay: 0.18s; }
-.ol-sidebar .ol-link { animation: ol-rail-in 0.4s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
-.ol-sidebar .ol-link.active { animation: ol-rail-in 0.4s cubic-bezier(0.2, 0.7, 0.2, 1) both, ol-pick 0.45s ease 0.15s; }
+.ol-stage > * { animation: ol-enter 0.26s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.ol-stage > *:nth-child(2) { animation-delay: 0.03s; }
+.ol-stage > *:nth-child(n+3) { animation-delay: 0.06s; }
+/* The side menu animates in once per visit, not on every page. */
+html:not(.ol-warm) .ol-sidebar .ol-link { animation: ol-rail-in 0.4s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+html:not(.ol-warm) .ol-sidebar .ol-link.active { animation: ol-rail-in 0.4s cubic-bezier(0.2, 0.7, 0.2, 1) both, ol-pick 0.45s ease 0.15s; }
 .ol-link { transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease; }
 .ol-link:active { transform: scale(0.94); }
 @media (prefers-reduced-motion: reduce) {
