@@ -758,17 +758,42 @@ body.bar-hidden .proxy-reveal { display: grid; }
   .fav-all > span:not(.fav-count) { display: none; }
 }
 
-/* Loading + "Search for anything" screens: pure black with drifting dots (loading-fx.js) */
-.loading-overlay, .empty-state { background: #000; }
+/* Loading + "Search for anything" screens: a soft accent-coloured glow over a
+   near-black base, matching the rest of the site, with drifting dots (loading-fx.js). */
+.loading-overlay, .empty-state {
+  background:
+    radial-gradient(70vw 55vh at 50% 44%, color-mix(in srgb, var(--acc-mid, #6b8cff) 20%, transparent), transparent 68%),
+    radial-gradient(40vw 40vh at 50% 46%, color-mix(in srgb, var(--acc-deep, #2a3566) 26%, transparent), transparent 72%),
+    #05060a;
+}
 .loading-overlay::after, .empty-state::after { display: none; }
 .load-particles { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+/* A thin accent "comet" ring: a conic gradient masked into a ring, with a glow. */
 .load-spinner {
-  width: 46px; height: 46px; margin: 0 auto 18px; border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.12); border-top-color: var(--text, #fff);
-  animation: load-spin 0.9s linear infinite;
+  width: 56px; height: 56px; margin: 0 auto 22px; border: 0; border-radius: 50%;
+  background: conic-gradient(from 90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--acc-mid, #fff) 15%, transparent) 35%,
+    var(--acc-light, #fff) 100%);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 4px));
+          mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 4px));
+  animation: load-spin 0.85s linear infinite;
+  filter: drop-shadow(0 0 12px color-mix(in srgb, var(--acc-mid, #fff) 45%, transparent));
 }
 @keyframes load-spin { to { transform: rotate(360deg); } }
-.loading-overlay.is-error .load-spinner { animation: none; border-color: rgba(255, 90, 90, 0.5); }
+/* "Loading" in an accent-tinted gradient, the sub-line muted. */
+#theh1 {
+  background: linear-gradient(90deg, #fff, color-mix(in srgb, var(--acc-light, #fff) 70%, #fff));
+  -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
+  letter-spacing: 0.01em;
+}
+#thep { color: var(--text-dim); letter-spacing: 0.02em; }
+.loading-overlay.is-error .load-spinner {
+  animation: none;
+  background: conic-gradient(from 0deg, rgba(255, 90, 90, 0.5), rgba(255, 90, 90, 0.5));
+  filter: drop-shadow(0 0 10px rgba(255, 90, 90, 0.4));
+}
 @media (prefers-reduced-motion: reduce) {
   .loading-overlay, .load-spinner { animation: none; }
 }

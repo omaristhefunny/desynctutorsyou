@@ -870,3 +870,17 @@ body.overlay .lib-side { display: none; }
   text-align: center;
   opacity: 0.75;
 }
+
+/* Synced lyrics are clickable to seek the song to that line */
+.lyric-line[data-i] {
+  cursor: pointer;
+  border-radius: 8px;
+  margin: 0 -8px;
+  padding: 2px 8px;
+  transition: opacity 0.45s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.45s ease, text-shadow 0.45s ease, background 0.15s ease;
+}
+.lyric-line[data-i]:hover {
+  opacity: 0.95;
+  background: color-mix(in srgb, var(--acc-mid, #fff) 14%, transparent);
+}
+.lyric-line.plain { cursor: default; }
