@@ -161,12 +161,12 @@
       .more-links-btn { top: 12px; right: 12px; }
     }
 
-/* Wordmark: Outfit, light -> accent -> deep (from the accent), with a matching glow.
+/* Wordmark: Lexend, light -> accent -> deep (from the accent), with a matching glow.
    Padding keeps the gradient from clipping the last letter and the descender:
    the fill only paints inside the box, and tight letter-spacing pushes the
    glyphs past it. */
 .hero-wordmark {
-  font-family: "Outfit", "Manrope", system-ui, sans-serif;
+  font-family: "Lexend", "Urbanist", system-ui, sans-serif;
   font-weight: 800;
   letter-spacing: -0.04em;
   padding: 0 0.09em 0.08em;
@@ -204,3 +204,6 @@
 .home-quick-btn:hover .home-quick-label { color: var(--text, #fff); }
 .home-quick-btn:focus-visible { outline: none; }
 @media (prefers-reduced-motion: reduce) { .home-quick-ic { transition: none; } .home-quick-btn:hover .home-quick-ic { transform: none; } }
+
+/* Lexend at a lighter weight with a little less squeeze */
+.hero-wordmark { font-weight: 600; letter-spacing: -0.035em; }
