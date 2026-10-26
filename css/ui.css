@@ -549,27 +549,44 @@ body.rail-open .ol-toggle svg { transform: rotate(0deg); }
 /* Page changes: the browser keeps the old page on screen until the new one
    has painted, then cross-fades (no black or empty frame in between). The
    side menu is the same on every page, so it stays put instead of fading. */
+/* ---- Page transitions ----------------------------------------------------
+   Moving between pages cross-fades the old page into the new one (no blank or
+   black frame), then the new page's content rises into place in a quick
+   stagger. Everything animates only transform/opacity, so it stays on the GPU
+   and is cheap even on weak devices. */
 @view-transition { navigation: auto; }
-::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.16s; animation-timing-function: ease-out; }
+@keyframes ol-vt-out { to { opacity: 0; transform: scale(1.01); } }
+@keyframes ol-vt-in  { from { opacity: 0; transform: scale(0.994); } to { opacity: 1; transform: none; } }
+::view-transition-old(root) { animation: ol-vt-out 0.16s cubic-bezier(0.4, 0, 1, 1) both; }
+::view-transition-new(root) { animation: ol-vt-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) both; }
+/* The side menu is the same on every page, so it stays put instead of fading. */
 .ol-sidebar { view-transition-name: ol-rail; }
 ::view-transition-group(ol-rail) { animation: none; }
 
-/* Page entrance: content is visible from the first frame and settles up
-   quickly; it never starts from blank. */
-@keyframes ol-enter { from { opacity: 0.55; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-@keyframes ol-rail-in { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: none; } }
-@keyframes ol-pick { 0% { transform: scale(0.94); } 60% { transform: scale(1.03); } 100% { transform: scale(1); } }
-.ol-stage > * { animation: ol-enter 0.26s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
-.ol-stage > *:nth-child(2) { animation-delay: 0.03s; }
-.ol-stage > *:nth-child(n+3) { animation-delay: 0.06s; }
-/* The side menu animates in once per visit, not on every page. */
-html:not(.ol-warm) .ol-sidebar .ol-link { animation: ol-rail-in 0.4s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
-html:not(.ol-warm) .ol-sidebar .ol-link.active { animation: ol-rail-in 0.4s cubic-bezier(0.2, 0.7, 0.2, 1) both, ol-pick 0.45s ease 0.15s; }
-.ol-link { transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease; }
+/* Content entrance: a fresh, fast rise + settle with an ease-out-expo curve
+   (most of the motion is up front, so it reads as snappy, not slow). */
+@keyframes ol-enter { from { opacity: 0; transform: translateY(14px) scale(0.985); } to { opacity: 1; transform: none; } }
+@keyframes ol-rail-in { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: none; } }
+@keyframes ol-pick { 0% { transform: scale(0.9); } 55% { transform: scale(1.04); } 100% { transform: scale(1); } }
+.ol-stage > * { animation: ol-enter 0.44s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.ol-stage > *:nth-child(1) { animation-delay: 0.02s; }
+.ol-stage > *:nth-child(2) { animation-delay: 0.07s; }
+.ol-stage > *:nth-child(3) { animation-delay: 0.12s; }
+.ol-stage > *:nth-child(4) { animation-delay: 0.16s; }
+.ol-stage > *:nth-child(n+5) { animation-delay: 0.2s; }
+/* The side menu springs in once per visit (ol-warm), not on every page. */
+html:not(.ol-warm) .ol-sidebar .ol-link { animation: ol-rail-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+html:not(.ol-warm) .ol-sidebar .ol-group:nth-child(2) .ol-link:nth-child(2) { animation-delay: 0.04s; }
+html:not(.ol-warm) .ol-sidebar .ol-group:nth-child(2) .ol-link:nth-child(3) { animation-delay: 0.08s; }
+html:not(.ol-warm) .ol-sidebar .ol-group:nth-child(2) .ol-link:nth-child(4) { animation-delay: 0.12s; }
+html:not(.ol-warm) .ol-sidebar .ol-link.active { animation: ol-rail-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both, ol-pick 0.5s ease 0.2s; }
+.ol-link { transition: background 0.2s ease, color 0.2s ease, transform 0.15s cubic-bezier(0.22, 1, 0.36, 1); }
+.ol-link:hover { transform: translateX(1px); }
 .ol-link:active { transform: scale(0.94); }
 @media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
   .ol-stage > *, .ol-sidebar .ol-link, .ol-sidebar .ol-link.active { animation: none; }
-  .ol-link:active { transform: none; }
+  .ol-link:hover, .ol-link:active { transform: none; }
 }
 
 /* Active sidebar item: a faint wash of the accent (light -> clear) with a thin
