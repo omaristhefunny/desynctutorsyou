@@ -636,3 +636,17 @@
 /* Coins: just the label and the amount, no box */
 .casino-me { padding: 2px 4px 0; border: 0; border-radius: 0; background: none; }
 .casino-me .casino-rank { display: none; }
+
+/* Other people's messages are plain text (no bubble), like the AI assistant.
+   Your own messages keep their bubble so they're easy to tell apart. */
+.msg:not(.mine) {
+  border: 0;
+  background: none;
+  border-radius: 0;
+  padding: 2px 2px 2px 0;
+  max-width: min(780px, 94%);
+}
+.msg:not(.mine):hover { background: none; }
+.msg:not(.mine) .msg-actions { top: -10px; right: 2px; }
+/* Casino bot: also plain — its accent name keeps it distinct */
+.msg.bot { background: none; border: 0; }
