@@ -884,3 +884,8 @@ body.overlay .lib-side { display: none; }
   background: color-mix(in srgb, var(--acc-mid, #fff) 14%, transparent);
 }
 .lyric-line.plain { cursor: default; }
+
+/* Cover art keeps a fixed rounded-square shape so it never becomes a circle
+   under the Pill / Boxed-circle interface shape (artist art stays round). */
+.track-art { border-radius: 10px; }
+.album-hero img { border-radius: 12px; }
