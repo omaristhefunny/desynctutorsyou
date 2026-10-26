@@ -8,7 +8,7 @@ OnlyProxy.ready.then(() => { swReady = true; }).catch(() => {});
 let forcedEngine = null;
 try {
   const e = new URLSearchParams(location.search).get('engine');
-  if (e === 'scramjet') forcedEngine = e;
+  if (e === 'scramjet' || e === 'uv') forcedEngine = e;
 } catch (e) {}
 
 let proxyFailed = false;
@@ -132,15 +132,41 @@ function setEditing(on) {
   }
 }
 
+const ENGINE_NAME = { scramjet: 'Scramjet', uv: 'Ultraviolet' };
+const ENGINE_SHORT = { scramjet: 'SJ', uv: 'UV' };
+
+// The engine the active tab is on (or would use for its address).
+function currentEngine() {
+  const tab = typeof activeTab !== 'undefined' ? activeTab : null;
+  let served = null;
+  try { if (tab && tab.iframe) served = OnlyProxy.engineOf(tab.iframe.contentWindow.location.href); } catch (e) {}
+  return served || forcedEngine || OnlyProxy.getBackend(currentDestination || '');
+}
+
 function paintEngineChip() {
-  // Scramjet is the only engine; its traffic leaves through a VPN.
+  // Shows which engine this tab uses; clicking switches engines (initEmbed).
   const chip = document.getElementById('engine-chip');
   if (!chip) return;
+  const engine = currentEngine();
   chip.innerHTML =
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
-    '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>VPN';
-  chip.classList.remove('is-auto');
-  chip.title = 'Scramjet proxy. Sites see a VPN address, not yours.';
+    '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>' + (ENGINE_SHORT[engine] || 'SJ');
+  chip.classList.toggle('is-auto', OnlyProxy.getPreference() === 'auto');
+  const other = engine === 'uv' ? 'scramjet' : 'uv';
+  chip.title = 'Proxy engine: ' + (ENGINE_NAME[engine] || 'Scramjet') +
+    (OnlyProxy.hasUV ? '. Click to switch this site to ' + ENGINE_NAME[other] + '.' : '');
+}
+
+// Reload the active tab in the other engine, and remember the choice.
+function switchEngine() {
+  if (!OnlyProxy.hasUV) return;
+  const next = currentEngine() === 'uv' ? 'scramjet' : 'uv';
+  OnlyProxy.setBackend(next);
+  forcedEngine = null;
+  const tab = typeof activeTab !== 'undefined' ? activeTab : null;
+  const dest = (tab && tab.url) || currentDestination;
+  if (tab && dest && typeof loadInTab === 'function') loadInTab(tab, dest);
+  paintEngineChip();
 }
 
 function announceDestination() {
@@ -665,6 +691,15 @@ function initEmbed() {
   const newTabStripBtn = document.getElementById('tab-new');
 
   if (homeBtn) homeBtn.addEventListener('click', () => goTo('/main.html'));
+  const engineChip = document.getElementById('engine-chip');
+  if (engineChip) {
+    engineChip.addEventListener('click', (e) => {
+      if (!OnlyProxy.hasUV) return;
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      switchEngine();
+    }, true);
+  }
   if (backBtn) backBtn.addEventListener('click', () => frameHistoryGo(-1));
   if (forwardBtn) forwardBtn.addEventListener('click', () => frameHistoryGo(1));
   if (fullscreenBtn) fullscreenBtn.addEventListener('click', toggleFullscreen);

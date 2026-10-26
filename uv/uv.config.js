@@ -6,7 +6,6 @@ var __uvBase = (function () {
 })();
 self.__uv$config = {
   prefix: __uvBase + "service/",
-  bare: "/bare/",
   encodeUrl: Ultraviolet.codec.xor.encode,
   decodeUrl: Ultraviolet.codec.xor.decode,
   handler: __uvBase + "uv/uv.handler.js",
