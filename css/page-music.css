@@ -859,3 +859,14 @@ body.overlay .lib-side { display: none; }
 }
 .lyric-line.plain { opacity: 0.8; font-size: 16px; font-weight: 600; filter: none; }
 @media (prefers-reduced-motion: reduce) { .lyric-line { transition: none; } .lyrics-panel { transition: none; } }
+
+/* Lyrics source credit (which provider matched the song) */
+.lyrics-credit {
+  margin: 18px 4px 4px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 11px;
+  color: var(--text-faint);
+  text-align: center;
+  opacity: 0.75;
+}
