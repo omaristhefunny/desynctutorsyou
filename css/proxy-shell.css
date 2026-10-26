@@ -870,3 +870,49 @@ body.with-favs:not(.favs-off):not(.favs-empty) .proxy-bar { border-bottom-color:
   .proxy-btn { width: 32px; height: 32px; }
 }
 @media (max-width: 720px) { .proxy-engine { display: none; } }
+
+/* Quick-launch site buttons on the empty "Search for anything" screen */
+.quick-sites {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px 18px;
+  max-width: 520px;
+  margin: 26px auto 4px;
+}
+.quick-site {
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 72px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text-dim);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+.quick-site-ic {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  transition: transform 0.14s ease, box-shadow 0.14s ease;
+}
+.quick-site-ic svg { width: 26px; height: 26px; display: block; }
+.quick-site-label {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 0.14s ease;
+}
+.quick-site:hover .quick-site-ic { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.14); }
+.quick-site:hover .quick-site-label { color: var(--text); }
+.quick-site:active .quick-site-ic { transform: translateY(-1px) scale(0.96); }
+@media (max-width: 520px) { .quick-sites { gap: 12px; max-width: 320px; } .quick-site { width: 62px; } .quick-site-ic { width: 46px; height: 46px; } }
