@@ -941,3 +941,15 @@ body.with-favs:not(.favs-off):not(.favs-empty) .proxy-bar { border-bottom-color:
 .quick-site:hover .quick-site-label { color: var(--text); }
 .quick-site:active .quick-site-ic { transform: translateY(-1px) scale(0.96); }
 @media (max-width: 520px) { .quick-sites { gap: 12px; max-width: 320px; } .quick-site { width: 62px; } .quick-site-ic { width: 46px; height: 46px; } }
+
+/* Browser chrome keeps fixed corner radii regardless of the site's
+   interface-shape setting (Boxed / Pill / Boxed circle), so the tab strip and
+   toolbar always read like a real browser instead of ballooning into pills. */
+.proxy-tabs .tab { border-radius: 10px 10px 0 0 !important; }
+.tab-new { border-radius: 8px !important; }
+.proxy-bar .proxy-btn, .proxy-favs .proxy-btn { border-radius: 9px !important; }
+.proxy-omni { border-radius: 999px !important; }
+.proxy-engine { border-radius: 999px !important; }
+.fav-chip, .fav-all, .fav-panel .fav-row, .fav-filter { border-radius: 9px !important; }
+/* the engine chip is a button now; strip native button chrome */
+button.proxy-engine { font: inherit; cursor: pointer; }
