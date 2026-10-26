@@ -38,8 +38,14 @@
   });
 })();
 
-// Scramjet only (Ultraviolet was removed; its traffic exposed the server's IP).
+// Scramjet and Ultraviolet. Both reach sites through the wisp tunnel; there
+// is no bare server (the old one exposed the server's IP).
+importScripts("uv/uv.bundle.js");
+importScripts("uv/uv.config.js");
+importScripts("uv/uv.sw.js");
 importScripts("controller/controller.sw.js");
+
+const uv = new UVServiceWorker();
 
 // ---- ad blocker ------------------------------------------------------------
 // Requests made by sites viewed THROUGH the proxy are checked against a list of
@@ -92,6 +98,10 @@ function isAdHost(host) {
 function proxiedTarget(request) {
   try {
     const url = new URL(request.url);
+    const uvPrefix = self.location.origin + __uv$config.prefix;
+    if (request.url.startsWith(uvPrefix)) {
+      return new URL(__uv$config.decodeUrl(request.url.slice(uvPrefix.length)));
+    }
     if (url.pathname.includes("/~/sj/")) {
       const m = /(https?:\/\/[^\s]+)/i.exec(decodeURIComponent(url.pathname.slice(url.pathname.indexOf("/~/sj/"))));
       if (m) return new URL(m[1]);
@@ -124,7 +134,10 @@ self.addEventListener("activate", (event) => event.waitUntil(Promise.all([self.c
 
 self.addEventListener("fetch", (event) => {
   loadAdList();
-  if ($scramjetController.shouldRoute(event)) {
+  if (uv.route(event)) {
+    if (shouldBlock(event)) return event.respondWith(blockedResponse(event.request));
+    event.respondWith(uv.fetch(event));
+  } else if ($scramjetController.shouldRoute(event)) {
     if (shouldBlock(event)) return event.respondWith(blockedResponse(event.request));
     event.respondWith($scramjetController.route(event));
   }
