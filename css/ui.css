@@ -596,9 +596,22 @@ html:not(.ol-warm) .ol-sidebar .ol-link.active { animation: ol-rail-in 0.5s cubi
     color-mix(in srgb, var(--acc-light, #fff) 30%, transparent) 0%,
     color-mix(in srgb, var(--acc-mid, #fff) 12%, transparent) 100%);
   color: var(--acc-light, #fff);
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--acc-light, #fff) 32%, transparent),
               0 6px 20px color-mix(in srgb, var(--acc-mid, #fff) 16%, transparent);
   filter: none;
 }
 @media (min-width: 821px) { .ol-group { overflow: visible; } }
+
+/* The sidebar's icon highlights stay smoothly rounded no matter which interface
+   shape is picked, so an active or hovered item never looks like a pointy box
+   (Boxed) or an odd pill. Collapsed icons get a circular highlight; the expanded
+   rail gets a rounded rectangle. */
+.ol-sidebar .ol-link, .ol-sidebar .ol-toggle { border-radius: 14px; }
+.ol-sidebar .ol-link.active, .ol-sidebar .ol-link.active:hover { border-radius: 14px; }
+@media (min-width: 821px) {
+  body:not(.rail-open) .ol-sidebar .ol-link,
+  body:not(.rail-open) .ol-sidebar .ol-toggle,
+  body:not(.rail-open) .ol-sidebar .ol-link.active,
+  body:not(.rail-open) .ol-sidebar .ol-link.active:hover { border-radius: 999px; }
+}
