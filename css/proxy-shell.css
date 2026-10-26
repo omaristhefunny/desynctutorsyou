@@ -772,3 +772,101 @@ body.bar-hidden .proxy-reveal { display: grid; }
 @media (prefers-reduced-motion: reduce) {
   .loading-overlay, .load-spinner { animation: none; }
 }
+
+/* ===== Browser chrome, v2: one flush toolbar along the top, like a real
+   browser. Tabs sit on a darker strip and the active tab joins the toolbar. */
+:root { --chrome: #0e1117; --chrome-dark: #06070b; --chrome-line: rgba(255, 255, 255, 0.07); }
+body.with-tabs { --tabs-h: 38px; }
+body.with-favs { --favs-h: 34px; }
+body.with-tabs, body.with-favs { --bar: calc(50px + var(--tabs-h, 0px) + var(--favs-h, 0px)); }
+
+.proxy-tabs {
+  top: 0; left: 0; right: 0; height: var(--tabs-h);
+  padding: 0 8px; gap: 2px;
+  background: var(--chrome-dark);
+  border: 0;
+  backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+.tab {
+  height: 32px; padding: 0 6px 0 12px; gap: 9px;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  color: var(--text-faint);
+}
+.tab:hover { background: rgba(255, 255, 255, 0.045); color: var(--text-dim); }
+.tab.is-active {
+  background: var(--chrome);
+  color: var(--text);
+  box-shadow: inset 0 2px 0 var(--acc-mid, #fff);
+}
+.tab-spinner { border-top-color: var(--acc-mid, #fff); }
+.tab-new { border-radius: var(--radius-sm); margin-bottom: 2px; }
+
+.proxy-bar {
+  top: var(--tabs-h, 0px); left: 0; right: 0; height: 50px;
+  padding: 0 10px; gap: 10px;
+  background: var(--chrome);
+  border: 0; border-radius: 0;
+  border-bottom: 1px solid var(--chrome-line);
+  box-shadow: none;
+  backdrop-filter: none; -webkit-backdrop-filter: none;
+  overflow: visible;
+}
+body.with-favs:not(.favs-off):not(.favs-empty) .proxy-bar { border-bottom-color: transparent; }
+.proxy-btn { width: 34px; height: 34px; border-radius: var(--radius-sm); }
+.proxy-btn:hover { background: rgba(255, 255, 255, 0.07); }
+.proxy-btn:active { transform: scale(0.92); }
+
+.proxy-omni {
+  height: 36px;
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.045);
+  transition: border-color 0.16s ease, background 0.16s ease, box-shadow 0.16s ease;
+}
+.proxy-omni:hover { background: rgba(255, 255, 255, 0.07); }
+.proxy-omni:focus-within {
+  border-color: color-mix(in srgb, var(--acc-mid, #fff) 55%, transparent);
+  background: rgba(0, 0, 0, 0.45);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--acc-mid, #fff) 16%, transparent);
+}
+.proxy-display, .proxy-url { font-size: 14px; }
+.proxy-scheme[data-state="secure"] .i-lock { color: color-mix(in srgb, var(--acc-light, #fff) 75%, #fff); }
+
+/* VPN badge (was "SJ") */
+.proxy-engine {
+  height: 26px; padding: 0 10px 0 8px;
+  display: inline-flex; align-items: center; gap: 5px;
+  border-color: color-mix(in srgb, var(--acc-mid, #fff) 30%, transparent);
+  background: color-mix(in srgb, var(--acc-mid, #fff) 8%, transparent);
+  color: var(--text);
+  letter-spacing: 0.08em;
+}
+.proxy-engine svg { width: 13px; height: 13px; color: var(--acc-light, #fff); }
+.proxy-engine:hover { border-color: color-mix(in srgb, var(--acc-mid, #fff) 60%, transparent); }
+
+/* Loading line along the bottom of the toolbar, in the accent colour */
+.proxy-progress {
+  bottom: -1px; height: 2px;
+  background: var(--acc-mid, #fff);
+  box-shadow: 0 0 10px var(--acc-mid, #fff);
+}
+
+.proxy-favs {
+  top: calc(var(--tabs-h, 0px) + 50px); left: 0; right: 0; height: 34px;
+  padding: 0 8px 0 10px;
+  background: var(--chrome);
+  border: 0; border-bottom: 1px solid var(--chrome-line);
+  box-shadow: none;
+  backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+.fav-chip { height: 26px; border-radius: var(--radius-sm); }
+.fav-chip.is-current { box-shadow: inset 0 -2px 0 var(--acc-mid, #fff); }
+.fav-all { border-radius: var(--radius-sm); }
+.fav-panel { top: calc(var(--bar) + 4px); border-radius: var(--radius); }
+
+.proxy-iframe { box-shadow: 0 -1px 0 var(--chrome-line); }
+
+@media (max-width: 600px) {
+  .proxy-bar { gap: 4px; padding: 0 6px; }
+  .proxy-btn { width: 32px; height: 32px; }
+}
+@media (max-width: 720px) { .proxy-engine { display: none; } }

@@ -136,9 +136,11 @@ function paintEngineChip() {
   // Scramjet is the only engine; its traffic leaves through a VPN.
   const chip = document.getElementById('engine-chip');
   if (!chip) return;
-  chip.textContent = 'SJ';
+  chip.innerHTML =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>VPN';
   chip.classList.remove('is-auto');
-  chip.title = 'Scramjet';
+  chip.title = 'Scramjet proxy. Sites see a VPN address, not yours.';
 }
 
 function announceDestination() {
