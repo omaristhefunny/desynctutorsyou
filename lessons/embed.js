@@ -616,6 +616,43 @@ function hashDestination() {
   }
 }
 
+// TikTok locks its whole page (#app gets the "inert" attribute: no clicks,
+// no scrolling) while it shows a popup, usually its puzzle check. Through
+// the proxy that popup can fail to appear, leaving the page locked behind
+// nothing. If the page is locked but nothing is showing on top, unlock it.
+// A popup that is really there (puzzle, login) keeps the lock.
+function visibleOverlay(doc, app) {
+  const win = doc.defaultView;
+  for (const el of doc.body.children) {
+    if (el === app || el.tagName === 'SCRIPT' || el.tagName === 'STYLE') continue;
+    const all = [el, ...el.querySelectorAll('*')];
+    for (const e of all) {
+      const r = e.getBoundingClientRect();
+      if (r.width < 120 || r.height < 80) continue;
+      const cs = win.getComputedStyle(e);
+      if (cs.visibility === 'hidden' || Number(cs.opacity) < 0.05) continue;
+      if (cs.position === 'fixed' || cs.position === 'absolute') return true;
+    }
+  }
+  return false;
+}
+function unstickPage(iframe) {
+  let doc;
+  try { doc = iframe.contentDocument; } catch (e) { return; }
+  if (!doc || !doc.body) return;
+  let host = '';
+  try { host = new URL(OnlyProxy.decodeUrl(iframe.contentWindow.location.href)).hostname; } catch (e) {}
+  if (!/(^|\.)tiktok\.com$/.test(host)) return;
+  const app = doc.getElementById('app');
+  if (!app || !app.hasAttribute('inert')) return;
+  if (visibleOverlay(doc, app)) return;
+  app.removeAttribute('inert');
+  app.style.pointerEvents = 'auto';
+}
+setInterval(() => {
+  document.querySelectorAll('iframe.proxy-iframe').forEach(unstickPage);
+}, 1000);
+
 function initEmbed() {
   const urlInput = document.getElementById('browser-url');
   const refreshBtn = document.getElementById('refresh-btn');
