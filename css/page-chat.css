@@ -632,3 +632,7 @@
   body:not(.overlay) .thread { backdrop-filter: none; -webkit-backdrop-filter: none; }
   body:not(.overlay) .chat-shell { animation: none; transform: none; }
 }
+
+/* Coins: just the label and the amount, no box */
+.casino-me { padding: 2px 4px 0; border: 0; border-radius: 0; background: none; }
+.casino-me .casino-rank { display: none; }
