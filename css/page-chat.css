@@ -68,16 +68,19 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 8px;
+      flex-wrap: wrap;
+      gap: 6px 8px;
       min-height: 38px;
-      padding: 0 6px 0 10px;
+      padding: 4px 6px 4px 10px;
       border-radius: var(--radius-sm);
       transition: background 0.14s ease;
     }
+    /* Long usernames: the name truncates and the action buttons (DM / Add /
+       Block / Ban) wrap onto the next line, so they're never cut off. */
     .member:hover { background: var(--surface-raised); }
     .member-name {
-      flex: 1;
-      min-width: 0;
+      flex: 1 1 auto;
+      min-width: 72px;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -96,7 +99,7 @@
       white-space: nowrap;
     }
     .member.is-blocked .member-name { color: var(--text-faint); text-decoration: line-through; }
-    .member-actions { display: flex; gap: 4px; opacity: 0; flex-shrink: 0; }
+    .member-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 4px; opacity: 0; flex-shrink: 0; }
     .member:hover .member-actions, .member:focus-within .member-actions { opacity: 1; }
 
     .dm-dot {
