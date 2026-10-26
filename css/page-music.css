@@ -534,7 +534,7 @@ body.overlay .lyrics-panel { left: 12px; right: 12px; width: auto; }
 .lib-art img { width: 100%; height: 100%; object-fit: cover; }
 .lib-art-empty { color: var(--text-faint); font-size: 20px; }
 .lib-liked { background: linear-gradient(135deg, #4b2bd6, #9db4ff); }
-.lib-liked svg { width: 22px; height: 22px; fill: none; stroke: #fff; }
+.lib-liked svg { width: 22px; height: 22px; fill: #fff; stroke: #fff; }
 .lib-meta { display: flex; flex-direction: column; min-width: 0; }
 .lib-name { font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .lib-sub { font-size: 12.5px; color: var(--text-dim); }
@@ -859,3 +859,9 @@ body.overlay .lib-side { display: none; }
 }
 .lyric-line.plain { opacity: 0.8; font-size: 16px; font-weight: 600; filter: none; }
 @media (prefers-reduced-motion: reduce) { .lyric-line { transition: none; } .lyrics-panel { transition: none; } }
+
+/* Glass: music sidebar and player let the colour wash through */
+@media (min-width: 821px) {
+  body:not(.overlay) .lib-side { background: hsl(var(--bg-h) calc(var(--bg-s) * 0.4) 6% / 0.55); backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .player { background: linear-gradient(180deg, hsl(var(--bg-h) calc(var(--bg-s) * 0.4) 8% / 0.72), hsl(var(--bg-h) calc(var(--bg-s) * 0.4) 4% / 0.86)); backdrop-filter: blur(22px) saturate(130%); -webkit-backdrop-filter: blur(22px) saturate(130%); }
+}
