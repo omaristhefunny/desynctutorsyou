@@ -615,7 +615,18 @@ body.overlay .lyrics-panel { left: 12px; right: 12px; width: auto; }
   .album-hero img { width: 150px; height: 150px; }
 }
 body.overlay .ol-stage.music { display: block; }
-body.overlay .lib-side { display: none; }
+/* Embedded music panel (the pop-out on games/proxy pages): show the library as
+   a compact section at the top, so Browse/Library, search, Liked Songs and
+   playlists are reachable. The chosen view renders below it. */
+body.overlay .lib-side {
+  display: flex; position: static; max-height: none; overflow: visible;
+  margin: 0 0 14px; gap: 10px;
+}
+body.overlay .lib-side .lib-brand { display: none; }
+body.overlay .lib-side .lib-nav { flex-direction: row; gap: 6px; }
+body.overlay .lib-side .lib-nav-item { flex: 1; justify-content: center; padding: 8px 6px; }
+body.overlay .lib-side .lib-nav-item span { font-size: 13px; }
+body.overlay .lib-side .lib-list { max-height: 34vh; overflow-y: auto; }
 
 /* Sidebar navigation: Browse / Library */
 .lib-nav { display: flex; flex-direction: column; gap: 2px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
