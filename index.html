@@ -1,89 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="s3-shim.js?v=9422704607"></script>
-  <meta charset="UTF-8">
-
-  <script src="j/174dc14784.js"></script>
-  <script src="j/e4e80e5f44.js"></script>
-  <title>IXL | Math, Language Arts, Science, Social Studies, and Spanish</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link id="favicon" rel="icon" href="images/ixl.png" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&family=Lexend:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/ui.css?v=18">
-
-  <meta name="description" content="IXL is the world's most popular subscription-based learning site for K–12."/>
-  <meta property="og:title" content="IXL | Math, Language Arts, Science, Social Studies, and Spanish"/>
-  <meta property="og:url" content="https://suntree-net.works"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:site_name" content="IXL Learning"/>
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C9BNBCB6YN"></script>
-  <script src="j/05a18f802e.js"></script>
-
-  <link rel="stylesheet" href="css/page-main.css?v=11">
+  <script src="s3-shim.js?v=adff6fb8d5"></script>
+<meta charset="UTF-8">
+<script>
+(function () {
+  var BASE = window.__desyncBase || location.pathname.replace(/[^/]*$/, "");
+  var page = null;
+  try { page = sessionStorage.getItem("__desyncNext"); sessionStorage.removeItem("__desyncNext"); } catch (e) {}
+  if (!page) { try { page = history.state && history.state.__desyncPage; } catch (e) {} }
+  if (!page || page === "index.html" || /^[/.]|:/.test(page)) page = "main.html";
+  function get(p) {
+    try { var x = new XMLHttpRequest(); x.open("GET", BASE + p, false); x.send(); if (x.status === 200) return x.responseText; } catch (e) {}
+    return null;
+  }
+  var html = get(page);
+  if (html == null && page !== "main.html") { page = "main.html"; html = get(page); }
+  try {
+    var st = history.state && typeof history.state === "object" ? Object.assign({}, history.state) : {};
+    st.__desyncPage = page;
+    history.replaceState(st, "", location.href);
+  } catch (e) {}
+  window.__desyncPage = page;
+  var dir = page.indexOf("/") >= 0 ? page.slice(0, page.lastIndexOf("/") + 1) : "";
+  document.write((dir ? '<base href="' + BASE + dir + '">' : "") + (html || "<p>Could not load this page.</p>"));
+})();
+</script>
 </head>
-<body>
-  <main class="ol-stage home">
-    <div class="home-inner">
-      <div class="hero">
-        <div class="hero-logo hero-wordmark">desync</div>
-      </div>
-
-      <div class="search-bar">
-        <svg class="search-bar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="11" cy="11" r="8"></circle>
-          <path d="m21 21-4.35-4.35"></path>
-        </svg>
-        <input type="text" class="search-input" id="searchInput" placeholder="Search for anything…" autocomplete="off" aria-label="Search or enter a URL">
-      </div>
-
-      <nav class="home-quick" aria-label="Quick links">
-        <a class="home-quick-btn" href="g" title="Games"><span class="home-quick-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 7h11a4 4 0 0 1 3.9 3.1l1 4.6a2.9 2.9 0 0 1-5 2.5L15.6 15H8.4l-1.8 2.2a2.9 2.9 0 0 1-5-2.5l1-4.6A4 4 0 0 1 6.5 7z"/><path d="M7.5 10v3M6 11.5h3"/><circle cx="15.6" cy="10.6" r="0.7"/><circle cx="17.6" cy="12.6" r="0.7"/></svg></span><span class="home-quick-label">Games</span></a>
-        <a class="home-quick-btn" href="music.html" title="Music"><span class="home-quick-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 18V5"/><path d="M13 5c2.9.4 4.6 2.4 4.6 4.9"/><circle cx="10.2" cy="18" r="2.8"/></svg></span><span class="home-quick-label">Music</span></a>
-        <a class="home-quick-btn" href="studying.html" title="AI"><span class="home-quick-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2.2"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><path d="M9.5 2.5V6M14.5 2.5V6M9.5 18v3.5M14.5 18v3.5M2.5 9.5H6M2.5 14.5H6M18 9.5h3.5M18 14.5h3.5"/></svg></span><span class="home-quick-label">AI</span></a>
-        <a class="home-quick-btn" href="movies" title="Movies"><span class="home-quick-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><path d="M8.5 4.5v15M15.5 4.5v15"/><path d="M3 9h5.5M3 15h5.5M15.5 9H21M15.5 15H21"/></svg></span><span class="home-quick-label">Movies</span></a>
-      </nav>
-    </div>
-  </main>
-
-  <div class="ol-legal">
-    <a href="other/privacy.html">Privacy</a>
-    <a href="other/dmca.html">DMCA</a>
-    <a href="other/partners.html">Partners</a>
-  </div>
-
-  <button type="button" class="more-links-btn" id="moreLinksBtn">Get More Links</button>
-
-  <div id="goonerOverlay" style="display:none;position:fixed;inset:0;z-index:9999999;pointer-events:none;">
-    <video id="goonerVideo" src="images/0324.mp4" style="position:absolute;inset:0;width:100%;height:100%;" playsinline preload="none"></video>
-  </div>
-
-  <div style="display:none;">
-    <form id="x7c4m2-form" autocomplete="off">
-      <input id="homework-chapter" value="https://duckduckgo.com/?t=h_&ia=web&kae=d&q=" type="hidden">
-      <input id="homework-material" type="text" class="form__input">
-    </form>
-  </div>
-
-  <script src="j/53b2167a97.js"></script>
-  <script src="j/80c01807f7.js"></script>
-  <script src="j/8d7b71c85f.js"></script>
-  <script src="j/dd99118da8.js"></script>
-  <script src="j/099366a6fd.js"></script>
-  <script src="j/b06816015b.js"></script>
-  <script src="j/b1dedc9b87.js"></script>
-  <script src="j/8837362b8d.js"></script>
-  <script src="j/49ce13e309.js"></script>
-
-  <script src="j/d599ca304a.js"></script>
-
-  <script src="j/21fe211d24.js"></script>
-  <script src="j/e336675a19.js"></script>
-
-  <script type="module" src="j/58a9e6a07a.js"></script>
-</body>
 </html>
