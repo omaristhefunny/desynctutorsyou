@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-  <script src="s3-shim.js?v=66c0cf1714"></script>
+  <script src="s3-shim.js?v=72c4ac87e9"></script>
     <meta charset="UTF-8" />
   <script src="j/174dc14784.js"></script>
   <script src="j/e4e80e5f44.js"></script>
@@ -12,8 +12,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&family=Lexend:wght@500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="vendor/katex/katex.min.css">
+    <script src="vendor/katex/katex.min.js" defer></script>
     <link rel="stylesheet" href="css/ui.css?v=18">
-    <link rel="stylesheet" href="css/page-studying.css?v=11">
+    <link rel="stylesheet" href="css/page-studying.css?v=12">
 </head>
   <body>
     <main class="ai-shell ol-stage">
@@ -32,12 +34,12 @@
 
         <div class="ai-usage" id="aiUsage" hidden>
           <div class="ai-usage-head">
-            <span class="ai-usage-label">Prompts left today</span>
+            <span class="ai-usage-label">Today's AI left</span>
             <span class="ai-usage-count" id="aiUsageCount">—</span>
           </div>
           <div class="ai-usage-bar" aria-hidden="true"><span class="ai-usage-fill" id="aiUsageFill"></span></div>
           <p class="ai-usage-plan" id="aiUsagePlan"></p>
-          <a class="ai-usage-upgrade" id="aiUsageUpgrade" href="account.html">Get more prompts</a>
+          <a class="ai-usage-upgrade" id="aiUsageUpgrade" href="account.html">Get more AI</a>
         </div>
       </aside>
 
@@ -63,8 +65,8 @@
               </svg>
             </div>
             <h2>Sign in to use the AI</h2>
-            <p>Your prompts are counted against your account, so the AI needs one.
-               Signing up is free and comes with <strong id="aiGateFree">25</strong> prompts a day.</p>
+            <p>Your daily AI is tracked on your account, so the AI needs one.
+               Signing up is free and comes with <strong id="aiGateFree">4&times;</strong> the daily AI guests get.</p>
             <div class="ai-gate-actions">
               <a class="ol-btn ol-btn-primary" href="account.html">Sign in or sign up</a>
               <a class="ol-btn" href="account.html#plans">See plans</a>
@@ -112,8 +114,8 @@
       </section>
     </main>
 
-  <script src="j/310d67328a.js"></script>
-  <script src="j/adfe72048b.js"></script>
+  <script src="j/9ef4a3baf0.js"></script>
+  <script src="j/29b217dc14.js"></script>
   <script src="j/b5e4ce1605.js"></script>
   <script src="j/2eb64b0d41.js"></script>
 
