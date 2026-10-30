@@ -761,3 +761,7 @@ a.model-menu-note.link:hover { text-decoration: underline; }
   border-radius: 0;
 }
 .message.assistant { color: #ececef; font-weight: 500; font-size: 15.5px; line-height: 1.7; }
+
+/* Math in AI replies (KaTeX). Block formulas scroll sideways on narrow screens. */
+.ai-math { overflow-x: auto; overflow-y: hidden; padding: 4px 0; margin: 6px 0; }
+.ai-text-block .katex { font-size: 1.08em; }
