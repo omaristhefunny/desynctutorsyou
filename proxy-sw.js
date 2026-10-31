@@ -4,8 +4,8 @@
 (function () {
   var BASE = new URL("./", self.location).href;
   var BASE_PATH = new URL(BASE).pathname;
-  var PAGES = new Set(["404.html","account.html","calculus.html","chat.html","embed-wrapper.html","embed.html","gnmath.html","hangman.html","history.html","index.html","main.html","movies.html","music.html","other/dmca.html","other/partners.html","other/privacy.html","science.html","settings.html","spanish.html","studying.html"]);
-  var ROUTES = new Set(["404","account","ai","apps","c","calculus","chat","dmca","g","games","gnmath","hangman","more-games","movies","music","p","partners","privacy","s","settings","studying"]);
+  var PAGES = new Set(["404.html","account.html","calculus.html","chat.html","embed-wrapper.html","embed.html","gnmath.html","hangman.html","history.html","index.html","main.html","movies.html","music.html","other/dmca.html","other/partners.html","other/privacy.html","science.html","settings.html","studying.html"]);
+  var ROUTES = new Set(["404","account","ai","c","calculus","chat","dmca","g","games","gnmath","hangman","more-games","movies","music","p","partners","privacy","s","settings","studying"]);
 
   function pageFile(url) {
     var u = new URL(url);
