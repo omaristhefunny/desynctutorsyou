@@ -161,7 +161,10 @@ body {
   margin-right: 6px;
 }
 
-.nf-links a {
+.nf-links button {
+  font: inherit;
+  cursor: pointer;
+  background: none;
   color: var(--text-dim, rgba(255,255,255,.62));
   text-decoration: none;
   padding: 4px 10px;
@@ -169,7 +172,7 @@ body {
   transition: color .14s ease, border-color .14s ease, background .14s ease;
 }
 
-.nf-links a:hover {
+.nf-links button:hover {
   color: var(--text, #fff);
   border-color: var(--line, rgba(255,255,255,.11));
   background: var(--surface-raised, rgba(255,255,255,.045));

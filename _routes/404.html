@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&family=Lexend:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/page-404.css?v=2">
+  <link rel="stylesheet" href="css/page-404.css?v=3">
 </head>
 <body>
   <div class="nf-bg" aria-hidden="true"></div>
@@ -35,18 +35,18 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
         Go back
       </button>
-      <a class="ol-btn nf-btn" href="main.html">
+      <button type="button" class="ol-btn nf-btn" data-go="/main.html">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z"/></svg>
         Home
-      </a>
+      </button>
     </div>
 
     <nav class="nf-links" aria-label="Popular pages">
       <span class="nf-links-label">Or jump to</span>
-      <a href="g">Education</a>
-      <a href="movies">Movies</a>
-      <a href="music.html">Music</a>
-      <a href="studying.html">AI</a>
+      <button type="button" data-go="/g">Education</button>
+      <button type="button" data-go="/movies">Movies</button>
+      <button type="button" data-go="/music.html">Music</button>
+      <button type="button" data-go="/studying.html">AI</button>
     </nav>
   </main>
 
@@ -58,9 +58,16 @@
         path.textContent = p.length > 60 ? p.slice(0, 57) + "…" : p;
         path.hidden = false;
       }
+      // Buttons rather than links, so the browser doesn't show the address
+      // in the corner on hover.
+      // On the S3 copies the site lives under a base path (window.__desyncBase).
+      function go(p) { location.href = (window.__desyncBase || "/") + p.replace(/^\//, ""); }
+      document.querySelectorAll("[data-go]").forEach(function (b) {
+        b.addEventListener("click", function () { go(b.getAttribute("data-go")); });
+      });
       document.getElementById("nfBack").addEventListener("click", function () {
         if (history.length > 1) history.back();
-        else location.href = "/main.html";
+        else go("/main.html");
       });
     })();
   </script>
