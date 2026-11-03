@@ -1,100 +1,180 @@
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+/* 404 page. Colors come from ui.css, so it follows the visitor's theme accent. */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-      font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: linear-gradient(135deg, #0a0a0a 0%, #131313 50%, #0d0d0d 100%);
-      min-height: 100vh;
-      color: #ededed;
-    }
+body {
+  font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg, #000);
+  color: var(--text, #fff);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
-    .error-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      height: calc(100vh - 56px);
-      text-align: center;
-      padding: 20px;
-    }
+/* Faint grid that fades out from the middle, with a soft accent glow. */
+.nf-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 50% 40% at 50% 42%, var(--accent-soft, rgba(255,255,255,.12)), transparent 70%),
+    linear-gradient(var(--line, rgba(255,255,255,.11)) 1px, transparent 1px) 0 0 / 48px 48px,
+    linear-gradient(90deg, var(--line, rgba(255,255,255,.11)) 1px, transparent 1px) 0 0 / 48px 48px;
+  -webkit-mask-image: radial-gradient(ellipse 60% 55% at 50% 45%, #000 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse 60% 55% at 50% 45%, #000 20%, transparent 75%);
+  opacity: .55;
+}
 
-    .error-icon {
-      width: 80px;
-      height: 80px;
-      background: linear-gradient(135deg, #9a9a9a 0%, #b4b4b4 100%);
-      border-radius: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 36px;
-      box-shadow: 0 20px 40px rgba(150, 150, 150, 0.3);
-      animation: float 3s ease-in-out infinite;
-    }
+.nf {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  animation: nf-in .5s ease both;
+}
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
+@keyframes nf-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
 
-    .error-code {
-      font-size: 8rem;
-      font-weight: 700;
-      color: rgba(150, 150, 150, 0.15);
-      line-height: 1;
-      user-select: none;
-      letter-spacing: -4px;
-    }
+.nf-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid var(--line, rgba(255,255,255,.11));
+  background: var(--surface-raised, rgba(255,255,255,.045));
+  color: var(--text-dim, rgba(255,255,255,.62));
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
 
-    .error-title {
-      font-size: 1.75rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #c4c4c4 0%, #cfcfcf 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+.nf-pulse {
+  width: 7px;
+  height: 7px;
+  background: var(--danger, #ff6b6b);
+  box-shadow: 0 0 0 0 rgba(255, 107, 107, .5);
+  animation: nf-pulse 2s ease-out infinite;
+}
 
-    .error-desc {
-      font-size: 1rem;
-      color: rgba(150, 150, 150, 0.7);
-      max-width: 420px;
-      line-height: 1.7;
-    }
+@keyframes nf-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 107, 107, .5); }
+  70%, 100% { box-shadow: 0 0 0 8px rgba(255, 107, 107, 0); }
+}
 
-    .error-btn {
-      margin-top: 16px;
-      padding: 14px 40px;
-      border-radius: 0;
-      font-family: 'Urbanist', sans-serif;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      background: linear-gradient(135deg, #9a9a9a 0%, #b4b4b4 100%);
-      border: none;
-      color: #fff;
-      box-shadow: 0 10px 30px rgba(150, 150, 150, 0.4);
-    }
+/* Big outlined digits; the middle zero is filled with the accent and floats. */
+.nf-code {
+  display: flex;
+  gap: .04em;
+  margin: 18px 0 6px;
+  font-family: 'Lexend', 'Urbanist', sans-serif;
+  font-weight: 700;
+  font-size: clamp(96px, 22vw, 188px);
+  line-height: 1;
+  letter-spacing: -.04em;
+  user-select: none;
+}
 
-    .error-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(150, 150, 150, 0.5);
-    }
+.nf-code span {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--line-strong, rgba(255,255,255,.24));
+}
 
-    @media (max-width: 480px) {
-      .error-code {
-        font-size: 5rem;
-        letter-spacing: -2px;
-      }
-      .error-title {
-        font-size: 1.4rem;
-      }
-      .error-desc {
-        font-size: 0.9rem;
-      }
-    }
-  
+.nf-code .nf-zero {
+  background: var(--accent, linear-gradient(135deg, #fff, #bbb));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke: 0;
+  filter: drop-shadow(0 10px 30px var(--accent-glow, rgba(255,255,255,.28)));
+  animation: nf-float 3.2s ease-in-out infinite;
+}
+
+@keyframes nf-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.nf-title {
+  font-family: 'Lexend', 'Urbanist', sans-serif;
+  font-size: clamp(22px, 4vw, 30px);
+  font-weight: 600;
+  letter-spacing: -.01em;
+}
+
+.nf-desc {
+  margin-top: 10px;
+  max-width: 440px;
+  color: var(--text-dim, rgba(255,255,255,.62));
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.nf-path {
+  margin-top: 16px;
+  max-width: min(520px, 100%);
+  padding: 6px 12px;
+  border: 1px dashed var(--line-strong, rgba(255,255,255,.24));
+  color: var(--text-faint, rgba(255,255,255,.4));
+  font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nf-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.nf-btn { min-height: 44px; padding: 0 20px; font-size: 15px; }
+
+.nf-btn svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.nf-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 6px 4px;
+  margin-top: 30px;
+  font-size: 14px;
+}
+
+.nf-links-label {
+  color: var(--text-faint, rgba(255,255,255,.4));
+  margin-right: 6px;
+}
+
+.nf-links a {
+  color: var(--text-dim, rgba(255,255,255,.62));
+  text-decoration: none;
+  padding: 4px 10px;
+  border: 1px solid transparent;
+  transition: color .14s ease, border-color .14s ease, background .14s ease;
+}
+
+.nf-links a:hover {
+  color: var(--text, #fff);
+  border-color: var(--line, rgba(255,255,255,.11));
+  background: var(--surface-raised, rgba(255,255,255,.045));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nf, .nf-pulse, .nf-code .nf-zero { animation: none; }
+}

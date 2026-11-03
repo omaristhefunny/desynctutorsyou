@@ -13,16 +13,57 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&family=Lexend:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/page-404.css">
+  <link rel="stylesheet" href="css/page-404.css?v=2">
 </head>
 <body>
-  <div class="error-wrapper">
-    <div class="error-icon">🔗</div>
-    <div class="error-code">404</div>
-    <p class="error-title">Where are you going?</p>
-    <p class="error-desc">Were you trying to use the proxy but ended up here? Press the button below to go back and try again.</p>
-    <button class="error-btn" onclick="history.back()">Go Back</button>
-  </div>
+  <div class="nf-bg" aria-hidden="true"></div>
+
+  <main class="nf">
+    <p class="nf-tag"><span class="nf-pulse" aria-hidden="true"></span>Error 404 · Page not found</p>
+
+    <div class="nf-code" aria-hidden="true">
+      <span>4</span><span class="nf-zero">0</span><span>4</span>
+    </div>
+
+    <h1 class="nf-title">This page doesn't exist</h1>
+    <p class="nf-desc">The link may be old or mistyped. If a site you were browsing sent you here, go back and try again.</p>
+
+    <code class="nf-path" id="nfPath" hidden></code>
+
+    <div class="nf-actions">
+      <button type="button" class="ol-btn ol-btn-primary nf-btn" id="nfBack">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+        Go back
+      </button>
+      <a class="ol-btn nf-btn" href="main.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z"/></svg>
+        Home
+      </a>
+    </div>
+
+    <nav class="nf-links" aria-label="Popular pages">
+      <span class="nf-links-label">Or jump to</span>
+      <a href="g">Education</a>
+      <a href="movies">Movies</a>
+      <a href="music.html">Music</a>
+      <a href="studying.html">AI</a>
+    </nav>
+  </main>
+
+  <script>
+    (function () {
+      var path = document.getElementById("nfPath");
+      var p = location.pathname + location.search;
+      if (p && p !== "/" && !/\/404(\.html)?$/.test(location.pathname)) {
+        path.textContent = p.length > 60 ? p.slice(0, 57) + "…" : p;
+        path.hidden = false;
+      }
+      document.getElementById("nfBack").addEventListener("click", function () {
+        if (history.length > 1) history.back();
+        else location.href = "/main.html";
+      });
+    })();
+  </script>
 
   <script src="j/a9a14cbeea.js"></script>
   <script src="j/80c01807f7.js"></script>
