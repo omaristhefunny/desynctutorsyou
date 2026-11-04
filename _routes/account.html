@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="s3-shim.js?v=357a913d72"></script>
+  <script src="s3-shim.js?v=40b87e67a8"></script>
   <meta charset="UTF-8">
   <script src="j/66fd3f0268.js"></script>
   <script src="j/e4e80e5f44.js"></script>
@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&family=Lexend:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/page-account.css?v=11">
+  <link rel="stylesheet" href="css/page-account.css?v=12">
   <link rel="stylesheet" href="css/ui.css?v=18">
 </head>
 <body>
@@ -138,6 +138,23 @@
       <div class="card">
         <button class="logout-btn-page" id="logoutBtn">Logout</button>
       </div>
+
+      <div class="card delete-card">
+        <div class="card-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg>
+          Delete account
+        </div>
+        <p class="delete-desc">Permanently deletes your account and everything tied to it: chat messages and DMs, friends, groups you own, game saves, music library and AI history. This can't be undone.</p>
+        <button class="delete-btn" id="deleteStartBtn">Delete my account</button>
+        <div id="deleteConfirm" style="display:none;">
+          <input type="password" class="auth-field ol-input" id="deletePassword" placeholder="Enter your password to confirm" autocomplete="current-password">
+          <div class="delete-actions">
+            <button class="delete-btn solid" id="deleteConfirmBtn">Permanently delete</button>
+            <button class="sync-btn" id="deleteCancelBtn" style="background:transparent;">Cancel</button>
+          </div>
+        </div>
+        <div class="sync-msg" id="deleteMsg"></div>
+      </div>
     </div>
   </div>
 
@@ -149,10 +166,10 @@
   </div>
 
   <script src="j/80c01807f7.js"></script>
-  <script src="j/b06816015b.js"></script>
+  <script src="j/4773cce9a0.js"></script>
   <script src="j/af28ccec20.js"></script>
   <script src="j/46e20d574e.js"></script>
-  <script src="j/c09527b50e.js"></script>
+  <script src="j/fb36437eab.js"></script>
   <script src="j/8837362b8d.js"></script>
   <script src="j/6d98399b35.js"></script>
   <script src="j/e336675a19.js"></script>

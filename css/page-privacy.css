@@ -115,3 +115,10 @@
       text-decoration: underline;
     }
   
+
+/* lists in the terms & privacy sections */
+.section ul { margin: 10px 0 4px; padding-left: 20px; display: grid; gap: 8px; }
+.section li { line-height: 1.6; color: inherit; }
+.section li b { color: #fff; font-weight: 600; }
+.section p + p { margin-top: 10px; }
+.section a { color: #fff; }
