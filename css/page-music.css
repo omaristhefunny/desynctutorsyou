@@ -1079,3 +1079,42 @@ html.lyfs-open, html.lyfs-open body { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .lyfs, .lyfs-inner, .lyfs-line, .lyfs-bg-img, .lyfs-fill { transition: none !important; }
 }
+
+/* ---- Small lyrics panel: blurred cover behind, bright bold lines ---- */
+.lyrics-panel { isolation: isolate; }
+.lyrics-bg {
+  position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
+  background:
+    radial-gradient(120% 80% at 10% 0%, var(--ly-c1), transparent 65%),
+    radial-gradient(120% 90% at 100% 100%, var(--ly-c2), transparent 65%),
+    #0b0b0d;
+}
+.lyrics-bg-img {
+  position: absolute; inset: -20%;
+  background-size: cover; background-position: center;
+  filter: blur(42px) saturate(1.6) brightness(0.78);
+  opacity: 0; transition: opacity 1s ease;
+}
+.lyrics-bg-img.on { opacity: 1; }
+.lyrics-bg::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0.12) 35%, rgba(0, 0, 0, 0.22) 70%, rgba(0, 0, 0, 0.5) 100%);
+}
+.lyrics-head, .lyrics-body { position: relative; z-index: 1; }
+.lyrics-head { border-bottom: 0; background: linear-gradient(180deg, rgba(0, 0, 0, 0.25), transparent); }
+.lyrics-head .lyrics-art { width: 42px; height: 42px; border-radius: 8px; }
+.lyrics-heading .lyrics-title { font-size: 15px; font-weight: 800; }
+.lyrics-artist { color: rgba(255, 255, 255, 0.72); }
+.lyrics-body { gap: 16px; padding: 30px 22px 50%; }
+.lyric-line {
+  font-size: 20px; font-weight: 800; line-height: 1.28; letter-spacing: -0.015em;
+  filter: none; opacity: 0.42;
+}
+.lyric-line.active {
+  opacity: 1; transform: scale(1.05);
+  text-shadow: 0 0 22px rgba(255, 255, 255, 0.32);
+}
+.lyric-line[data-i]:hover { opacity: 0.9 !important; background: rgba(255, 255, 255, 0.08); }
+.lyric-line.plain { font-size: 17px; font-weight: 700; opacity: 0.9; }
+.lyrics-panel .lyrics-empty { color: rgba(255, 255, 255, 0.7); }
+.lyrics-panel .lyrics-credit { border-top-color: rgba(255, 255, 255, 0.12); color: rgba(255, 255, 255, 0.5); }
