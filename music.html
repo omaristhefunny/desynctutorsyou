@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="s3-shim.js?v=382dbca790"></script>
+  <script src="s3-shim.js?v=31347eb8dd"></script>
   <meta charset="UTF-8">
   <script src="j/66fd3f0268.js"></script>
   <script src="j/e4e80e5f44.js"></script>
@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&family=Lexend:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/ui.css?v=18">
-  <link rel="stylesheet" href="css/page-music.css?v=27">
+  <link rel="stylesheet" href="css/page-music.css?v=28">
 </head>
 <body>
   <main class="ol-stage music">
@@ -94,7 +94,7 @@
     <div class="lyrics-head" id="lyricsHead" title="Drag to move">
       <img id="lyricsArt" class="lyrics-art" alt="" hidden>
       <span class="lyrics-heading"><span id="lyricsTitle" class="lyrics-title">Lyrics</span><span id="lyricsArtist" class="lyrics-artist"></span></span>
-      <button id="lyricsExpand" class="player-btn lyrics-expand" type="button" aria-label="Expand lyrics" title="Expand">
+      <button id="lyricsExpand" class="player-btn lyrics-expand" type="button" aria-label="Full screen lyrics" title="Full screen">
         <svg class="ic-grow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
         <svg class="ic-shrink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14h6v6M20 10h-6V4M14 10l7-7M3 21l7-7"/></svg>
       </button>
@@ -108,6 +108,54 @@
     <span class="lyrics-resize" data-corner="sw" aria-hidden="true"></span>
     <span class="lyrics-resize" data-corner="se" aria-hidden="true"></span>
   </aside>
+
+  <div id="lyfs" class="lyfs" hidden role="dialog" aria-label="Lyrics">
+    <div class="lyfs-bg" aria-hidden="true">
+      <div class="lyfs-bg-img" id="lyfsBgA"></div>
+      <div class="lyfs-bg-img" id="lyfsBgB"></div>
+      <div class="lyfs-bg-shade"></div>
+    </div>
+    <header class="lyfs-top">
+      <div class="lyfs-track">
+        <img id="lyfsArt" class="lyfs-art" alt="">
+        <div class="lyfs-meta"><div id="lyfsTitle" class="lyfs-title"></div><div id="lyfsArtist" class="lyfs-artist"></div></div>
+      </div>
+      <div class="lyfs-actions">
+        <button id="lyfsFull" class="lyfs-chip" type="button" aria-label="Fill the screen" title="Fill the screen">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+        </button>
+        <button id="lyfsClose" class="lyfs-chip" type="button" aria-label="Close full screen lyrics" title="Close (Esc)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+      </div>
+    </header>
+    <div id="lyfsLines" class="lyfs-lines"><div id="lyfsInner" class="lyfs-inner"></div></div>
+    <footer class="lyfs-bottom">
+      <div class="lyfs-seek">
+        <div id="lyfsBar" class="lyfs-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="100"><div id="lyfsFill" class="lyfs-fill"></div></div>
+        <span id="lyfsTime" class="lyfs-time">0:00 / 0:00</span>
+      </div>
+      <div class="lyfs-pill">
+        <button id="lyfsFav" class="lyfs-btn lyfs-fav" type="button" aria-label="Save to favorites">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg>
+        </button>
+        <button id="lyfsPrev" class="lyfs-btn" type="button" aria-label="Previous">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h2v14H6zM20 5v14L9.5 12z"/></svg>
+        </button>
+        <button id="lyfsPlay" class="lyfs-btn lyfs-play" type="button" aria-label="Play or pause">
+          <svg class="lyfs-ic-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>
+          <svg class="lyfs-ic-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1.2"/><rect x="14" y="5" width="4" height="14" rx="1.2"/></svg>
+        </button>
+        <button id="lyfsNext" class="lyfs-btn" type="button" aria-label="Next">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 5h2v14h-2zM4 5v14l10.5-7z"/></svg>
+        </button>
+        <button id="lyfsRepeat" class="lyfs-btn lyfs-repeat" type="button" aria-label="Repeat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/></svg>
+          <span class="lyfs-one" aria-hidden="true">1</span>
+        </button>
+      </div>
+    </footer>
+  </div>
 
   <div class="modal-overlay" id="favModal">
     <div class="ol-panel modal">
@@ -152,7 +200,7 @@
   <script src="j/6d98399b35.js"></script>
   <script src="j/80c01807f7.js"></script>
   <script src="j/8837362b8d.js"></script>
-  <script src="j/a605170ac6.js"></script>
+  <script src="j/352d1a9e23.js"></script>
   <script type="module" src="j/58a9e6a07a.js"></script>
   <script src="j/a9a14cbeea.js"></script>
 </body>
