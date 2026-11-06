@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="s3-shim.js?v=1e8a64c53d"></script>
+  <script src="s3-shim.js?v=27fbd2dbe8"></script>
   <meta charset="UTF-8">
- 
+
   <script src="j/66fd3f0268.js"></script>
   <script src="j/e4e80e5f44.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,16 +15,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&family=Lexend:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/ui.css?v=18">
+
   <link rel="stylesheet" href="css/education.css?v=9">
-  <link rel="stylesheet" href="css/education-enhanced.css?v=5">
+  <link rel="stylesheet" href="css/education-enhanced.css?v=6">
 </head>
 <body>
   <main class="ol-stage">
     <div class="education-head">
       <div class="education-head-top">
         <div>
-          <h1 class="ol-h1">GN-Math Education</h1>
-          <p class="ol-sub">A much bigger library, taken as-is from an outside source.</p>
+          <h1 class="ol-h1">Education</h1>
         </div>
         <div class="per-row" id="perRow" role="group" aria-label="Items per row">
           <span class="per-row-label">Per row</span>
@@ -35,24 +35,13 @@
         </div>
       </div>
 
-      <div class="lib-switch" role="tablist" aria-label="Education library">
-        <a class="lib-tab" data-href="g" role="tab" tabindex="0" aria-selected="false">Education</a>
-        <a class="lib-tab active" data-href="gnmath" role="tab" tabindex="0" aria-selected="true">GN-Math Education</a>
-      </div>
-
-      <p class="education-warning">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M12 9v4M12 17h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-        </svg>
-        <span>More education, but they might be broken and riddled with ads. These ones aren't hosted by us, so we can't fix them.</span>
-      </p>
 
       <div class="education-tools">
         <div class="education-search">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path>
           </svg>
-          <input type="text" class="ol-input" id="searchBar" placeholder="Search more education" autocomplete="off" aria-label="Search education">
+          <input type="text" class="ol-input" id="searchBar" placeholder="Search education" autocomplete="off" aria-label="Search education">
         </div>
         <select class="education-sort" id="sortBy" aria-label="Sort education">
           <option value="name">A–Z</option>
@@ -93,9 +82,18 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 1-15.5 6.2M3 12a9 9 0 0 1 15.5-6.2"/><path d="M21 4v5h-5M3 20v-5h5"/></svg>
           <span>Sync</span>
         </button>
+        <button class="ol-btn ol-btn-sm player-switch" id="playerSwitch" type="button" hidden title="Play this game from the other provider">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h11l-3-3M17 17H6l3 3"/></svg>
+          <span>Switch server</span>
+        </button>
         <button class="ol-btn ol-btn-sm" id="playerFull" type="button">Fullscreen</button>
         <button class="ol-btn ol-btn-sm ol-btn-danger" id="playerClose" type="button">Close</button>
       </div>
+    </div>
+    <div class="player-hint" id="playerHint" hidden role="status">
+      <span class="ph-text"></span>
+      <button class="ph-switch" type="button">Switch server</button>
+      <button class="ph-close" type="button" aria-label="Dismiss">✕</button>
     </div>
     <iframe id="playerFrame" allowfullscreen
       sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-pointer-lock"></iframe>
@@ -107,10 +105,9 @@
   <script src="j/8837362b8d.js"></script>
 
   <script src="j/441c7c5f8b.js"></script>
-  <script src="j/dccf7a9368.js"></script>
+  <script src="j/ba2ba79142.js"></script>
   <script src="j/10edcd3ec2.js"></script>
   <script src="j/e336675a19.js"></script>
-
   <script type="module" src="j/58a9e6a07a.js"></script>
 </body>
 </html>
