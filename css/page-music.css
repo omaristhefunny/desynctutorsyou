@@ -1119,39 +1119,18 @@ html.lyfs-open, html.lyfs-open body { overflow: hidden; }
 .lyrics-panel .lyrics-empty { color: rgba(255, 255, 255, 0.7); }
 .lyrics-panel .lyrics-credit { border-top-color: rgba(255, 255, 255, 0.12); color: rgba(255, 255, 255, 0.5); }
 
-/* ---- Lyrics states (loading / none / error / idle): music note + moving bars ---- */
-.lyrics-body.has-state { padding: 20px; justify-content: center; align-items: center; }
-.lyr-state { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 14px;
-  min-height: 220px; animation: lyr-in 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
-.lyr-note { width: 76px; height: 76px; border-radius: 50%; display: grid; place-items: center; color: #fff;
-  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.06));
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14), 0 14px 34px rgba(0, 0, 0, 0.35);
-  animation: lyr-float 3.2s ease-in-out infinite; }
-.lyr-note svg { width: 34px; height: 34px; }
-.lyr-bars { display: flex; align-items: flex-end; justify-content: center; gap: 5px; height: 34px; }
-.lyr-bars i { width: 5px; height: 100%; border-radius: 3px; background: rgba(255, 255, 255, 0.85); transform-origin: bottom;
-  transform: scaleY(0.25); animation: lyr-bar 1.1s ease-in-out infinite; animation-play-state: paused; }
-.lyr-bars i:nth-child(1) { animation-delay: -0.9s; } .lyr-bars i:nth-child(2) { animation-delay: -0.2s; animation-duration: 0.9s; }
-.lyr-bars i:nth-child(3) { animation-delay: -0.6s; animation-duration: 1.25s; } .lyr-bars i:nth-child(4) { animation-delay: -0.35s; }
-.lyr-bars i:nth-child(5) { animation-delay: -0.75s; animation-duration: 0.95s; } .lyr-bars i:nth-child(6) { animation-delay: -0.1s; animation-duration: 1.2s; }
-.lyr-bars i:nth-child(7) { animation-delay: -0.5s; }
-/* bars move while music plays (and always while loading) */
-body.music-playing .lyr-bars i, .lyr-loading .lyr-bars i { animation-play-state: running; }
-.lyr-note + .lyr-bars { height: 22px; opacity: 0.7; }
-.lyr-note + .lyr-bars i { width: 4px; }
-.lyr-t { font-size: 17px; font-weight: 700; color: #fff; letter-spacing: -0.01em; }
-.lyr-s { font-size: 13px; color: rgba(255, 255, 255, 0.6); margin-top: -8px; }
-@keyframes lyr-bar { 0%, 100% { transform: scaleY(0.25); } 50% { transform: scaleY(1); } }
-@keyframes lyr-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+/* ---- Lyrics states (loading / none / error / idle): bars that follow the song ---- */
+.lyrics-body.has-state { padding: 20px 14px; justify-content: center; align-items: center; }
+.lyr-state { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 10px; width: 100%;
+  animation: lyr-in 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.lyr-viz { display: block; width: 100%; height: 90px; }
+.lyr-t { font-size: 17px; font-weight: 700; color: #fff; letter-spacing: -0.01em; margin-top: 6px; }
+.lyr-s { font-size: 13px; color: rgba(255, 255, 255, 0.6); margin-top: -4px; }
 @keyframes lyr-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-/* full screen: bigger */
-.lyfs .lyr-state { gap: 20px; }
-.lyfs .lyr-note { width: 120px; height: 120px; }
-.lyfs .lyr-note svg { width: 54px; height: 54px; }
-.lyfs .lyr-bars { height: 56px; gap: 8px; }
-.lyfs .lyr-bars i { width: 8px; border-radius: 4px; }
-.lyfs .lyr-note + .lyr-bars { height: 34px; }
-.lyfs .lyr-note + .lyr-bars i { width: 6px; }
-.lyfs .lyr-t { font-size: clamp(24px, 2.6vw, 36px); font-weight: 800; }
-.lyfs .lyr-s { font-size: 17px; margin-top: -10px; }
-@media (prefers-reduced-motion: reduce) { .lyr-bars i, .lyr-note, .lyr-state { animation: none !important; transform: scaleY(0.6); } .lyr-note { transform: none; } }
+/* full screen: the bars fill the width of the screen */
+.lyfs.is-empty .lyfs-inner { max-width: none; width: 100%; padding: 0; }
+.lyfs .lyr-state { gap: 18px; }
+.lyfs .lyr-viz { width: min(1500px, 94vw); height: min(40vh, 380px); }
+.lyfs .lyr-t { font-size: clamp(24px, 2.6vw, 36px); font-weight: 800; margin-top: 10px; }
+.lyfs .lyr-s { font-size: 17px; margin-top: -6px; }
+@media (prefers-reduced-motion: reduce) { .lyr-state { animation: none; } }
