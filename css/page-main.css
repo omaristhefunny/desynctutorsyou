@@ -207,19 +207,3 @@
 
 /* Lexend at a lighter weight with a little less squeeze */
 .hero-wordmark { font-weight: 600; letter-spacing: -0.035em; }
-
-/* Online-now indicator, under the search bar */
-.online-pill {
-  display: inline-flex; align-items: center; gap: 8px; margin: 14px auto 0;
-  padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 500;
-  color: var(--text-dim, rgba(255,255,255,.66));
-  background: var(--surface, rgba(255,255,255,.04));
-  border: 1px solid var(--line, rgba(255,255,255,.08));
-  animation: online-in .4s ease both;
-}
-.online-pill[hidden] { display: none; }
-.online-pill .online-count { color: var(--text, #fff); font-weight: 700; font-variant-numeric: tabular-nums; }
-.online-dot { width: 8px; height: 8px; border-radius: 50%; background: #35d07f; box-shadow: 0 0 0 0 rgba(53,208,127,.6); animation: online-pulse 2s ease-out infinite; }
-@keyframes online-pulse { 0% { box-shadow: 0 0 0 0 rgba(53,208,127,.5); } 70% { box-shadow: 0 0 0 7px rgba(53,208,127,0); } 100% { box-shadow: 0 0 0 0 rgba(53,208,127,0); } }
-@keyframes online-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
-@media (prefers-reduced-motion: reduce) { .online-dot { animation: none; } .online-pill { animation: none; } }
