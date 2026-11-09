@@ -1133,3 +1133,18 @@ html.lyfs-open, html.lyfs-open body { overflow: hidden; }
 .lyfs .lyr-t { font-size: clamp(24px, 2.6vw, 36px); font-weight: 800; margin-top: 10px; }
 .lyfs .lyr-s { font-size: 17px; margin-top: -6px; }
 @media (prefers-reduced-motion: reduce) { .lyr-state { animation: none; } }
+
+/* ---- Word-by-word (karaoke) synced lyrics ---- */
+/* Each word starts dim and brightens over its own sung duration (--d). */
+.has-words .lw {
+  color: #fff; opacity: 0.32; display: inline;
+  transition: opacity var(--d, 0.25s) linear, text-shadow var(--d, 0.25s) linear;
+}
+.has-words .lw.lit { opacity: 1; text-shadow: 0 0 16px rgba(255, 255, 255, 0.35); }
+.has-words .lw.instant { transition: none; }
+/* In word mode the active line shouldn't also do the whole-line bold swap —
+   the words carry the emphasis — so keep the active line's base readable. */
+.lyric-line.has-words-line { font-weight: 700; }
+.lyfs.is-synced .lyfs-inner.has-words .lyfs-line.active { text-shadow: none; }
+.lyfs-inner.has-words .lw.lit { text-shadow: 0 0 30px rgba(255, 255, 255, 0.4); }
+@media (prefers-reduced-motion: reduce) { .has-words .lw { transition: none; } }
