@@ -1036,10 +1036,9 @@ html.lyfs-open, html.lyfs-open body { overflow: hidden; }
 
 .lyfs-pill {
   display: flex; align-items: center; gap: 6px; padding: 8px 12px;
-  border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(12, 12, 14, 0.55);
-  backdrop-filter: blur(24px) saturate(1.4); -webkit-backdrop-filter: blur(24px) saturate(1.4);
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+  border-radius: 999px; border: 0;
+  background: transparent;
+  box-shadow: none;
 }
 .lyfs-btn {
   position: relative; width: 44px; height: 44px; border: 0; border-radius: 999px;
