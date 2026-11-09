@@ -1,10 +1,23 @@
 <!doctype html>
 <html><head>
-  <script src="../s3-shim.js?v=449c779121"></script>
-  <script src="../j/e4e80e5f44.js"></script><meta charset="utf-8"><meta name="robots" content="noindex"><title>t</title>
+  <script src="../s3-shim.js?v=015a73bbc2"></script>
+  <script src="../j/e4e80e5f44.js"></script><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="referrer" content="unsafe-url"><title>t</title>
 <style>html,body{margin:0;padding:0;overflow:hidden;background:transparent}</style>
 <link rel="preconnect" href="https://bauval.org" crossorigin>
 <link rel="preconnect" href="https://willingcease.com" crossorigin>
+<script>
+// Pop-under guard: allow a tab to open only during a real user click (so the
+// banner's click-through still earns), block script-triggered pop-unders.
+(function () {
+  var realOpen = window.open;
+  try {
+    window.open = function () {
+      try { if (navigator.userActivation && navigator.userActivation.isActive) return realOpen.apply(window, arguments); } catch (e) {}
+      return null;
+    };
+  } catch (e) {}
+})();
+</script>
 </head>
 <body>
 <script>
@@ -27,11 +40,10 @@
     s.src = "https://willingcease.com/" + KEY + "/invoke.js";
     document.body.appendChild(s);
   }
-  // Check often so the banner is reported the instant it appears.
   var k = 0, t = setInterval(function () {
     if (!shown && creative()) { shown = true; parent.postMessage({ dsAd: "ok" }, "*"); clearInterval(t); return; }
     k++;
-    if (k === 6) alt();            // ~1.2s: bauval hasn't drawn yet, try the backup too
+    if (k === 6) alt();
     if (k > 40) { clearInterval(t); if (!shown) parent.postMessage({ dsAd: "fail" }, "*"); }
   }, 200);
 })();
