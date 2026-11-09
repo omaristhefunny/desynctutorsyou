@@ -98,7 +98,6 @@
       border: 1px solid var(--line);
       border-radius: var(--radius-sm);
       background: rgba(9, 9, 9, 0.76);
-      backdrop-filter: blur(8px);
       color: var(--text-faint);
       cursor: pointer;
       opacity: 0;

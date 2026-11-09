@@ -450,7 +450,6 @@
     .modal-overlay {
       position: fixed; inset: 0; z-index: 200; display: none;
       align-items: center; justify-content: center; padding: 20px;
-      background: rgba(0,0,0,0.68); backdrop-filter: blur(4px);
     }
     .modal-overlay.open { display: flex; }
     .modal { width: min(420px, 100%); padding: 22px; display: flex; flex-direction: column; gap: 12px; }
@@ -593,7 +592,6 @@
     padding: 18px 10px 84px;
     border-right: 1px solid var(--line) !important;
     background: rgba(6, 7, 11, 0.6);
-    backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
   }
   body:not(.overlay) .roster-head { padding: 4px 8px 14px; }
   body:not(.overlay) .roster-head h1 { font-size: 20px; }
@@ -610,7 +608,6 @@
     height: 64px; align-items: center; gap: 10px; padding: 0 20px 0 268px;
     border-top: 1px solid var(--line);
     background: rgba(6, 7, 11, 0.82);
-    backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
     box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.4);
     transition: left 0.18s ease;
   }

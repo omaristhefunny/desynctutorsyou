@@ -46,7 +46,6 @@
 .modal-overlay {
   position: fixed; inset: 0; z-index: 200; display: none;
   align-items: center; justify-content: center; padding: 20px;
-  background: rgba(0,0,0,0.68); backdrop-filter: blur(4px);
 }
 .modal-overlay.open { display: flex; }
 .modal { width: min(420px, 100%); padding: 22px; display: flex; flex-direction: column; gap: 12px; }

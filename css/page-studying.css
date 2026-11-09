@@ -21,8 +21,6 @@
   min-height: 0;
   border-right: 1px solid var(--line);
   background: rgba(8, 10, 15, 0.35);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
 }
 
 .ai-rail-head {
@@ -170,8 +168,6 @@
   padding: 0 clamp(16px, 3vw, 28px);
   border-bottom: 1px solid var(--line);
   background: rgba(8, 10, 15, 0.55);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
 }
 
 .chat-title {
@@ -240,8 +236,6 @@
   gap: 2px;
   border: 1px solid var(--line-strong);
   background: rgba(10, 12, 18, 0.97);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
   box-shadow: var(--shadow);
 }
 .model-menu[hidden] { display: none; }
@@ -353,8 +347,6 @@ a.model-menu-note.link:hover { text-decoration: underline; }
   padding: 30px 26px;
   border: 1px solid var(--line);
   background: var(--surface);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
 }
 .ai-gate-icon {
   display: grid;
@@ -640,8 +632,6 @@ a.model-menu-note.link:hover { text-decoration: underline; }
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background: rgba(12, 12, 12, 0.72);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
   box-shadow: var(--shadow);
   transition: border-color 0.16s ease;
 }

@@ -15,8 +15,6 @@
   border: 1px solid var(--line);
   border-radius: var(--radius-pill);
   background: rgba(8, 10, 15, 0.82);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
 }
 .settings-nav a {
   padding: 7px 14px;

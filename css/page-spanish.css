@@ -85,8 +85,6 @@
       font-weight: 500;
       cursor: pointer;
       outline: none;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
       transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
     }
 
@@ -353,7 +351,6 @@
       z-index: 1000;
       justify-content: center;
       align-items: center;
-      backdrop-filter: blur(10px);
     }
 
     .modal-overlay.show {
