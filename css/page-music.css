@@ -53,6 +53,49 @@
 .music-source-btn:hover { color: var(--text); }
 .music-source-btn.active { background: var(--surface-hover); color: var(--text); }
 
+/* Settings gear + popup (source, equalizer, auto-lyrics) */
+.music-settings { position: relative; flex-shrink: 0; }
+.music-gear {
+  width: 42px; height: 42px; display: grid; place-items: center;
+  border: 1px solid var(--line); border-radius: var(--radius-pill);
+  background: var(--surface); color: var(--text-dim); cursor: pointer;
+  transition: color .14s ease, border-color .14s ease;
+}
+.music-gear:hover, .music-gear.open { color: var(--text); border-color: var(--line-strong); }
+.music-gear svg { width: 19px; height: 19px; }
+.music-pop {
+  position: absolute; right: 0; top: calc(100% + 8px); z-index: 70;
+  width: 264px; padding: 14px; display: flex; flex-direction: column; gap: 15px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+.music-pop[hidden] { display: none; }
+.music-pop-sec { display: flex; flex-direction: column; gap: 9px; }
+.music-pop-row { flex-direction: row; align-items: center; justify-content: space-between; }
+.music-pop-label { font-size: 12.5px; font-weight: 600; color: var(--text-dim); }
+.music-pop .music-source { display: flex; width: 100%; padding: 3px; }
+.music-pop .music-source-btn { flex: 1; padding: 7px 4px; font-size: 12px; text-align: center; }
+.eq-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.eq-chip {
+  border: 1px solid var(--line); background: none; color: var(--text-dim);
+  font: inherit; font-size: 12px; font-weight: 500; padding: 6px 11px;
+  border-radius: var(--radius-pill); cursor: pointer; white-space: nowrap;
+  transition: color .14s ease, border-color .14s ease, background .14s ease;
+}
+.eq-chip:hover { color: var(--text); border-color: var(--line-strong); }
+.eq-chip.active { background: #fff; color: #000; border-color: #fff; }
+.music-switch {
+  position: relative; width: 42px; height: 24px; flex-shrink: 0; padding: 0; border: 0;
+  border-radius: 999px; background: var(--surface-hover); cursor: pointer; transition: background .16s ease;
+}
+.music-switch::after {
+  content: ""; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px;
+  border-radius: 50%; background: #fff; transition: transform .16s ease;
+}
+.music-switch[aria-checked="true"] { background: #fff; }
+.music-switch[aria-checked="true"]::after { transform: translateX(18px); background: #000; }
+@media (max-width: 560px) { .music-pop { width: min(264px, calc(100vw - 32px)); } }
+
 .music-status {
   margin: 8px 0 20px;
   color: var(--text-dim);
