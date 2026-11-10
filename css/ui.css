@@ -498,7 +498,7 @@ body.rail-open .ol-toggle svg { transform: rotate(0deg); }
     width: calc(var(--rail-w) + 12px);
     padding: 10px 6px;
     gap: 6px;
-    background: rgba(6, 7, 11, 0.82);
+    background: #000000;
     border-right: 1px solid var(--line);
   }
   body.rail-open .ol-sidebar { width: calc(var(--rail-w-open) + 12px); }
@@ -516,7 +516,7 @@ body.rail-open .ol-toggle svg { transform: rotate(0deg); }
     align-items: center;
     gap: 4px;
     padding: 6px;
-    background: rgba(5, 6, 10, 0.86);
+    background: #000000;
     border: 1px solid var(--line);
     border-radius: var(--radius-lg);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
