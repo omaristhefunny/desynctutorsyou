@@ -15,9 +15,9 @@
   --accent: var(--accent-color);
 
   --bg: #000000;
-  --surface: #121319;
-  --surface-raised: #121319;
-  --surface-hover: #1b1d24;
+  --surface: #000000;
+  --surface-raised: #000000;
+  --surface-hover: #15161b;
   --line: rgba(255, 255, 255, 0.11);
   --line-strong: rgba(255, 255, 255, 0.24);
 
