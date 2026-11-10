@@ -39,6 +39,20 @@
 }
 .music-search-input::placeholder { color: var(--text-faint); }
 
+.music-source {
+  display: inline-flex; align-items: center; gap: 2px; flex-shrink: 0;
+  padding: 3px; border: 1px solid var(--line); border-radius: var(--radius-pill);
+  background: var(--surface);
+}
+.music-source-btn {
+  border: 0; background: none; color: var(--text-dim);
+  font: inherit; font-size: 13px; font-weight: 600;
+  padding: 7px 14px; border-radius: var(--radius-pill); cursor: pointer; white-space: nowrap;
+  transition: background 0.14s ease, color 0.14s ease;
+}
+.music-source-btn:hover { color: var(--text); }
+.music-source-btn.active { background: var(--surface-hover); color: var(--text); }
+
 .music-status {
   margin: 8px 0 20px;
   color: var(--text-dim);
