@@ -353,7 +353,7 @@
       align-items: center;
     }
 
-    .modal-overlay.show {
+    .modal-overlay.open {
       display: flex;
       animation: fadeIn 0.3s ease;
     }
@@ -492,41 +492,62 @@
     ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.3); }
   
 
-/* Icon-only tiles: the app icon fills the tile; its name shows on hover. */
-.apps-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+/* Flat "crumbled" grid: every app in one grid, icon + label always visible. */
+.apps-head { width: 100%; max-width: 1180px; margin: 0 auto 22px; }
+.apps-title { font-size: clamp(24px, 3.4vw, 32px); font-weight: 800; letter-spacing: -0.02em; color: var(--text); }
+
+.apps-grid { grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: 16px; }
 .app-card {
-  padding: 0; min-height: 0; aspect-ratio: 1 / 1;
-  border-radius: 18px; border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.03);
+  padding: 20px 12px 15px; min-height: 0; gap: 12px; overflow: visible;
+  border-radius: var(--radius-lg); border: 1px solid var(--line);
+  background: var(--surface-raised);
 }
 .app-card::before { display: none; }
 .app-card img {
-  position: absolute; inset: 0; width: 100%; height: 100%; margin: 0;
-  border: 0; border-radius: 0; object-fit: cover;
-  transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.35s ease;
+  position: static; inset: auto; width: 58px; height: 58px; margin: 0;
+  border: 0; border-radius: 14px; object-fit: cover;
+  transition: transform 0.2s ease;
 }
 .app-card .app-desc { display: none; }
 .app-card .app-name {
-  position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; margin: 0;
-  padding: 26px 10px 10px; font-size: 0.9rem; font-weight: 700; color: #fff; text-align: center;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
-  opacity: 0; transform: translateY(8px);
-  transition: opacity 0.25s ease, transform 0.25s ease;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  position: static; opacity: 1; transform: none; margin: 0; padding: 0; background: none;
+  font-size: 0.85rem; font-weight: 600; color: var(--text);
+  text-align: center; line-height: 1.3; white-space: normal;
 }
-.app-card:hover, .app-card:focus-visible { transform: translateY(-4px); background: rgba(255, 255, 255, 0.03); }
-.app-card:hover img, .app-card:focus-visible img { transform: scale(1.06); box-shadow: none; filter: brightness(0.9); }
-.app-card:hover .app-name, .app-card:focus-visible .app-name { opacity: 1; transform: none; color: #fff; }
-.app-card .delete-app { z-index: 2; }
-.add-app-card { aspect-ratio: 1 / 1; min-height: 0; border-radius: 18px; padding: 12px; }
-@media (hover: none) {
-  /* Touch screens can't hover, so keep the name visible. */
-  .app-card .app-name { opacity: 1; transform: none; font-size: 0.8rem; padding-top: 20px; }
+.app-card:hover, .app-card:focus-visible {
+  transform: translateY(-4px); border-color: var(--accent-line);
+  background: var(--surface-hover); box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4); outline: none;
 }
-@media (max-width: 600px) { .apps-grid { grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 10px; } .app-card, .add-app-card { border-radius: 14px; } }
-@media (prefers-reduced-motion: reduce) { .app-card img, .app-card .app-name { transition: none; } }
+.app-card:hover img, .app-card:focus-visible img { transform: scale(1.05); filter: none; box-shadow: none; }
+.app-card:hover .app-name, .app-card:focus-visible .app-name { color: #fff; }
+.app-remove, .delete-app {
+  position: absolute; top: 6px; right: 6px; z-index: 2;
+  width: 22px; height: 22px; display: none; align-items: center; justify-content: center;
+  border: 0; border-radius: 50%; background: rgba(0, 0, 0, 0.6); color: #fff;
+  font-size: 14px; line-height: 1; cursor: pointer;
+}
+.app-card:hover .app-remove, .app-card:hover .delete-app { display: flex; }
+.add-app-card { min-height: 150px; border-radius: var(--radius-lg); padding: 18px; }
 
-/* Header: just one wide search bar */
-.page-header .search-container { width: 100%; max-width: none; display: block; }
-.page-header .search-bar { width: 100%; max-width: none; }
-.page-header { margin: 0 auto 8px; width: 100%; max-width: 1180px; align-self: center; }
+/* Fresh entrance: tiles rise + fade in with a quick stagger. */
+@keyframes apps-pop { from { opacity: 0; transform: translateY(16px) scale(0.95); } to { opacity: 1; transform: none; } }
+.apps-grid > * { animation: apps-pop 0.44s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.apps-grid > *:nth-child(2) { animation-delay: 0.03s; }
+.apps-grid > *:nth-child(3) { animation-delay: 0.06s; }
+.apps-grid > *:nth-child(4) { animation-delay: 0.09s; }
+.apps-grid > *:nth-child(5) { animation-delay: 0.12s; }
+.apps-grid > *:nth-child(6) { animation-delay: 0.15s; }
+.apps-grid > *:nth-child(7) { animation-delay: 0.18s; }
+.apps-grid > *:nth-child(8) { animation-delay: 0.21s; }
+.apps-grid > *:nth-child(9) { animation-delay: 0.24s; }
+.apps-grid > *:nth-child(10) { animation-delay: 0.27s; }
+.apps-grid > *:nth-child(n+11) { animation-delay: 0.3s; }
+
+@media (max-width: 600px) {
+  .apps-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 12px; }
+  .app-card img { width: 48px; height: 48px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .apps-grid > * { animation: none; }
+  .app-card img, .app-card .app-name { transition: none; }
+}
