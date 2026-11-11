@@ -124,13 +124,13 @@
   padding: 10px;
   border: 1px solid transparent;
   border-radius: var(--radius);
-  background: var(--surface-raised);
+  background: transparent;
   cursor: pointer;
   text-align: left;
   color: inherit;
   transition: background 0.14s ease, border-color 0.14s ease, transform 0.14s ease;
 }
-.track-card:hover { background: var(--surface-hover); border-color: var(--line-strong); }
+.track-card:hover { background: rgba(255, 255, 255, 0.06); border-color: var(--line-strong); }
 .track-card:active { transform: translateY(1px); }
 .track-card.playing { border-color: #fff; }
 
@@ -778,7 +778,22 @@ body.overlay .lib-side .lib-list { max-height: 34vh; overflow-y: auto; }
   .lib-side .lib-brand { font-size: 24px; margin: 4px 10px 10px; }
   .lib-side .lib-nav-item { height: 38px; font-size: 14px; }
   .lib-side .lib-art { width: 40px; height: 40px; }
+
+  /* Lyrics docked as a right column that reserves space instead of covering content */
+  body:not(.overlay) .lyrics-panel:not(.expanded) {
+    position: fixed; top: 0; right: 0; bottom: 92px; left: auto;
+    width: clamp(300px, 26vw, 400px); height: auto;
+    min-width: 0; min-height: 0; max-width: none; max-height: none;
+    border: 0; border-left: 1px solid var(--line); border-radius: 0;
+    box-shadow: -22px 0 50px rgba(0, 0, 0, 0.4);
+    transform: none; transform-origin: center;
+    animation: lyrics-slide-in 0.26s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  body.lyrics-open:not(.overlay) .ol-stage.music { margin-right: clamp(316px, 27vw, 416px); }
+  body:not(.overlay) .lyrics-resize { display: none; }
+  body:not(.overlay) .lyrics-head { cursor: default; }
 }
+@keyframes lyrics-slide-in { from { transform: translateX(22px); opacity: 0; } to { transform: none; opacity: 1; } }
 
 /* ---- Floating lyrics panel: small, movable, resizable from the corners ---- */
 @media (min-width: 821px) {
