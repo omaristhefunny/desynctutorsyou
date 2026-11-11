@@ -551,7 +551,7 @@ body.overlay .lyrics-panel { left: 12px; right: 12px; width: auto; }
   max-height: calc(100vh - 160px); overflow-y: auto;
   display: flex; flex-direction: column; gap: 14px;
   padding: 14px; border: 1px solid var(--line); border-radius: var(--radius);
-  background: var(--surface-raised);
+  background: transparent;
 }
 .lib-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .lib-title { border: 0; background: none; color: var(--text); font: inherit; font-size: 16px; font-weight: 700; cursor: pointer; padding: 4px 2px; }

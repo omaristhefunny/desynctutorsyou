@@ -6,7 +6,7 @@
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #000;
+      background: transparent;
       color: #c9c9c9;
       min-height: 100vh;
       overflow-x: auto;
