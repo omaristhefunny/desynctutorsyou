@@ -130,7 +130,7 @@
   color: inherit;
   transition: background 0.14s ease, border-color 0.14s ease, transform 0.14s ease;
 }
-.track-card:hover { background: hsl(var(--acc-h) var(--acc-s) var(--acc-l) / 0.08); border-color: var(--accent-line); }
+.track-card:hover { background: hsl(var(--acc-h) var(--acc-s) var(--acc-l) / 0.08); border-color: transparent; }
 .track-card:active { transform: translateY(1px); }
 .track-card.playing { border-color: transparent; }
 
