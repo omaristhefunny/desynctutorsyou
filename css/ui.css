@@ -75,6 +75,9 @@ html[data-shape="pill"] {
 [hidden] { display: none !important; }
 .hidden { display: none !important; }
 
+html {
+  background: var(--bg);
+}
 body {
   min-height: 100vh;
   font-family: var(--font);
