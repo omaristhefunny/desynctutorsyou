@@ -18,8 +18,8 @@
   --surface: #000000;
   --surface-raised: #000000;
   --surface-hover: #15161b;
-  --line: rgba(255, 255, 255, 0.11);
-  --line-strong: rgba(255, 255, 255, 0.24);
+  --line: hsl(var(--acc-h) var(--acc-s) var(--acc-l) / 0.13);
+  --line-strong: hsl(var(--acc-h) var(--acc-s) var(--acc-l) / 0.26);
 
   --text: #ffffff;
   --text-dim: rgba(255, 255, 255, 0.62);
