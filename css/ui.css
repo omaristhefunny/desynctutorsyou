@@ -83,7 +83,7 @@ body {
   min-height: 100vh;
   font-family: var(--font);
   color: var(--text);
-  background: var(--bg);
+  background: transparent;
   -webkit-font-smoothing: antialiased;
 }
 
