@@ -132,7 +132,7 @@
 }
 .track-card:hover { background: rgba(255, 255, 255, 0.06); border-color: var(--line-strong); }
 .track-card:active { transform: translateY(1px); }
-.track-card.playing { border-color: #fff; }
+.track-card.playing { border-color: transparent; }
 
 .track-art {
   position: relative;
@@ -745,12 +745,12 @@ body.overlay .lib-side .lib-list { max-height: 34vh; overflow-y: auto; }
 .lib-row.playing .lib-name { color: #1ed760; }
 
 /* Picking a song: card pulses, player slides up the first time, art pops on each change */
-@keyframes music-card-pick { 0% { transform: scale(1); } 35% { transform: scale(0.96); } 100% { transform: scale(1); } }
+@keyframes music-card-pick { 0% { transform: scale(1); } 45% { transform: scale(1.08); } 100% { transform: scale(1.04); } }
 @keyframes music-ring { from { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.45); } to { box-shadow: 0 0 0 14px rgba(255, 255, 255, 0); } }
 @keyframes music-player-in { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 @keyframes music-art-pop { 0% { opacity: 0; transform: scale(0.7) rotate(-4deg); } 100% { opacity: 1; transform: none; } }
 @keyframes music-text-in { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: none; } }
-.track-card.playing { animation: music-card-pick 0.35s ease, music-ring 0.7s ease-out; }
+.track-card.playing { transform: scale(1.04); animation: music-card-pick 0.4s cubic-bezier(0.2, 0.8, 0.2, 1.2); }
 .player:not([hidden]) { animation: music-player-in 0.4s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
 .player.track-change #pThumb { animation: music-art-pop 0.4s cubic-bezier(0.2, 0.8, 0.2, 1.2) both; }
 .player.track-change #pTitle, .player.track-change #pArtist { animation: music-text-in 0.35s ease both; }
@@ -1213,3 +1213,19 @@ html.lyfs-open, html.lyfs-open body { overflow: hidden; }
 .lyfs.is-synced .lyfs-inner.has-words .lyfs-line.active { text-shadow: none; }
 .lyfs-inner.has-words .lw.lit { text-shadow: 0 0 30px rgba(255, 255, 255, 0.4); }
 @media (prefers-reduced-motion: reduce) { .has-words .lw { transition: none; } }
+
+.search-head { font-size: clamp(22px, 3vw, 30px); font-weight: 800; letter-spacing: -0.02em; margin: 4px 0 18px; }
+.track-list { display: flex; flex-direction: column; gap: 2px; }
+.track-row { display: grid; grid-template-columns: 30px 48px minmax(0, 1fr) auto; align-items: center; gap: 14px; width: 100%; padding: 8px 12px; border: 0; border-radius: var(--radius-sm); background: transparent; color: inherit; font: inherit; text-align: left; cursor: pointer; transition: background 0.14s ease; }
+.track-row:hover { background: rgba(255, 255, 255, 0.06); }
+.track-row-num { color: var(--text-dim); font-variant-numeric: tabular-nums; text-align: center; font-size: 14px; }
+.track-row-art { position: relative; width: 48px; height: 48px; border-radius: 6px; overflow: hidden; background: #1a1a1a; flex-shrink: 0; }
+.track-row-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.track-row-art .play-dot { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(0, 0, 0, 0.45); color: #fff; opacity: 0; transition: opacity 0.14s ease; }
+.track-row-art .play-dot svg { width: 20px; height: 20px; }
+.track-row:hover .play-dot { opacity: 1; }
+.track-row-main { min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+.track-row-title { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.track-row-artist { color: var(--text-dim); font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.track-row-dur { color: var(--text-dim); font-variant-numeric: tabular-nums; font-size: 13px; padding-left: 8px; }
+.track-row.playing .track-row-title, .track-row.playing .track-row-num { color: var(--accent-color); }
