@@ -347,7 +347,9 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(3, 5, 9, 0.76);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       z-index: 1000;
       justify-content: center;
       align-items: center;
@@ -364,12 +366,14 @@
     }
 
     .modal {
-      background: rgba(10, 10, 10, 0.98);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: var(--surface, rgba(14, 16, 22, 0.66));
+      border: 1px solid var(--line-strong, rgba(255, 255, 255, 0.15));
       border-radius: var(--radius-lg);
-      padding: 36px;
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      padding: 32px;
       width: 90%;
-      max-width: 420px;
+      max-width: 430px;
       box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
       animation: slideUp 0.3s ease;
     }
@@ -380,35 +384,36 @@
     }
 
     .modal h3 {
-      color: #c9c9c9;
+      color: var(--text, #fff);
       font-size: 1.5rem;
-      margin-bottom: 28px;
+      margin-bottom: 26px;
       text-align: center;
-      font-weight: 600;
+      font-weight: 700;
+      letter-spacing: -0.01em;
     }
 
     .modal input {
       width: 100%;
-      padding: 16px 20px;
-      margin-bottom: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 15px 18px;
+      margin-bottom: 14px;
+      border: 1px solid var(--line, rgba(255, 255, 255, 0.1));
       border-radius: var(--radius-sm);
-      background: rgba(255, 255, 255, 0.03);
-      color: #c9c9c9;
+      background: hsl(var(--acc-h) var(--acc-s) var(--acc-l) / 0.04);
+      color: var(--text, #fff);
       font-family: inherit;
       font-size: 15px;
       outline: none;
-      transition: all 0.3s ease;
+      transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
     }
 
     .modal input:focus {
-      border-color: rgba(255, 255, 255, 0.4);
-      background: rgba(255, 255, 255, 0.05);
-      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+      border-color: var(--accent-line, rgba(255, 255, 255, 0.4));
+      background: hsl(var(--acc-h) var(--acc-s) var(--acc-l) / 0.07);
+      box-shadow: 0 0 0 3px var(--accent-soft, rgba(255, 255, 255, 0.12));
     }
 
     .modal input::placeholder {
-      color: rgba(255, 255, 255, 0.4);
+      color: var(--text-faint, rgba(255, 255, 255, 0.4));
     }
 
     .modal-buttons {
@@ -429,25 +434,24 @@
     }
 
     .modal .save-btn {
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      color: #c9c9c9;
+      background: hsl(var(--acc-h) var(--acc-s) var(--acc-l) / 0.15);
+      border: 1px solid var(--accent-line, rgba(255, 255, 255, 0.3));
+      color: var(--text, #fff);
     }
 
     .modal .save-btn:hover {
-      background: rgba(255, 255, 255, 0.25);
-      border-color: rgba(255, 255, 255, 0.4);
+      background: hsl(var(--acc-h) var(--acc-s) var(--acc-l) / 0.24);
     }
 
     .modal .cancel-btn {
       background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: rgba(255, 255, 255, 0.7);
+      border: 1px solid var(--line, rgba(255, 255, 255, 0.15));
+      color: var(--text-dim, rgba(255, 255, 255, 0.7));
     }
 
     .modal .cancel-btn:hover {
-      border-color: rgba(255, 255, 255, 0.3);
-      color: #c9c9c9;
+      border-color: var(--line-strong, rgba(255, 255, 255, 0.3));
+      color: var(--text, #fff);
     }
 
     .delete-app {
