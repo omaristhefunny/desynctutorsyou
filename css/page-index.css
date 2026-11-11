@@ -9,11 +9,21 @@
             background: #000;
             color-scheme: dark;
         }
+        #particles {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
         iframe {
+            position: relative;
+            z-index: 1;
             width: 100%;
             height: 100%;
             border: none;
             display: block;
-            background: #000;
+            background: transparent;
         }
     
