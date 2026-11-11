@@ -499,8 +499,8 @@ body.rail-open .ol-toggle svg { transform: rotate(0deg); }
     width: calc(var(--rail-w) + 12px);
     padding: 10px 6px;
     gap: 6px;
-    background: #000000;
-    border-right: 1px solid var(--line);
+    background: none;
+    border-right: 0;
   }
   body.rail-open .ol-sidebar { width: calc(var(--rail-w-open) + 12px); }
   /* Collapsed: square buttons with the icon dead centre. */
