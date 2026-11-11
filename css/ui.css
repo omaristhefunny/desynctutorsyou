@@ -223,7 +223,7 @@ body.rail-open .ol-brand-name { display: block; }
   padding: 0 12px;
   border: 0;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
+  background: hsl(var(--acc-h) var(--acc-s) var(--acc-l) / 0.07);
   color: var(--text-dim);
   font: inherit;
   font-size: 14px;
@@ -237,7 +237,7 @@ body.rail-open .ol-toggle { background: none; border-radius: var(--radius-sm); }
 .ol-link svg,
 .ol-toggle svg { width: 20px; height: 20px; flex-shrink: 0; }
 .ol-link:hover,
-.ol-toggle:hover { background: var(--surface-hover); color: var(--text); }
+.ol-toggle:hover { background: hsl(var(--acc-h) var(--acc-s) var(--acc-l) / 0.16); color: var(--text); }
 
 .ol-link.active {
   background: var(--accent);
@@ -553,7 +553,8 @@ body.rail-open .ol-toggle svg { transform: rotate(0deg); }
 ::view-transition-new(root) { animation: ol-vt-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) both; }
 /* The side menu is the same on every page, so it stays put instead of fading. */
 .ol-sidebar { view-transition-name: ol-rail; }
-::view-transition-group(ol-rail) { animation: none; }
+::view-transition-group(ol-rail), ::view-transition-new(ol-rail) { animation: none; }
+::view-transition-old(ol-rail) { animation: none; display: none; }
 
 /* Content entrance: a fresh, fast rise + settle with an ease-out-expo curve
    (most of the motion is up front, so it reads as snappy, not slow). */
