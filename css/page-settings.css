@@ -234,3 +234,7 @@ html[data-shape="pill"] .shape-option { border-radius: var(--radius); }
 .bg-card-meta { padding: 9px 11px 11px; }
 .bg-card-name { font-weight: 600; font-size: 0.9rem; }
 .bg-card-desc { color: var(--text-dim); font-size: 0.76rem; margin-top: 1px; }
+
+.bg-card-thumb--gradient { background: radial-gradient(135% 115% at 50% 0%, var(--accent-line), transparent 66%), #000; }
+.bg-card-thumb--none { background: #000; }
+.bg-card-thumb--none::after { content: ""; position: absolute; left: 50%; top: 50%; width: 24px; height: 24px; margin: -12px 0 0 -12px; border-radius: 50%; border: 1.5px solid var(--text-dim); opacity: 0.4; }
