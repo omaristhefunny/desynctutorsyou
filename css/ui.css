@@ -170,10 +170,9 @@ body.rail-open .ol-sidebar { width: var(--rail-w-open); }
   flex-direction: column;
   gap: 4px;
   padding: 6px;
-  background: rgba(8, 10, 15, 0.5);
-  border: 1px solid var(--line);
+  background: none;
+  border: 0;
   border-radius: var(--radius-lg);
-  overflow: hidden;
 }
 
 .ol-rail { flex: 1; min-height: 0; }
@@ -219,8 +218,8 @@ body.rail-open .ol-brand-name { display: block; }
   min-height: 44px;
   padding: 0 12px;
   border: 0;
-  border-radius: var(--radius-sm);
-  background: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
   color: var(--text-dim);
   font: inherit;
   font-size: 14px;
@@ -229,6 +228,8 @@ body.rail-open .ol-brand-name { display: block; }
   cursor: pointer;
   transition: background 0.14s ease, color 0.14s ease;
 }
+body.rail-open .ol-link:not(.active),
+body.rail-open .ol-toggle { background: none; border-radius: var(--radius-sm); }
 .ol-link svg,
 .ol-toggle svg { width: 20px; height: 20px; flex-shrink: 0; }
 .ol-link:hover,
