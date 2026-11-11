@@ -219,3 +219,18 @@ html[data-shape="pill"] .shape-option { border-radius: var(--radius); }
 .look-option.on { border-color: var(--accent-line); background: var(--accent-soft); color: var(--text); }
 .look-option img { width: 18px; height: 18px; flex-shrink: 0; object-fit: contain; }
 .look-option span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.ol-row-stack { flex-direction: column; align-items: stretch; gap: 14px; }
+.bg-effect-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+.bg-card { display: flex; flex-direction: column; text-align: left; padding: 0; background: var(--surface-raised); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; cursor: pointer; color: inherit; font: inherit; transition: border-color 0.15s ease, transform 0.15s ease; }
+.bg-card:hover { transform: translateY(-2px); border-color: var(--accent-line); }
+.bg-card:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 2px; }
+.bg-card.on { border-color: var(--accent-color); box-shadow: 0 0 0 1px var(--accent-color); }
+.bg-card-thumb { position: relative; width: 100%; height: 0; padding-top: 62.5%; background: #000; }
+.bg-card-thumb canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.bg-card-check { position: absolute; top: 7px; right: 7px; width: 22px; height: 22px; border-radius: 50%; background: var(--accent-color); color: #000; display: grid; place-items: center; opacity: 0; transform: scale(0.6); transition: opacity 0.15s ease, transform 0.15s ease; }
+.bg-card.on .bg-card-check { opacity: 1; transform: scale(1); }
+.bg-card-check svg { width: 12px; height: 12px; }
+.bg-card-meta { padding: 9px 11px 11px; }
+.bg-card-name { font-weight: 600; font-size: 0.9rem; }
+.bg-card-desc { color: var(--text-dim); font-size: 0.76rem; margin-top: 1px; }
