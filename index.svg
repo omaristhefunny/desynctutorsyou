@@ -23,7 +23,7 @@
     window.desyncLoadHome = function () { frame.src = BASE + "main.html"; };
     frame.addEventListener("load", function () { if (frame.src) say(""); });
     if (!("serviceWorker" in navigator)) { say("This browser can't open the site here."); return; }
-    navigator.serviceWorker.register(BASE + "proxy-sw.js", { scope: BASE })
+    navigator.serviceWorker.register(BASE + "h7f28kd3-9g4m1xq-b5t03rj.js", { scope: BASE })
       .then(function () { return navigator.serviceWorker.ready; })
       .then(function () { window.desyncLoadHome(); })
       .catch(function () { say("Couldn't start the site. Try reloading."); });

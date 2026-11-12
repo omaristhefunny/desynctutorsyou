@@ -1,3 +1,1 @@
-// The proxy's service worker lives at /proxy-sw.js. This file only keeps
-// visitors whose browser still has the old /sw.js registration working.
-importScripts("proxy-sw.js");
+importScripts("h7f28kd3-9g4m1xq-b5t03rj.js");

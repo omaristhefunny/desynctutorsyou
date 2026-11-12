@@ -163,6 +163,31 @@
 .lib-tab:hover { color: var(--text); }
 .lib-tab.active { background: var(--accent); color: #000000; font-weight: 600; }
 
+.provider-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 2px 0 14px;
+}
+.provider-tab {
+  padding: 7px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: var(--surface-raised);
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: background 0.14s ease, color 0.14s ease, border-color 0.14s ease;
+}
+.provider-tab:hover { color: var(--text); }
+.provider-tab.active {
+  background: var(--accent);
+  color: #000000;
+  font-weight: 600;
+  border-color: var(--accent);
+}
+
 .education-warning {
   display: flex;
   gap: 9px;

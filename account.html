@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="s3-shim.js?v=8269da6060"></script>
+  <script src="s3-shim.js?v=6f73588074"></script>
   <meta charset="UTF-8">
   <script src="j/80a6fe7c39.js"></script>
   <script src="j/2c09fc8ac4.js"></script>
@@ -96,29 +96,29 @@
         </div>
         <div class="plans-grid" id="plansGrid"></div>
         <p id="plansNote" style="margin-top:16px; font-size:13px; color:rgba(255, 255, 255,0.5);">
-          Plans come from your Discord roles on the desync server.
+          Plans come from your D1SC00RD roles on the desync server.
         </p>
-        <button class="sync-btn" id="syncBtn">Sync Membership from Discord</button>
+        <button class="sync-btn" id="syncBtn">Sync Membership from D1SC00RD</button>
         <div class="sync-msg" id="syncMsg"></div>
       </div>
 
       <div class="card">
         <div class="card-title">
           <svg viewBox="0 0 24 24" fill="#5a5a5a"><path d="M20.317 4.37a19.8 19.8 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.3 18.3 0 0 0-5.487 0 12.6 12.6 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.7 19.7 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.08.08 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.1 14.1 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.8 19.8 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.06.06 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
-          Discord
+          D1SC00RD
         </div>
 
         <div id="linkStep1">
           <p style="font-size:13px; color:rgba(255, 255, 255,0.6); margin-bottom:14px;">
-            Link your Discord to get the plan your roles give you. You need to be in the desync server, with direct messages from server members turned on.
+            Link your D1SC00RD to get the plan your roles give you. You need to be in the desync server, with direct messages from server members turned on.
           </p>
-          <input type="text" class="auth-field ol-input" id="discordUsername" placeholder="Your Discord username" autocomplete="off">
+          <input type="text" class="auth-field ol-input" id="discordUsername" placeholder="Your D1SC00RD username" autocomplete="off">
           <button class="sync-btn" id="linkStartBtn" style="margin-top:10px;">Send me a code</button>
         </div>
 
         <div id="linkStep2" style="display:none;">
           <p style="font-size:13px; color:rgba(255, 255, 255,0.6); margin-bottom:14px;">
-            Check your Discord DMs for a 6-digit code. It expires in 10 minutes.
+            Check your D1SC00RD DMs for a 6-digit code. It expires in 10 minutes.
           </p>
           <input type="text" class="auth-field ol-input" id="discordCode" placeholder="6-digit code" inputmode="numeric" maxlength="6" autocomplete="one-time-code">
           <button class="sync-btn" id="linkVerifyBtn" style="margin-top:10px;">Link account</button>
@@ -127,9 +127,9 @@
 
         <div id="linkStep3" style="display:none;">
           <p style="font-size:13px; color:rgba(255, 255, 255,0.6); margin-bottom:14px;">
-            Your Discord is linked. Your plan follows your roles — use Sync above after a role changes.
+            Your D1SC00RD is linked. Your plan follows your roles — use Sync above after a role changes.
           </p>
-          <button class="sync-btn" id="unlinkBtn" style="background:rgba(220, 220, 220,0.15); border-color:rgba(220, 220, 220,0.3); color:#d8d8d8;">Unlink Discord</button>
+          <button class="sync-btn" id="unlinkBtn" style="background:rgba(220, 220, 220,0.15); border-color:rgba(220, 220, 220,0.3); color:#d8d8d8;">Unlink D1SC00RD</button>
         </div>
 
         <div class="sync-msg" id="linkMsg"></div>
