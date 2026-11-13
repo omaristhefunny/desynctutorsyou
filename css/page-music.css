@@ -38,6 +38,16 @@
   outline: none;
 }
 .music-search-input::placeholder { color: var(--text-faint); }
+.music-search-clear {
+  display: grid; place-items: center; flex-shrink: 0;
+  width: 26px; height: 26px; padding: 0; margin: 0 -4px 0 0;
+  border: 0; border-radius: 50%; background: none;
+  color: var(--text-faint); cursor: pointer;
+  transition: color 0.14s ease, background 0.14s ease;
+}
+.music-search-clear:hover { color: var(--text); background: var(--surface-hover); }
+.music-search-clear[hidden] { display: none; }
+.music-search-clear svg { width: 15px; height: 15px; }
 
 .music-source {
   display: inline-flex; align-items: center; gap: 2px; flex-shrink: 0;
