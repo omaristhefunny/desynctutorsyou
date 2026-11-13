@@ -30,6 +30,7 @@
 .music-search svg { width: 18px; height: 18px; color: var(--text-faint); flex-shrink: 0; }
 .music-search-input {
   flex: 1;
+  min-width: 0;
   border: 0;
   background: none;
   color: var(--text);
