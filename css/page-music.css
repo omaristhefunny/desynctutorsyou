@@ -1314,3 +1314,6 @@ html.lyfs-open, html.lyfs-open body { overflow: hidden; }
 .lyfs .lyr-state .lyr-viz { display: none; }
 .lyfs:not(.is-empty) .lyfs-viz, .lyfs.show-queue .lyfs-viz { display: none; }
 @media (prefers-reduced-motion: reduce) { .lyfs-viz { display: none; } }
+.lyrics-body.has-state { padding: 18px 16px 22px; justify-content: stretch; align-items: stretch; -webkit-mask-image: none; mask-image: none; }
+.lyrics-panel .lyrics-body.has-state .lyr-state { flex: 1 1 auto; min-height: 0; }
+.lyrics-panel .lyr-viz { flex: 1 1 0; min-height: 0; height: auto; }
