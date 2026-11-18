@@ -642,3 +642,4 @@ body.rail-open .not-logged-in { left: var(--rail-open); }
   .acct-inline .ol-input { max-width: none; }
   .acct-hero { flex-wrap: wrap; }
 }
+.acct-msg:empty { display: none !important; }
