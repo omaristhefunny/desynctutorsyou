@@ -204,3 +204,15 @@
 
 /* Lexend at a lighter weight with a little less squeeze */
 .hero-wordmark { font-weight: 600; letter-spacing: -0.035em; }
+
+html.theme-xmas .hero-wordmark {
+  background: linear-gradient(90deg, #ff5a50 0%, #e3342f 46%, #22b15e 54%, #14894a 100%);
+  -webkit-background-clip: text; background-clip: text;
+}
+.wm-d { position: relative; display: inline-block; }
+html.theme-xmas .wm-d::before {
+  content: ""; position: absolute; left: 0.02em; top: -0.33em; width: 0.7em; height: 0.58em;
+  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20120%20100%22%3E%3Cpath%20d%3D%22M16%2074C20%2046%2040%2018%2070%2012C90%208%20108%2018%20110%2036C111%2046%20106%2054%2099%2057C100%2047%2096%2040%2088%2038C79%2036%2070%2046%2066%2058L63%2074Z%22%20fill%3D%22%23d7263d%22/%3E%3Cpath%20d%3D%22M70%2012C90%208%20108%2018%20110%2036C111%2046%20106%2054%2099%2057C100%2047%2096%2040%2088%2038C80%2036%2074%2028%2070%2012Z%22%20fill%3D%22%23a8192b%22/%3E%3Cpath%20d%3D%22M28%2066C32%2046%2046%2028%2062%2020C50%2032%2040%2048%2036%2066Z%22%20fill%3D%22%23fff%22%20fill-opacity%3D%22.2%22/%3E%3Cpath%20d%3D%22M8%2068q8.5-7%2017%200q8.5-7%2017%200q8.5-7%2017%200q8.5-7%2017%200v13q-8.5%207-17%200q-8.5%207-17%200q-8.5%207-17%200q-8.5%207-17%200Z%22%20fill%3D%22%23f5f7fa%22/%3E%3Cpath%20d%3D%22M8%2076q8.5%204%2017%200q8.5%204%2017%200q8.5%204%2017%200q8.5%204%2017%200v5q-8.5%207-17%200q-8.5%207-17%200q-8.5%207-17%200q-8.5%207-17%200Z%22%20fill%3D%22%23d9dfe7%22/%3E%3Ccircle%20cx%3D%22101%22%20cy%3D%2266%22%20r%3D%2210.5%22%20fill%3D%22%23f5f7fa%22/%3E%3Ccircle%20cx%3D%22104%22%20cy%3D%2270%22%20r%3D%225%22%20fill%3D%22%23d9dfe7%22/%3E%3Ccircle%20cx%3D%2297.5%22%20cy%3D%2262%22%20r%3D%224%22%20fill%3D%22%23fff%22/%3E%3C/svg%3E") center / contain no-repeat;
+  transform: rotate(-9deg); transform-origin: 30% 90%; pointer-events: none;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.35));
+}
