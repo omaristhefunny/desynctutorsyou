@@ -652,3 +652,20 @@
 .msg:not(.mine) .msg-actions { top: -10px; right: 2px; }
 /* Casino bot: also plain — its accent name keeps it distinct */
 .msg.bot { background: none; border: 0; }
+
+.composer-img { flex: none; width: 44px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: var(--radius-pill, 12px); background: transparent; color: var(--text-dim); cursor: pointer; transition: color .15s ease, background .15s ease; }
+.composer-img:hover { color: var(--text); background: var(--surface-hover); }
+.composer-img svg { width: 20px; height: 20px; }
+.composer-img[hidden] { display: none; }
+.image-preview { display: flex; align-items: center; gap: 12px; margin: 0 14px 8px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 12px; background: rgba(255,255,255,.03); font-size: 13px; color: var(--text-dim); }
+.image-preview[hidden] { display: none; }
+.image-preview img { width: 44px; height: 44px; object-fit: cover; border-radius: 8px; }
+.image-preview span { flex: 1; }
+.image-preview-x { border: 0; background: none; color: var(--text-dim); font-size: 20px; cursor: pointer; line-height: 1; padding: 2px 6px; border-radius: 50%; }
+.image-preview-x:hover { color: var(--text); background: var(--surface-hover); }
+.msg-img { display: block; max-width: min(360px, 100%); max-height: 320px; margin-top: 6px; border-radius: 12px; border: 1px solid var(--line); cursor: zoom-in; object-fit: contain; background: rgba(255,255,255,.03); }
+@media (min-width: 821px) {
+  body:not(.overlay) .image-preview { position: fixed; z-index: 61; bottom: 74px; left: calc(var(--rail-w) + 12px + 268px); width: min(520px, calc(100vw - 360px)); margin: 0; background: #0b0c10; }
+  body.rail-open:not(.overlay) .image-preview { left: calc(var(--rail-w-open) + 12px + 268px); }
+  body:not(.overlay) .composer .composer-img { height: 44px; border-radius: var(--radius-sm); }
+}
