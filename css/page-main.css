@@ -216,3 +216,16 @@ html.theme-xmas .hero-wordmark::before {
   transform: rotate(-9deg); transform-origin: 30% 90%; pointer-events: none;
   filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.35));
 }
+
+.hero-tagline {
+  margin: -2px 0 6px; min-height: 1.5em; max-width: min(92vw, 640px);
+  font-family: "Urbanist", system-ui, sans-serif; font-size: clamp(15px, 1.6vw, 18px); font-weight: 500;
+  color: var(--text-dim, rgba(255, 255, 255, 0.68)); text-align: center; letter-spacing: 0.005em;
+}
+.hero-tagline-caret {
+  display: inline-block; width: 2px; height: 1.05em; margin-left: 3px; vertical-align: -0.15em;
+  background: var(--acc-light, rgba(255, 255, 255, 0.8)); border-radius: 1px;
+  animation: heroCaret 1s steps(1) infinite;
+}
+.hero-tagline.typing .hero-tagline-caret { animation: none; opacity: 1; }
+@keyframes heroCaret { 50% { opacity: 0; } }
