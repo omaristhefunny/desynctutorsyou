@@ -290,3 +290,30 @@ button.home-quick-btn { appearance: none; background: none; border: 0; padding: 
 .home-quick { width: max-content; max-width: min(calc(100vw - 2 * var(--rail, 70px) - 32px), 940px); gap: clamp(12px, 2.2vw, 22px); }
 @media (max-width: 820px) { .home-quick { max-width: 94vw; } }
 @media (min-width: 821px) { .home-quick { flex-wrap: nowrap; } }
+
+.wm-vi { display: none; }
+html.theme-vice .hero-wordmark {
+  width: fit-content; margin-inline: auto;
+  background: linear-gradient(180deg, #ffffff 0%, #ffe3f1 50%, #ff9fcb 100%);
+  -webkit-background-clip: text; background-clip: text;
+  filter: drop-shadow(0 0 24px rgba(255, 79, 163, 0.45));
+}
+html.theme-vice .wm-vi {
+  display: inline-block; margin-left: 0.2em; font-weight: 800; letter-spacing: -0.02em;
+  background: linear-gradient(180deg, #4b5fe0 0%, #a347d6 34%, #ff3d8b 64%, #ffb15c 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0.028em #4a1268; paint-order: stroke fill;
+  filter: drop-shadow(0 0 18px rgba(255, 120, 80, 0.45));
+}
+html.theme-vice body::after {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='20 80 360 520' fill='%232a0f3d'%3E%3Cg%3E%3Cpath d='M193 600C189 470 180 350 193 228L207 228C199 350 211 470 219 600Z'/%3E%3Cpath d='M200 228C150 200 90 210 38 272C95 232 150 230 200 237Z'/%3E%3Cpath d='M200 226C160 168 108 148 56 160C108 176 160 196 198 233Z'/%3E%3Cpath d='M200 226C190 168 168 128 136 98C163 140 185 182 196 231Z'/%3E%3Cpath d='M200 226C215 168 242 132 278 112C246 150 222 186 204 231Z'/%3E%3Cpath d='M200 228C252 178 304 168 356 184C304 194 252 210 204 235Z'/%3E%3Cpath d='M200 230C256 214 322 236 364 298C312 256 256 246 202 239Z'/%3E%3Cpath d='M200 232C168 252 138 292 122 344C148 296 177 265 202 239Z'/%3E%3Cpath d='M200 232C236 256 264 296 274 348C251 301 226 268 200 239Z'/%3E%3C/g%3E%3C/svg%3E") left -2vw bottom -6vh / auto 74vh no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='20 80 360 520' fill='%232a0f3d'%3E%3Cg transform='translate%28400 0%29 scale%28-1 1%29'%3E%3Cpath d='M193 600C189 470 180 350 193 228L207 228C199 350 211 470 219 600Z'/%3E%3Cpath d='M200 228C150 200 90 210 38 272C95 232 150 230 200 237Z'/%3E%3Cpath d='M200 226C160 168 108 148 56 160C108 176 160 196 198 233Z'/%3E%3Cpath d='M200 226C190 168 168 128 136 98C163 140 185 182 196 231Z'/%3E%3Cpath d='M200 226C215 168 242 132 278 112C246 150 222 186 204 231Z'/%3E%3Cpath d='M200 228C252 178 304 168 356 184C304 194 252 210 204 235Z'/%3E%3Cpath d='M200 230C256 214 322 236 364 298C312 256 256 246 202 239Z'/%3E%3Cpath d='M200 232C168 252 138 292 122 344C148 296 177 265 202 239Z'/%3E%3Cpath d='M200 232C236 256 264 296 274 348C251 301 226 268 200 239Z'/%3E%3C/g%3E%3C/svg%3E") right -3vw bottom -6vh / auto 58vh no-repeat,
+    linear-gradient(180deg, rgba(20, 8, 40, 0) 0%, rgba(74, 26, 110, 0.28) 38%, rgba(196, 58, 128, 0.32) 68%, rgba(255, 150, 90, 0.34) 100%);
+  opacity: 0.9;
+}
+html.theme-vice .hero-tagline-caret { background: #ffb46b; }
+@media (max-width: 700px) {
+  html.theme-vice body::after { background-size: auto 46vh, auto 36vh, auto; }
+}
