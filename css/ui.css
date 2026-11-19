@@ -600,3 +600,15 @@ html:not(.ol-warm) .ol-sidebar .ol-link.active { animation: ol-rail-in 0.5s cubi
   body:not(.rail-open) .ol-sidebar .ol-link.active,
   body:not(.rail-open) .ol-sidebar .ol-link.active:hover { border-radius: 999px; }
 }
+
+html.theme-vice body::after {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(12, 4, 28, 0.42) 0%, rgba(12, 4, 28, 0.18) 45%, rgba(12, 4, 28, 0.1) 100%),
+    radial-gradient(55vw 45vh at 12% 92%, rgba(255, 150, 60, 0.75), transparent 70%),
+    radial-gradient(50vw 45vh at 88% 88%, rgba(255, 55, 150, 0.75), transparent 70%),
+    radial-gradient(45vw 40vh at 85% 12%, rgba(50, 205, 255, 0.45), transparent 70%),
+    radial-gradient(50vw 45vh at 15% 15%, rgba(130, 70, 255, 0.6), transparent 70%),
+    radial-gradient(40vw 30vh at 50% 70%, rgba(255, 90, 120, 0.35), transparent 75%),
+    linear-gradient(180deg, #23104f 0%, #5a1d86 38%, #c13582 72%, #ff9152 100%);
+}
