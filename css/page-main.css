@@ -301,3 +301,8 @@ html.theme-vice .search-bar { background: rgba(20, 8, 40, 0.55); border-color: r
 html.theme-vice .home-quick-ic { background: rgba(20, 8, 40, 0.45); border-color: rgba(255, 255, 255, 0.18); }
 html.theme-vice .home-quick-label, html.theme-vice .hero-tagline { color: rgba(255, 255, 255, 0.86); text-shadow: 0 1px 8px rgba(30, 5, 50, 0.6); }
 html.theme-vice .hero-tagline-caret { background: #ffd36b; }
+@media (max-width: 560px) {
+  .home-quick { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px 8px; width: 100%; max-width: 360px; }
+  .home-quick-btn { min-width: 0; }
+  .home-quick-label { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+}

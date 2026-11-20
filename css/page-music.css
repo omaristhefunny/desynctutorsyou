@@ -1317,3 +1317,54 @@ html.lyfs-open, html.lyfs-open body { overflow: hidden; }
 .lyrics-body.has-state { padding: 18px 16px 22px; justify-content: stretch; align-items: stretch; -webkit-mask-image: none; mask-image: none; }
 .lyrics-panel .lyrics-body.has-state .lyr-state { flex: 1 1 auto; min-height: 0; }
 .lyrics-panel .lyr-viz { flex: 1 1 0; min-height: 0; height: auto; }
+
+@media (max-width: 900px) {
+  body:not(.overlay) .lib-side { padding: 14px 14px 12px; gap: 10px; margin-bottom: 16px; }
+  body:not(.overlay) .lib-side .lib-head, body:not(.overlay) .lib-side .lib-list { display: none; }
+  body:not(.overlay) .lib-side .lib-brand { font-size: 20px; }
+  body:not(.overlay) .lib-side .lib-nav { flex-direction: row; gap: 6px; padding-bottom: 0; border-bottom: 0; }
+  body:not(.overlay) .lib-side .lib-nav-item { flex: 1; justify-content: center; padding: 9px 8px; }
+}
+
+@media (max-width: 700px) {
+  body:not(.overlay) .ol-stage.music { padding-bottom: 170px; }
+  body:not(.overlay) .player {
+    left: 8px; right: 8px; bottom: calc(78px + env(safe-area-inset-bottom, 0px));
+    display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto auto;
+    align-items: center; gap: 6px 10px; padding: 8px 10px 6px; border-radius: 14px;
+  }
+  body:not(.overlay) .player-center { display: contents; }
+  body:not(.overlay) .player-track { grid-column: 1; grid-row: 1; min-width: 0; cursor: pointer; }
+  body:not(.overlay) .player-thumb { width: 44px; height: 44px; border-radius: 8px; }
+  body:not(.overlay) .player-title { font-size: 14px; }
+  body:not(.overlay) .player-artist { font-size: 12.5px; }
+  body:not(.overlay) .player-controls { grid-column: 2; grid-row: 1; gap: 4px; }
+  body:not(.overlay) #pPrev, body:not(.overlay) #pRepeat { display: none; }
+  body:not(.overlay) .player-play { width: 42px; height: 42px; }
+  body:not(.overlay) #pNext { width: 40px; height: 40px; }
+  body:not(.overlay) .player-seek { grid-column: 1 / -1; grid-row: 2; gap: 0; }
+  body:not(.overlay) .player-seek .player-time { display: none; }
+  body:not(.overlay) .player-seek .player-range { height: 14px; }
+  body:not(.overlay) .lyrics-panel { display: none !important; }
+
+  .lyfs-grid {
+    grid-template-columns: 56px minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr) auto auto;
+    grid-template-areas: "art meta" "main main" "seek seek" "pill pill";
+    gap: 14px 12px;
+    padding: calc(18px + env(safe-area-inset-top, 0px)) 18px calc(22px + env(safe-area-inset-bottom, 0px));
+    height: 100%; box-sizing: border-box;
+  }
+  .lyfs-now { display: contents; }
+  .lyfs-now .lyfs-art { grid-area: art; width: 56px; height: 56px; max-width: none; border-radius: 10px; box-shadow: 0 8px 24px rgba(0, 0, 0, .45); }
+  .lyfs-now .lyfs-meta { grid-area: meta; align-self: center; text-align: left; padding-right: 92px; min-width: 0; }
+  .lyfs-now .lyfs-title { font-size: 17px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .lyfs-now .lyfs-artist { font-size: 13.5px; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .lyfs-main { grid-area: main; min-height: 0; }
+  .lyfs-main .lyfs-line { font-size: clamp(22px, 6.2vw, 30px); }
+  .lyfs-now .lyfs-seek { grid-area: seek; width: 100%; }
+  .lyfs-now .lyfs-pill { grid-area: pill; width: 100%; justify-content: space-between; padding: 0 6px; }
+  .lyfs-now .lyfs-pill .lyfs-btn { width: 46px; height: 46px; }
+  .lyfs-now .lyfs-pill .lyfs-play { width: 64px; height: 64px; }
+  .lyfs-corner { position: absolute; top: calc(26px + env(safe-area-inset-top, 0px)); right: 14px; }
+}
