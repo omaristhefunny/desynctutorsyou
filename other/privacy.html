@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="../s3-shim.js?v=c55cc1b534"></script>
+  <script src="../s3-shim.js?v=c72444537f"></script>
   <meta charset="UTF-8">
   <script src="../j/89a39940c3.js"></script>
   <script src="../j/027c8bb4cc.js"></script>
@@ -10,7 +10,7 @@
   <title>Terms &amp; Privacy | desync</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/page-privacy.css?v=7">
+  <link rel="stylesheet" href="../css/page-privacy.css?v=8">
   <link rel="stylesheet" href="../css/ui.css?v=35">
 </head>
 <body>
@@ -24,25 +24,8 @@
 
     <div class="legal-wrap">
       <aside class="legal-aside">
-        <div class="legal-kicker">Legal</div>
         <h1>Terms &amp; Privacy</h1>
         <p class="legal-sub">Last updated November 18, 2026</p>
-        <nav class="legal-toc" aria-label="Sections">
-          <a href="#what">What desync is</a>
-          <a href="#age">Age requirement</a>
-          <a href="#collect">Information we collect</a>
-          <a href="#use">How we use it</a>
-          <a href="#share">Who we share with</a>
-          <a href="#proxy">Proxy &amp; third parties</a>
-          <a href="#catalogs">Games, music, movies</a>
-          <a href="#ads">Advertising</a>
-          <a href="#retention">How long we keep it</a>
-          <a href="#deletion">Deleting your account</a>
-          <a href="#security">Security</a>
-          <a href="#terms">Terms of use</a>
-          <a href="#liability">Disclaimer &amp; liability</a>
-          <a href="#changes">Changes</a>
-        </nav>
       </aside>
 
       <div class="legal-body">
@@ -157,33 +140,6 @@
       </div>
     </div>
   </div>
-
-  <script>
-  (function () {
-    var links = Array.prototype.slice.call(document.querySelectorAll('.legal-toc a'));
-    if (!links.length) return;
-    var sections = links.map(function (a) {
-      return document.getElementById(a.getAttribute('href').slice(1));
-    });
-    function setActive(a) {
-      links.forEach(function (l) { l.classList.remove('active'); });
-      if (a) a.classList.add('active');
-    }
-    function onScroll() {
-      var marker = 130, idx = 0;
-      for (var i = 0; i < sections.length; i++) {
-        if (sections[i] && sections[i].getBoundingClientRect().top <= marker) idx = i;
-      }
-      setActive(links[idx]);
-    }
-    links.forEach(function (a) {
-      a.addEventListener('click', function () { setActive(a); });
-    });
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll, { passive: true });
-    onScroll();
-  })();
-  </script>
 
   <script src="../j/8fa2c4cae4.js"></script>
   <script src="../j/8e6f525625.js"></script>

@@ -194,3 +194,7 @@ body {
   .legal-tabs { gap: 16px; }
   .legal-tabs a { font-size: 13px; }
 }
+
+.legal-wrap { display: block; max-width: 760px; margin-inline: auto; }
+.legal-aside { position: static; top: auto; max-height: none; overflow: visible; padding: 0 0 8px; margin-bottom: 24px; border-bottom: 1px solid var(--line, rgba(255,255,255,.1)); }
+.legal-body { max-width: none; }
