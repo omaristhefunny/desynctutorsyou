@@ -643,3 +643,69 @@ body.rail-open .not-logged-in { left: var(--rail-open); }
   .acct-hero { flex-wrap: wrap; }
 }
 .acct-msg:empty { display: none !important; }
+
+#accountContent { max-width: 980px; padding: 0 24px; }
+.page-container { margin: 56px 0 48px; }
+
+.acct-head { display: flex; align-items: center; gap: 16px; padding: 0 0 24px; margin-bottom: 8px; border-bottom: 1px solid var(--line); }
+.acct-head .profile-avatar, .acct-head .profile-avatar-placeholder { width: 56px; height: 56px; border: 1px solid var(--line); font-size: 22px; }
+.acct-head-text { flex: 1; min-width: 0; }
+.acct-head-text h1 { font-size: 22px; font-weight: 700; color: var(--text, #fff); letter-spacing: -0.01em; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.acct-meta { display: flex; align-items: center; gap: 8px; margin-top: 4px; font-size: 13.5px; color: var(--text-dim); flex-wrap: wrap; }
+.acct-meta .discord-tag { margin: 0; font-size: 13.5px; color: var(--text-dim); }
+.acct-dot { color: var(--text-faint); }
+.acct-id { appearance: none; border: 0; background: none; padding: 0; font: 600 13.5px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--text, #fff); cursor: pointer; }
+.acct-id:hover { text-decoration: underline; text-underline-offset: 3px; }
+.acct-id:focus-visible { outline: 2px solid var(--accent-line, rgba(255,255,255,.5)); outline-offset: 2px; border-radius: 4px; }
+.acct-code { font: 600 14px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--text, #fff); padding: 6px 10px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,.03); }
+
+.membership-badge { margin: 0; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; text-transform: none; letter-spacing: 0; background: rgba(255,255,255,.05) !important; border: 1px solid var(--line) !important; color: var(--text-dim) !important; }
+.membership-badge.badge-ad-free, .membership-badge.badge-basic, .membership-badge.badge-premium,
+.membership-badge.badge-developer, .membership-badge.badge-admin, .membership-badge.badge-owner { color: var(--text, #fff) !important; border-color: var(--accent-line, rgba(255,255,255,.3)) !important; }
+
+.acct-layout { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 32px; align-items: start; }
+.acct-nav { position: sticky; top: 24px; display: flex; flex-direction: column; gap: 2px; padding-top: 24px; }
+.acct-nav a { display: block; padding: 7px 10px; border-radius: 6px; font-size: 14px; font-weight: 500; color: var(--text-dim); text-decoration: none; border-left: 2px solid transparent; transition: background-color .15s ease, color .15s ease; }
+.acct-nav a:hover { color: var(--text, #fff); background: rgba(255,255,255,.04); }
+.acct-nav a.active { color: var(--text, #fff); background: rgba(255,255,255,.06); border-left-color: var(--accent-color, #fff); border-radius: 0 6px 6px 0; }
+.acct-main { min-width: 0; }
+.acct-section { scroll-margin-top: 24px; }
+
+.acct-h { font-size: 14px; font-weight: 600; color: var(--text, #fff); letter-spacing: 0; margin: 24px 0 8px; }
+.acct-h-danger { color: #ff9a9a; }
+.acct-card { border: 1px solid var(--line); border-radius: 12px; background: rgba(14, 15, 20, .72); }
+.acct-card-danger { border-color: rgba(255, 110, 110, .28); }
+.acct-row { padding: 16px 20px; gap: 16px; }
+.acct-pad { padding: 16px 20px; }
+.acct-msg:not(:empty) { padding: 0 20px 14px; }
+.acct-label { font-size: 14.5px; }
+.acct-sub { font-size: 13px; }
+.acct-row .ol-btn, .acct-inline .ol-btn, .acct-confirm .ol-btn { height: 36px; padding: 0 14px; border-radius: var(--radius-sm, 8px); font-size: 13.5px; }
+.acct-inline .ol-input, .acct-confirm .ol-input { height: 36px; border-radius: var(--radius-sm, 8px); }
+.acct-confirm { gap: 8px; }
+.acct-confirm .ol-input { max-width: 360px; }
+
+.acct-usage { display: grid; grid-template-columns: 1fr 1fr 2fr; gap: 16px; }
+.acct-usage-item { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.acct-usage-item .acct-sub { margin: 0; }
+.acct-stat { font-size: 22px; font-weight: 700; color: var(--text, #fff); letter-spacing: -0.01em; }
+.acct-stat-sm { font-size: 15px; font-weight: 600; padding-top: 5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.acct-progress { margin-top: 14px; height: 6px; border-radius: 3px; }
+.acct-progress .progress-bar-fill { border-radius: 3px; }
+
+.plan-card { border-radius: 10px; padding: 20px 16px 18px; background: rgba(255,255,255,.02); }
+.plan-card.current { border-color: var(--accent-line, rgba(255,255,255,.4)); background: rgba(255,255,255,.04); }
+.plan-card.current::after { border-radius: 4px; font-size: 9.5px; padding: 2px 8px; }
+.plan-card .plan-overlay .overlay-btn:hover { transform: none; }
+
+@media (max-width: 760px) {
+  #accountContent { padding: 0 16px; }
+  .page-container { margin-top: 32px; }
+  .acct-layout { grid-template-columns: 1fr; gap: 0; }
+  .acct-nav { position: static; flex-direction: row; overflow-x: auto; gap: 4px; padding: 12px 0 0; scrollbar-width: none; }
+  .acct-nav a { white-space: nowrap; border-left: 0; border-bottom: 2px solid transparent; border-radius: 6px 6px 0 0; }
+  .acct-nav a.active { border-bottom-color: var(--accent-color, #fff); border-radius: 6px 6px 0 0; }
+  .acct-head { flex-wrap: wrap; }
+  .acct-usage { grid-template-columns: 1fr 1fr; }
+  .acct-usage-plan { grid-column: 1 / -1; }
+}

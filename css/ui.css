@@ -126,10 +126,6 @@ html.no-bg-grad body::before { display: none; }
 html.has-aurora body::before { display: none; }
 html.no-bg-grad #aurora { display: none; }
 
-@media (prefers-reduced-motion: reduce) {
-  #aurora { display: none; }
-  html.has-aurora body::before { display: block; }
-}
 
 a { color: inherit; }
 
@@ -530,9 +526,6 @@ body.rail-open .ol-toggle svg { transform: rotate(0deg); }
   .ol-legal { bottom: 84px; right: 12px; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; animation: none !important; }
-}
 
 /* Page changes: the browser keeps the old page on screen until the new one
    has painted, then cross-fades (no black or empty frame in between). The

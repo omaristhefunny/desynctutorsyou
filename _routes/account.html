@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="s3-shim.js?v=8ff03b8182"></script>
+  <script src="s3-shim.js?v=13c11bf4e0"></script>
   <meta charset="UTF-8">
   <script src="j/89a39940c3.js"></script>
   <script src="j/027c8bb4cc.js"></script>
@@ -11,8 +11,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&family=Lexend:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/page-account.css?v=16">
-  <link rel="stylesheet" href="css/ui.css?v=34">
+  <link rel="stylesheet" href="css/page-account.css?v=17">
+  <link rel="stylesheet" href="css/ui.css?v=35">
 </head>
 <body>
 
@@ -22,124 +22,165 @@
     </div>
 
     <div id="accountContent" style="display:none;">
-      <header class="acct-hero">
+      <header class="acct-head">
         <div id="avatarContainer"></div>
-        <div class="acct-hero-text">
-          <h3 id="profileUsername">-</h3>
-          <div class="discord-tag" id="profileDiscord">Not linked</div>
+        <div class="acct-head-text">
+          <h1 id="profileUsername">-</h1>
+          <div class="acct-meta">
+            <button type="button" class="acct-id" id="accountId" title="Copy account number">#0000</button>
+            <span class="acct-dot" aria-hidden="true">&middot;</span>
+            <span class="discord-tag" id="profileDiscord">Not linked</span>
+          </div>
         </div>
         <div id="membershipBadge"></div>
       </header>
 
-      <h2 class="acct-h">Profile</h2>
-      <div class="acct-card">
-        <div class="acct-row acct-row-wrap">
-          <div class="acct-row-text">
-            <label class="acct-label" for="displayNameInput">Display name</label>
-            <div class="acct-sub">How your name appears in chat and on your profile.</div>
-          </div>
-          <div class="acct-inline">
-            <input type="text" class="ol-input" id="displayNameInput" maxlength="24" autocomplete="nickname" placeholder="Your name in chat">
-            <button class="ol-btn" type="button" id="displayNameSave">Save</button>
-          </div>
-        </div>
-        <div class="sync-msg acct-msg" id="displayNameMsg"></div>
-      </div>
+      <div class="acct-layout">
+        <nav class="acct-nav" aria-label="Account sections">
+          <a href="#sec-profile">Profile</a>
+          <a href="#sec-email">Email</a>
+          <a href="#sec-ai">AI usage</a>
+          <a href="#sec-membership">Membership</a>
+          <a href="#sec-discord">D1SC00RD</a>
+          <a href="#sec-account">Account</a>
+        </nav>
 
-      <h2 class="acct-h">Email</h2>
-      <div class="acct-card" id="emailCard">
-        <div class="acct-pad" id="emailBody"></div>
-      </div>
+        <div class="acct-main">
+          <section class="acct-section" id="sec-profile">
+            <h2 class="acct-h">Profile</h2>
+            <div class="acct-card">
+              <div class="acct-row acct-row-wrap">
+                <div class="acct-row-text">
+                  <label class="acct-label" for="displayNameInput">Display name</label>
+                  <div class="acct-sub">How your name appears in chat and on your profile.</div>
+                </div>
+                <div class="acct-inline">
+                  <input type="text" class="ol-input" id="displayNameInput" maxlength="24" autocomplete="nickname" placeholder="Your name in chat">
+                  <button class="ol-btn" type="button" id="displayNameSave">Save</button>
+                </div>
+              </div>
+              <div class="sync-msg acct-msg" id="displayNameMsg"></div>
+              <div class="acct-row">
+                <div class="acct-row-text">
+                  <div class="acct-label">Account number</div>
+                  <div class="acct-sub">Share this if you need help from support. It never changes.</div>
+                </div>
+                <code class="acct-code" id="accountIdRow">#0000</code>
+              </div>
+            </div>
+          </section>
 
-      <h2 class="acct-h">Today's AI</h2>
-      <div class="acct-card">
-        <div class="acct-pad">
-          <div class="acct-stats">
-            <div><div class="acct-stat" id="promptsUsed">0</div><div class="acct-sub">Used today</div></div>
-            <div><div class="acct-stat" id="promptsRemaining">-</div><div class="acct-sub">Left today</div></div>
-            <div><div class="acct-stat" id="promptLimit">-</div><div class="acct-sub">Your plan</div></div>
-          </div>
-          <div class="progress-bar-bg acct-progress">
-            <div class="progress-bar-fill" id="promptsBar" style="width:0%;"></div>
-          </div>
-        </div>
-      </div>
+          <section class="acct-section" id="sec-email">
+            <h2 class="acct-h">Email</h2>
+            <div class="acct-card" id="emailCard">
+              <div class="acct-pad" id="emailBody"></div>
+            </div>
+          </section>
 
-      <div id="subscriptionCard" style="display:none;">
-        <h2 class="acct-h">Subscription</h2>
-        <div class="acct-card"><div class="acct-pad" id="subscriptionBody"></div></div>
-      </div>
+          <section class="acct-section" id="sec-ai">
+            <h2 class="acct-h">AI usage today</h2>
+            <div class="acct-card">
+              <div class="acct-pad">
+                <div class="acct-usage">
+                  <div class="acct-usage-item"><span class="acct-sub">Used</span><span class="acct-stat" id="promptsUsed">0</span></div>
+                  <div class="acct-usage-item"><span class="acct-sub">Left</span><span class="acct-stat" id="promptsRemaining">-</span></div>
+                  <div class="acct-usage-item acct-usage-plan"><span class="acct-sub">Allowance</span><span class="acct-stat acct-stat-sm" id="promptLimit">-</span></div>
+                </div>
+                <div class="progress-bar-bg acct-progress">
+                  <div class="progress-bar-fill" id="promptsBar" style="width:0%;"></div>
+                </div>
+              </div>
+            </div>
+          </section>
 
-      <h2 class="acct-h">Membership</h2>
-      <div class="acct-card">
-        <div class="acct-pad"><div class="plans-grid" id="plansGrid"></div></div>
-        <div class="acct-row">
-          <div class="acct-row-text">
-            <div class="acct-label">Sync your plan</div>
-            <div class="acct-sub" id="plansNote">Plans come from your D1SC00RD roles on the desync server.</div>
-          </div>
-          <button class="ol-btn" type="button" id="syncBtn">Sync</button>
-        </div>
-        <div class="sync-msg acct-msg" id="syncMsg"></div>
-      </div>
+          <section class="acct-section" id="sec-membership">
+            <div id="subscriptionCard" style="display:none;">
+              <h2 class="acct-h">Subscription</h2>
+              <div class="acct-card"><div class="acct-pad" id="subscriptionBody"></div></div>
+            </div>
 
-      <h2 class="acct-h">D1SC00RD</h2>
-      <div class="acct-card">
-        <div id="linkStep1" class="acct-row acct-row-wrap">
-          <div class="acct-row-text">
-            <div class="acct-label">Link your account</div>
-            <div class="acct-sub">Get the plan your roles include. You need to be in the desync server with DMs from server members on.</div>
-          </div>
-          <div class="acct-inline">
-            <input type="text" class="ol-input" id="discordUsername" placeholder="Your D1SC00RD username" autocomplete="off">
-            <button class="ol-btn" type="button" id="linkStartBtn">Send code</button>
-          </div>
-        </div>
-        <div id="linkStep2" class="acct-row acct-row-wrap" style="display:none;">
-          <div class="acct-row-text">
-            <div class="acct-label">Enter your code</div>
-            <div class="acct-sub">Check your D1SC00RD DMs for a 6-digit code. It expires in 10 minutes.</div>
-          </div>
-          <div class="acct-inline">
-            <input type="text" class="ol-input" id="discordCode" placeholder="6-digit code" inputmode="numeric" maxlength="6" autocomplete="one-time-code">
-            <button class="ol-btn" type="button" id="linkVerifyBtn">Link</button>
-            <button class="ol-btn acct-ghost" type="button" id="linkCancelBtn">Cancel</button>
-          </div>
-        </div>
-        <div id="linkStep3" class="acct-row" style="display:none;">
-          <div class="acct-row-text">
-            <div class="acct-label">Linked</div>
-            <div class="acct-sub">Your plan follows your roles. Press Sync after a role changes.</div>
-          </div>
-          <button class="ol-btn acct-ghost" type="button" id="unlinkBtn">Unlink</button>
-        </div>
-        <div class="sync-msg acct-msg" id="linkMsg"></div>
-      </div>
+            <h2 class="acct-h">Membership</h2>
+            <div class="acct-card">
+              <div class="acct-pad"><div class="plans-grid" id="plansGrid"></div></div>
+              <div class="acct-row">
+                <div class="acct-row-text">
+                  <div class="acct-label">Sync your plan</div>
+                  <div class="acct-sub" id="plansNote">Plans come from your D1SC00RD roles on the desync server.</div>
+                </div>
+                <button class="ol-btn" type="button" id="syncBtn">Sync</button>
+              </div>
+              <div class="sync-msg acct-msg" id="syncMsg"></div>
+            </div>
+          </section>
 
-      <h2 class="acct-h">Account</h2>
-      <div class="acct-card">
-        <div class="acct-row">
-          <div class="acct-row-text">
-            <div class="acct-label">Log out</div>
-            <div class="acct-sub">Sign out of desync on this device.</div>
-          </div>
-          <button class="ol-btn" type="button" id="logoutBtn">Log out</button>
+          <section class="acct-section" id="sec-discord">
+            <h2 class="acct-h">D1SC00RD</h2>
+            <div class="acct-card">
+              <div id="linkStep1" class="acct-row acct-row-wrap">
+                <div class="acct-row-text">
+                  <div class="acct-label">Link your account</div>
+                  <div class="acct-sub">Get the plan your roles include. You need to be in the desync server with DMs from server members on.</div>
+                </div>
+                <div class="acct-inline">
+                  <input type="text" class="ol-input" id="discordUsername" placeholder="Your D1SC00RD username" autocomplete="off">
+                  <button class="ol-btn" type="button" id="linkStartBtn">Send code</button>
+                </div>
+              </div>
+              <div id="linkStep2" class="acct-row acct-row-wrap" style="display:none;">
+                <div class="acct-row-text">
+                  <div class="acct-label">Enter your code</div>
+                  <div class="acct-sub">Check your D1SC00RD DMs for a 6-digit code. It expires in 10 minutes.</div>
+                </div>
+                <div class="acct-inline">
+                  <input type="text" class="ol-input" id="discordCode" placeholder="6-digit code" inputmode="numeric" maxlength="6" autocomplete="one-time-code">
+                  <button class="ol-btn" type="button" id="linkVerifyBtn">Link</button>
+                  <button class="ol-btn acct-ghost" type="button" id="linkCancelBtn">Cancel</button>
+                </div>
+              </div>
+              <div id="linkStep3" class="acct-row" style="display:none;">
+                <div class="acct-row-text">
+                  <div class="acct-label">Linked</div>
+                  <div class="acct-sub">Your plan follows your roles. Press Sync after a role changes.</div>
+                </div>
+                <button class="ol-btn acct-ghost" type="button" id="unlinkBtn">Unlink</button>
+              </div>
+              <div class="sync-msg acct-msg" id="linkMsg"></div>
+            </div>
+          </section>
+
+          <section class="acct-section" id="sec-account">
+            <h2 class="acct-h">Account</h2>
+            <div class="acct-card">
+              <div class="acct-row">
+                <div class="acct-row-text">
+                  <div class="acct-label">Log out</div>
+                  <div class="acct-sub">Sign out of desync on this device.</div>
+                </div>
+                <button class="ol-btn" type="button" id="logoutBtn">Log out</button>
+              </div>
+            </div>
+
+            <h2 class="acct-h acct-h-danger">Danger zone</h2>
+            <div class="acct-card acct-card-danger">
+              <div class="acct-row acct-row-wrap">
+                <div class="acct-row-text">
+                  <div class="acct-label">Delete account</div>
+                  <div class="acct-sub">Permanently deletes your account and everything tied to it: messages and DMs, friends, groups you own, game saves, music library and AI history. This can't be undone.</div>
+                </div>
+                <button class="ol-btn acct-danger" type="button" id="deleteStartBtn">Delete account</button>
+              </div>
+              <div id="deleteConfirm" class="acct-pad acct-confirm" style="display:none;">
+                <label class="acct-label" for="deletePassword">Confirm with your password</label>
+                <input type="password" class="ol-input" id="deletePassword" placeholder="Password" autocomplete="current-password">
+                <div class="acct-inline">
+                  <button class="ol-btn acct-danger acct-danger-solid" type="button" id="deleteConfirmBtn">Permanently delete</button>
+                  <button class="ol-btn acct-ghost" type="button" id="deleteCancelBtn">Cancel</button>
+                </div>
+              </div>
+              <div class="sync-msg acct-msg" id="deleteMsg"></div>
+            </div>
+          </section>
         </div>
-        <div class="acct-row acct-row-wrap">
-          <div class="acct-row-text">
-            <div class="acct-label acct-danger-text">Delete account</div>
-            <div class="acct-sub">Permanently deletes your account and everything tied to it: messages and DMs, friends, groups you own, game saves, music library and AI history. This can't be undone.</div>
-          </div>
-          <button class="ol-btn acct-danger" type="button" id="deleteStartBtn">Delete</button>
-        </div>
-        <div id="deleteConfirm" class="acct-pad acct-confirm" style="display:none;">
-          <input type="password" class="ol-input" id="deletePassword" placeholder="Enter your password to confirm" autocomplete="current-password">
-          <div class="acct-inline">
-            <button class="ol-btn acct-danger acct-danger-solid" type="button" id="deleteConfirmBtn">Permanently delete</button>
-            <button class="ol-btn acct-ghost" type="button" id="deleteCancelBtn">Cancel</button>
-          </div>
-        </div>
-        <div class="sync-msg acct-msg" id="deleteMsg"></div>
       </div>
     </div>
   </div>
@@ -155,10 +196,10 @@
   <script src="j/b99721fc94.js"></script>
   <script src="j/4e9323cd6c.js"></script>
   <script src="j/025caaf19a.js"></script>
-  <script src="j/8d862b752e.js"></script>
+  <script src="j/dae61cc0d9.js"></script>
   <script src="j/88f7a4141d.js"></script>
   <script src="j/1b235e84a9.js"></script>
   <script src="j/56e4db8416.js"></script>
-  <script type="module" src="j/43fb08df7b.js"></script>
+  <script type="module" src="j/125d1a1047.js"></script>
 </body>
 </html>
