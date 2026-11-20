@@ -747,3 +747,12 @@ body.rail-open .not-logged-in { left: var(--rail-open); }
   .acct-app { grid-template-columns: minmax(0, 1fr); }
   #accountContent { max-width: 100vw; }
 }
+@media (min-width: 821px) {
+  html:has(#accountContent[style*="block"]), html:has(#accountContent[style*="block"]) body { height: 100%; overflow: hidden; }
+  .page-container:has(#accountContent[style*="block"]) { margin: 0; height: 100vh; padding: 24px 0; box-sizing: border-box; justify-content: center; }
+  .acct-app { height: calc(100vh - 48px); min-height: 0; }
+  .acct-side { overflow-y: auto; }
+  .acct-main { overflow-y: auto; overscroll-behavior: contain; }
+}
+.acct-main .ol-btn:not(.ol-btn-primary):not(.acct-danger):not(.acct-ghost) { background: rgba(255, 255, 255, .06); border-color: var(--line-strong, rgba(255,255,255,.18)); }
+.acct-main .ol-btn:not(.ol-btn-primary):not(.acct-danger):not(.acct-ghost):hover { background: rgba(255, 255, 255, .1); }
