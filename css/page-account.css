@@ -661,11 +661,12 @@ body.rail-open .not-logged-in { left: var(--rail-open); }
 .acct-nav a, .acct-side-btn { display: flex; align-items: center; gap: 10px; width: 100%; padding: 9px 12px; border: 0; border-radius: 8px; background: none; font: 500 14px var(--font, Urbanist, sans-serif); color: var(--text-dim); text-decoration: none; cursor: pointer; text-align: left; transition: background-color .15s ease, color .15s ease; }
 .acct-nav a svg, .acct-side-btn svg { width: 17px; height: 17px; flex-shrink: 0; }
 .acct-nav a:hover, .acct-side-btn:hover { color: var(--text, #fff); background: rgba(255, 255, 255, .05); }
-.acct-nav a.active, .acct-side-btn.active { color: var(--text, #fff); background: var(--accent-soft, rgba(255, 255, 255, .08)); box-shadow: inset 2px 0 0 var(--accent-color, #fff); }
+.acct-nav a.active, .acct-side-btn.active { color: var(--text, #fff); background: var(--accent-soft, rgba(255, 255, 255, .08)); }
+.acct-nav a.active svg { color: var(--accent-color, #fff); }
 .acct-side-foot { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 2px; }
 .acct-side-danger { color: #ff9a9a; }
 .acct-side-danger:hover { color: #ffb3b3; background: rgba(255, 90, 90, .08); }
-.acct-side-danger.active { color: #ffb3b3; background: rgba(255, 90, 90, .1); box-shadow: inset 2px 0 0 #ff7a7a; }
+.acct-side-danger.active { color: #ffb3b3; background: rgba(255, 90, 90, .1); }
 
 .acct-main { min-width: 0; padding: 32px 36px 40px; }
 .acct-panel[hidden] { display: none !important; }
@@ -732,7 +733,6 @@ body.rail-open .not-logged-in { left: var(--rail-open); }
   .acct-who { flex-direction: row; text-align: left; padding: 0 4px 12px; }
   .acct-nav { flex-direction: row; overflow-x: auto; scrollbar-width: none; }
   .acct-nav a { white-space: nowrap; width: auto; }
-  .acct-nav a.active { box-shadow: inset 0 -2px 0 var(--accent-color, #fff); }
   .acct-side-foot { flex-direction: row; margin-top: 8px; padding-top: 8px; }
   .acct-side-btn { width: auto; }
   .acct-main { padding: 20px 16px 28px; }

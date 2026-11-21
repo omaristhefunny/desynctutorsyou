@@ -233,10 +233,9 @@
       width: 100%;
       margin-bottom: 6px;
       padding: 4px 8px 4px 9px;
-      border: 0;
-      border-left: 2px solid var(--accent-line);
-      border-radius: 0 min(var(--radius-sm), 10px) min(var(--radius-sm), 10px) 0;
-      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--line);
+      border-radius: min(var(--radius-sm), 10px);
+      background: var(--accent-soft, rgba(255, 255, 255, 0.05));
       color: inherit;
       font: inherit;
       font-size: 12px;

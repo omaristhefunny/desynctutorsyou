@@ -198,3 +198,6 @@ body {
 .legal-wrap { display: block; max-width: 760px; margin-inline: auto; }
 .legal-aside { position: static; top: auto; max-height: none; overflow: visible; padding: 0 0 8px; margin-bottom: 24px; border-bottom: 1px solid var(--line, rgba(255,255,255,.1)); }
 .legal-body { max-width: none; }
+
+.legal-body a { color: var(--text, #fff); text-decoration: underline; text-decoration-color: var(--accent-color, rgba(255,255,255,.5)); text-decoration-thickness: 1px; text-underline-offset: 3px; transition: text-decoration-color .15s ease; }
+.legal-body a:hover { text-decoration-color: currentColor; }
