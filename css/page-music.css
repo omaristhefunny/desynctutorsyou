@@ -722,7 +722,7 @@ body.overlay .lib-side .lib-list { max-height: 34vh; overflow-y: auto; }
 
 /* Smooth motion */
 @keyframes music-view-in { from { opacity: 0; transform: translateX(22px); } to { opacity: 1; transform: none; } }
-.music-body.view-in > * { animation: music-view-in 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.music-body.view-in > * { animation: music-view-in 0.26s cubic-bezier(0.28, 0.11, 0.32, 1) both; }
 .music-body.view-in > *:nth-child(2) { animation-delay: 0.04s; }
 .music-body.view-in > *:nth-child(3) { animation-delay: 0.08s; }
 .music-body.view-in > *:nth-child(4) { animation-delay: 0.12s; }
@@ -768,10 +768,10 @@ body.overlay .lib-side .lib-list { max-height: 34vh; overflow-y: auto; }
 @keyframes music-player-in { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 @keyframes music-art-pop { 0% { opacity: 0; transform: scale(0.7) rotate(-4deg); } 100% { opacity: 1; transform: none; } }
 @keyframes music-text-in { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: none; } }
-.track-card.playing { transform: scale(1.04); animation: music-card-pick 0.4s cubic-bezier(0.2, 0.8, 0.2, 1.2); }
-.player:not([hidden]) { animation: music-player-in 0.4s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
-.player.track-change #pThumb { animation: music-art-pop 0.4s cubic-bezier(0.2, 0.8, 0.2, 1.2) both; }
-.player.track-change #pTitle, .player.track-change #pArtist { animation: music-text-in 0.35s ease both; }
+.track-card.playing { transform: scale(1.04); animation: music-card-pick 0.3s cubic-bezier(0.2, 0.8, 0.2, 1.2); }
+.player:not([hidden]) { animation: music-player-in 0.3s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.player.track-change #pThumb { animation: music-art-pop 0.3s cubic-bezier(0.2, 0.8, 0.2, 1.2) both; }
+.player.track-change #pTitle, .player.track-change #pArtist { animation: music-text-in 0.26s ease both; }
 .player.track-change #pArtist { animation-delay: 0.05s; }
 @media (prefers-reduced-motion: reduce) {
   .track-card.playing, .player:not([hidden]), .player.track-change #pThumb,

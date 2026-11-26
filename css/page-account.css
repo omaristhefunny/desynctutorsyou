@@ -550,7 +550,7 @@
   border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-lg);
   background: rgba(0, 0, 0, 0.55);
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
-  animation: acct-auth-in 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation: acct-auth-in 0.32s cubic-bezier(0.28, 0.11, 0.32, 1) both;
 }
 .account-auth .af-title { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; }
 .account-auth .af-blurb { font-size: 15px; margin-top: 10px; }

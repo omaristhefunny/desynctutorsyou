@@ -238,3 +238,19 @@ html[data-shape="pill"] .shape-option { border-radius: var(--radius); }
 .bg-card-thumb--gradient { background: radial-gradient(135% 115% at 50% 0%, var(--accent-line), transparent 66%), #000; }
 .bg-card-thumb--none { background: #000; }
 .bg-card-thumb--none::after { content: ""; position: absolute; left: 50%; top: 50%; width: 24px; height: 24px; margin: -12px 0 0 -12px; border-radius: 50%; border: 1.5px solid var(--text-dim); opacity: 0.4; }
+
+html .ol-box .hex-input.is-vice {
+  width: 150px;
+  font-family: var(--font, Urbanist, sans-serif);
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: #ff7ab8;
+  -webkit-text-fill-color: transparent;
+  caret-color: #ff7ab8;
+  background-image: linear-gradient(90deg, #ffb46b 0%, #ff4fa3 45%, #b06bff 75%, #4fd6ff 100%), linear-gradient(rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.06));
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+}
+html .ol-box .hex-input.is-vice:focus { -webkit-text-fill-color: currentColor; background-image: none; }
