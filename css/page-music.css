@@ -1025,8 +1025,29 @@ html.lyfs-open, html.lyfs-open body { overflow: hidden; }
   filter: blur(64px) saturate(1.5) brightness(0.72);
   transform: scale(1.12);
   opacity: 0; transition: opacity 1.1s ease;
+  will-change: transform;
+  animation: ly-drift 34s ease-in-out infinite;
 }
 .lyfs-bg-img.on { opacity: 1; }
+.lyfs-bg-img::after, .lyrics-bg-img::after {
+  content: ""; position: absolute; inset: 0;
+  background-image: inherit; background-size: cover; background-position: center;
+  opacity: 0.6; mix-blend-mode: screen;
+  animation: ly-swirl 26s ease-in-out infinite alternate;
+}
+.lyfs:not(.open) .lyfs-bg-img, .lyfs:not(.open) .lyfs-bg-img::after { animation-play-state: paused; }
+@keyframes ly-drift {
+  0%   { transform: scale(1.16) translate3d(0, 0, 0) rotate(0deg); }
+  25%  { transform: scale(1.26) translate3d(-4%, 3%, 0) rotate(7deg); }
+  50%  { transform: scale(1.2) translate3d(3%, 4%, 0) rotate(-4deg); }
+  75%  { transform: scale(1.28) translate3d(4%, -3%, 0) rotate(5deg); }
+  100% { transform: scale(1.16) translate3d(0, 0, 0) rotate(0deg); }
+}
+@keyframes ly-swirl {
+  0%   { transform: rotate(180deg) scale(1.1) translate3d(6%, -4%, 0); }
+  50%  { transform: rotate(150deg) scale(1.3) translate3d(-5%, 5%, 0); }
+  100% { transform: rotate(215deg) scale(1.15) translate3d(4%, 6%, 0); }
+}
 .lyfs-bg-shade {
   position: absolute; inset: 0;
   background:
@@ -1226,6 +1247,8 @@ html.lyfs-open, html.lyfs-open body { overflow: hidden; }
   background-size: cover; background-position: center;
   filter: blur(42px) saturate(1.6) brightness(0.78);
   opacity: 0; transition: opacity 1s ease;
+  will-change: transform;
+  animation: ly-drift 34s ease-in-out infinite;
 }
 .lyrics-bg-img.on { opacity: 1; }
 .lyrics-bg::after {
