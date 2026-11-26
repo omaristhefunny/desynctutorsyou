@@ -663,13 +663,23 @@ html.theme-vice .bg-card { background: rgba(255, 255, 255, 0.04); border-color: 
 html.theme-vice .bg-card-thumb { background-color: rgba(10, 4, 22, 0.55); }
 html.theme-vice .game-card { background: rgba(20, 8, 40, 0.4); border-color: var(--vice-glass-line); }
 html.theme-vice .acct-app {
-  background: rgba(16, 6, 34, 0.42);
-  border-color: var(--vice-glass-line);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
+  background: transparent;
+  border: 0;
+  gap: 16px;
+  overflow: visible;
 }
-html.theme-vice .acct-side { background: rgba(255, 255, 255, 0.03); border-color: var(--vice-glass-line); }
-html.theme-vice .acct-card { background: rgba(255, 255, 255, 0.05); border-color: var(--vice-glass-line); }
+html.theme-vice .acct-side,
+html.theme-vice .acct-card,
+html.theme-vice .acct-hero {
+  background: rgba(14, 5, 30, 0.5);
+  border: 1px solid var(--vice-glass-line);
+  border-radius: var(--radius);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+html.theme-vice .acct-main { padding-top: 24px; }
+html.theme-vice .acct-main .ol-btn:not(.ol-btn-primary) { background: var(--vice-glass); border-color: var(--vice-glass-line); }
+html.theme-vice .acct-main .ol-btn:not(.ol-btn-primary):hover { background: rgba(255, 255, 255, 0.12); }
 html.theme-vice .ol-box .ol-input,
 html.theme-vice .acct-app .ol-input { background: rgba(10, 4, 22, 0.4); border-color: var(--vice-glass-line); }
 html.theme-vice .music-body, html.theme-vice .lib-side {
