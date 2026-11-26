@@ -672,3 +672,11 @@ html.theme-vice .acct-side { background: rgba(255, 255, 255, 0.03); border-color
 html.theme-vice .acct-card { background: rgba(255, 255, 255, 0.05); border-color: var(--vice-glass-line); }
 html.theme-vice .ol-box .ol-input,
 html.theme-vice .acct-app .ol-input { background: rgba(10, 4, 22, 0.4); border-color: var(--vice-glass-line); }
+html.theme-vice .music-body, html.theme-vice .lib-side {
+  --surface: rgba(22, 8, 44, 0.3);
+  --surface-hover: rgba(255, 255, 255, 0.08);
+  --surface-raised: rgba(255, 255, 255, 0.06);
+}
+html.theme-vice .cat-open { background: rgba(22, 8, 44, 0.3); border-color: var(--vice-glass-line); }
+html.theme-vice .cat-open:hover, html.theme-vice .artist-card:hover { background: rgba(255, 255, 255, 0.09); }
+html.theme-vice .cat-card-new .cat-open { background: transparent; }
