@@ -638,14 +638,17 @@ html.theme-vice .plan-pill {
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
 }
-html.theme-vice .music-search:focus-within,
-html.theme-vice .composer-row:focus-within { background: var(--vice-glass-strong); }
+html.theme-vice .music-search:focus-within { background: var(--vice-glass-strong); }
 html.theme-vice .lib-create:hover,
 html.theme-vice .music-gear:hover,
 html.theme-vice .attach-btn:hover,
 html.theme-vice .ol-btn:not(.ol-btn-primary):not(.primary):hover { background: rgba(255, 255, 255, 0.12); }
-html.theme-vice .ai-rail { background: rgba(18, 6, 36, 0.22); }
-html.theme-vice .chat-header { background: rgba(18, 6, 36, 0.28); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+html.theme-vice .ai-rail, html.theme-vice .ai-rail-head, html.theme-vice .ai-usage { background: transparent; border-color: rgba(255, 255, 255, 0.12); }
+html.theme-vice .chat-header { background: transparent; border-color: rgba(255, 255, 255, 0.12); -webkit-backdrop-filter: none; backdrop-filter: none; }
+html.theme-vice .composer-row { background: rgba(255, 255, 255, 0.07); border-color: rgba(255, 255, 255, 0.2); box-shadow: 0 10px 30px rgba(20, 4, 40, 0.25); }
+html.theme-vice .composer-row:focus-within { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.36); }
+html.theme-vice .composer-row .attach-btn, html.theme-vice .composer-row .model-trigger { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.14); -webkit-backdrop-filter: none; backdrop-filter: none; }
+html.theme-vice .composer-row .attach-btn:hover, html.theme-vice .composer-row .model-trigger:hover { background: rgba(255, 255, 255, 0.16); }
 html.theme-vice .message.assistant { background: var(--vice-glass); border-color: var(--vice-glass-line); }
 html.theme-vice .model-menu { background: rgba(28, 10, 52, 0.82); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
 html.theme-vice .ol-box {
