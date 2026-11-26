@@ -874,10 +874,6 @@ body.overlay .lib-side .lib-list { max-height: 34vh; overflow-y: auto; }
 @keyframes lyrics-up { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 @keyframes lyrics-down { to { opacity: 0; transform: translateY(24px); } }
 .lyric-line { transition: color 0.25s ease, transform 0.25s ease, opacity 0.25s ease; }
-@media (prefers-reduced-motion: reduce) {
-  .lyrics-panel, .lyrics-panel.closing { animation: none !important; }
-  .lyrics-panel.animate-size { transition: none; }
-}
 
 /* ---- Music bar: full width along the bottom, thin progress line on top ---- */
 @media (min-width: 821px) {
@@ -971,7 +967,6 @@ body.overlay .lib-side .lib-list { max-height: 34vh; overflow-y: auto; }
   100% { transform: scale(1.06) translateX(4px); }
 }
 .lyric-line.plain { opacity: 0.82; font-size: clamp(16px, 2.2cqi, 20px); font-weight: 600; filter: none; }
-@media (prefers-reduced-motion: reduce) { .lyric-line { transition: none; } .lyrics-panel { transition: none; } }
 
 /* Lyrics source credit (which provider matched the song) */
 .lyrics-credit {
@@ -1216,9 +1211,6 @@ html.lyfs-open, html.lyfs-open body { overflow: hidden; }
   .lyfs-play { width: 50px; height: 50px; }
   #lyfsFull { display: none; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .lyfs, .lyfs-inner, .lyfs-line, .lyfs-bg-img, .lyfs-fill { transition: none !important; }
-}
 
 /* ---- Small lyrics panel: blurred cover behind, bright bold lines ---- */
 .lyrics-panel { isolation: isolate; }
@@ -1277,7 +1269,6 @@ html.lyfs-open, html.lyfs-open body { overflow: hidden; }
 .lyfs .lyr-viz { width: min(1500px, 94vw); height: min(40vh, 380px); }
 .lyfs .lyr-t { font-size: clamp(24px, 2.6vw, 36px); font-weight: 800; margin-top: 10px; }
 .lyfs .lyr-s { font-size: 17px; margin-top: -6px; }
-@media (prefers-reduced-motion: reduce) { .lyr-state { animation: none; } }
 
 /* ---- Word-by-word (karaoke) synced lyrics ---- */
 /* Each word starts dim and brightens over its own sung duration (--d). */
@@ -1292,7 +1283,6 @@ html.lyfs-open, html.lyfs-open body { overflow: hidden; }
 .lyric-line.has-words-line { font-weight: 700; }
 .lyfs.is-synced .lyfs-inner.has-words .lyfs-line.active { text-shadow: none; }
 .lyfs-inner.has-words .lw.lit { text-shadow: 0 0 30px rgba(255, 255, 255, 0.4); }
-@media (prefers-reduced-motion: reduce) { .has-words .lw { transition: none; } }
 
 .search-head { font-size: clamp(22px, 3vw, 30px); font-weight: 800; letter-spacing: -0.02em; margin: 4px 0 18px; }
 .track-list { display: flex; flex-direction: column; gap: 2px; }
@@ -1313,7 +1303,6 @@ html.lyfs-open, html.lyfs-open body { overflow: hidden; }
 .lyfs-viz { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
 .lyfs .lyr-state .lyr-viz { display: none; }
 .lyfs:not(.is-empty) .lyfs-viz, .lyfs.show-queue .lyfs-viz { display: none; }
-@media (prefers-reduced-motion: reduce) { .lyfs-viz { display: none; } }
 .lyrics-body.has-state { padding: 18px 16px 22px; justify-content: stretch; align-items: stretch; -webkit-mask-image: none; mask-image: none; }
 .lyrics-panel .lyrics-body.has-state .lyr-state { flex: 1 1 auto; min-height: 0; }
 .lyrics-panel .lyr-viz { flex: 1 1 0; min-height: 0; height: auto; }
