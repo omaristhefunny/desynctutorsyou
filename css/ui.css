@@ -744,3 +744,20 @@ html.theme-xmas .ol-sidebar .ol-link.active:hover { color: #fff; }
   html body .ol-sidebar .ol-toggle svg { flex-shrink: 0; width: 20px; height: 20px; }
   html body:not(.rail-open) .ol-rail { align-items: stretch; }
 }
+html.theme-vice { --vice-glass: rgba(20, 8, 40, 0.5); --vice-glass-strong: rgba(20, 8, 40, 0.62); --vice-glass-line: rgba(255, 255, 255, 0.2); }
+html.theme-vice .composer-row,
+html.theme-vice .composer-row:focus-within {
+  background: rgba(20, 8, 40, 0.55);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: none;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+html.theme-vice .composer-row:focus-within { border-color: rgba(255, 255, 255, 0.34); }
+html.theme-vice .composer-row .attach-btn,
+html.theme-vice .composer-row .model-trigger {
+  background: rgba(20, 8, 40, 0.45);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+html.theme-vice .composer-row .attach-btn:hover,
+html.theme-vice .composer-row .model-trigger:hover { background: rgba(255, 255, 255, 0.1); }
