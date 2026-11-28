@@ -698,3 +698,67 @@ html.theme-vice .join-card {
   backdrop-filter: blur(12px);
 }
 html.theme-vice body:not(.overlay) .composer .ol-input:focus { background: var(--vice-glass-strong); border-color: rgba(255, 255, 255, 0.34); }
+
+.ol-sidebar .ol-link:not(.active),
+.ol-sidebar .ol-link:not(.active):hover,
+.ol-sidebar .ol-toggle,
+.ol-sidebar .ol-toggle:hover {
+  background: transparent;
+  box-shadow: none;
+  border-color: transparent;
+}
+.ol-sidebar .ol-link:not(.active):hover,
+.ol-sidebar .ol-toggle:hover { color: var(--text, #fff); }
+.ol-sidebar .ol-link.active,
+.ol-sidebar .ol-link.active:hover {
+  background: var(--accent);
+  color: var(--acc-ink, #000);
+  box-shadow: none;
+  border-color: transparent;
+  filter: none;
+}
+html.theme-vice .ol-sidebar .ol-link.active,
+html.theme-vice .ol-sidebar .ol-link.active:hover { background: linear-gradient(135deg, #ffb46b, #ff4fa3); color: #1a0a24; }
+html.theme-xmas .ol-sidebar .ol-link.active,
+html.theme-xmas .ol-sidebar .ol-link.active:hover { color: #fff; }
+
+#ol-snow { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; animation: ol-snow-sway 9s ease-in-out infinite alternate; }
+#ol-snow i {
+  position: absolute; left: -40px; right: -40px; top: 0;
+  will-change: transform;
+}
+#ol-snow i:nth-child(1) {
+  height: calc(100% + 220px);
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(255,255,255,.9) 0 1.4px, transparent 2px),
+    radial-gradient(circle at 46% 64%, rgba(255,255,255,.8) 0 1.2px, transparent 1.8px),
+    radial-gradient(circle at 78% 32%, rgba(255,255,255,.85) 0 1.5px, transparent 2.1px),
+    radial-gradient(circle at 62% 88%, rgba(255,255,255,.7) 0 1.1px, transparent 1.7px),
+    radial-gradient(circle at 28% 76%, rgba(255,255,255,.75) 0 1.3px, transparent 1.9px);
+  background-size: 220px 220px;
+  animation: ol-snow-a 14s linear infinite;
+}
+#ol-snow i:nth-child(2) {
+  height: calc(100% + 340px);
+  background-image:
+    radial-gradient(circle at 20% 40%, rgba(255,255,255,.95) 0 2.2px, transparent 3px),
+    radial-gradient(circle at 70% 12%, rgba(255,255,255,.9) 0 2.6px, transparent 3.4px),
+    radial-gradient(circle at 54% 72%, rgba(255,255,255,.85) 0 2px, transparent 2.8px);
+  background-size: 340px 340px;
+  filter: blur(0.4px);
+  animation: ol-snow-b 11s linear infinite;
+}
+#ol-snow i:nth-child(3) {
+  height: calc(100% + 160px);
+  background-image:
+    radial-gradient(circle at 34% 22%, rgba(255,255,255,.55) 0 0.9px, transparent 1.4px),
+    radial-gradient(circle at 84% 58%, rgba(255,255,255,.5) 0 0.8px, transparent 1.3px),
+    radial-gradient(circle at 8% 84%, rgba(255,255,255,.55) 0 0.9px, transparent 1.4px),
+    radial-gradient(circle at 58% 46%, rgba(255,255,255,.45) 0 0.8px, transparent 1.3px);
+  background-size: 160px 160px;
+  animation: ol-snow-c 20s linear infinite;
+}
+@keyframes ol-snow-a { from { transform: translate3d(0, -220px, 0); } to { transform: translate3d(0, 0, 0); } }
+@keyframes ol-snow-b { from { transform: translate3d(0, -340px, 0); } to { transform: translate3d(0, 0, 0); } }
+@keyframes ol-snow-c { from { transform: translate3d(0, -160px, 0); } to { transform: translate3d(0, 0, 0); } }
+@keyframes ol-snow-sway { from { transform: translate3d(-14px, 0, 0); } to { transform: translate3d(14px, 0, 0); } }
