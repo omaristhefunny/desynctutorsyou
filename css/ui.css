@@ -683,69 +683,6 @@ html.theme-vice .cat-open { background: rgba(22, 8, 44, 0.3); border-color: var(
 html.theme-vice .cat-open:hover, html.theme-vice .artist-card:hover { background: rgba(255, 255, 255, 0.09); }
 html.theme-vice .cat-card-new .cat-open { background: transparent; }
 
-html.theme-vice {
-  --lg-fill: linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.05) 42%, rgba(255, 255, 255, 0.02) 60%, rgba(255, 255, 255, 0.1) 100%);
-  --lg-rim: inset 0 1px 0.5px rgba(255, 255, 255, 0.5), inset 0 -1px 1px rgba(255, 255, 255, 0.14), inset 1px 0 1px rgba(255, 255, 255, 0.08), inset -1px 0 1px rgba(255, 255, 255, 0.08), inset 0 0 14px rgba(255, 255, 255, 0.06);
-  --lg-drop: 0 8px 24px rgba(24, 4, 48, 0.28);
-  --lg-line: rgba(255, 255, 255, 0.2);
-  --lg-blur: blur(7px) saturate(180%) brightness(1.06);
-}
-html.theme-vice .ol-sidebar .ol-link,
-html.theme-vice .ol-sidebar .ol-toggle,
-html.theme-vice .music-search,
-html.theme-vice .lib-create,
-html.theme-vice .music-gear,
-html.theme-vice .shelf-arrow,
-html.theme-vice .composer-row,
-html.theme-vice .composer-row .attach-btn,
-html.theme-vice .composer-row .model-trigger,
-html.theme-vice .per-row,
-html.theme-vice .provider-tab:not(.active):not(.on),
-html.theme-vice .lib-switch,
-html.theme-vice .education-search .ol-input,
-html.theme-vice .education-sort,
-html.theme-vice .settings-nav,
-html.theme-vice .ol-btn:not(.ol-btn-primary):not(.primary),
-html.theme-vice .look-option,
-html.theme-vice .plan-pill,
-html.theme-vice body .search-bar,
-html.theme-vice body .home-quick-ic {
-  background: var(--lg-fill);
-  border-color: var(--lg-line);
-  box-shadow: var(--lg-rim), var(--lg-drop);
-  -webkit-backdrop-filter: var(--lg-blur);
-  backdrop-filter: var(--lg-blur);
-}
-html.theme-vice .ol-sidebar .ol-link:not(.active),
-html.theme-vice .ol-sidebar .ol-toggle { box-shadow: var(--lg-rim); }
-html.theme-vice .ol-sidebar .ol-link.active {
-  background: linear-gradient(135deg, rgba(255, 180, 107, 0.34), rgba(255, 79, 163, 0.18) 55%, rgba(255, 255, 255, 0.08));
-  box-shadow: var(--lg-rim), 0 0 0 1px rgba(255, 200, 150, 0.32), 0 6px 18px rgba(255, 79, 163, 0.25);
-  -webkit-backdrop-filter: var(--lg-blur);
-  backdrop-filter: var(--lg-blur);
-}
-html.theme-vice .ol-sidebar .ol-link:hover:not(.active),
-html.theme-vice .ol-btn:not(.ol-btn-primary):not(.primary):hover,
-html.theme-vice .lib-create:hover,
-html.theme-vice .music-gear:hover,
-html.theme-vice .composer-row .attach-btn:hover,
-html.theme-vice .composer-row .model-trigger:hover {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.08) 50%, rgba(255, 255, 255, 0.14));
-}
-html.theme-vice .composer-row:focus-within,
-html.theme-vice .music-search:focus-within { box-shadow: var(--lg-rim), 0 0 0 1px rgba(255, 255, 255, 0.3), var(--lg-drop); }
-html.theme-vice .ol-box,
-html.theme-vice .acct-app,
-html.theme-vice .chat-header {
-  box-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.28), inset 0 -1px 1px rgba(255, 255, 255, 0.06), var(--lg-drop);
-  -webkit-backdrop-filter: blur(14px) saturate(170%);
-  backdrop-filter: blur(14px) saturate(170%);
-}
-html.theme-vice.lg-refract .lg-on.lg-on:not(.active):not(.ol-box):not(.acct-app):not(.acct-card):not(.chat-header) {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 45%, rgba(255, 255, 255, 0.06) 100%);
-}
-html.theme-vice.lg-refract .lg-on { box-shadow: var(--lg-rim) !important; }
-html.theme-vice.lg-refract .ol-sidebar .ol-link.active.lg-on { box-shadow: var(--lg-rim), inset 0 0 0 1px rgba(255, 200, 150, 0.4) !important; }
 html.theme-vice body:not(.overlay) .roster,
 html.theme-vice body:not(.overlay) .casino-panel { background: rgba(18, 6, 36, 0.18); border-color: var(--vice-glass-line); }
 html.theme-vice body:not(.overlay) .composer { background: transparent; border-color: var(--vice-glass-line); }
@@ -755,10 +692,9 @@ html.theme-vice .roster-add,
 html.theme-vice .channel-btn.active,
 html.theme-vice .group-btn.active,
 html.theme-vice .join-card {
-  background: var(--lg-fill);
-  border-color: var(--lg-line);
-  box-shadow: var(--lg-rim);
-  -webkit-backdrop-filter: var(--lg-blur);
-  backdrop-filter: var(--lg-blur);
+  background: var(--vice-glass);
+  border-color: var(--vice-glass-line);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
 }
-html.theme-vice body:not(.overlay) .composer .ol-input:focus { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.34); }
+html.theme-vice body:not(.overlay) .composer .ol-input:focus { background: var(--vice-glass-strong); border-color: rgba(255, 255, 255, 0.34); }
