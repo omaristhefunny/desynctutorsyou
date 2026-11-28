@@ -210,9 +210,8 @@ html.theme-xmas .hero-wordmark {
   -webkit-background-clip: text; background-clip: text;
 }
 html.theme-xmas .hero-wordmark { position: relative; width: fit-content; margin-inline: auto; }
-html.theme-xmas .hero-wordmark .wm-d { position: relative; }
-html.theme-xmas .hero-wordmark .wm-d::before {
-  content: ""; position: absolute; left: 0.19em; top: -0.2em; width: 0.8em; height: 0.533em;
+html.theme-xmas .hero-wordmark::before {
+  content: ""; position: absolute; left: 0.28em; top: -0.225em; width: 0.8em; height: 0.533em;
   background: url("../images/xmas-hat.svg") center / contain no-repeat;
   transform: rotate(-12deg); transform-origin: 38% 90%; pointer-events: none;
   filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.3));
