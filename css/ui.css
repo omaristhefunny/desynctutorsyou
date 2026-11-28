@@ -723,3 +723,24 @@ html.theme-xmas .ol-sidebar .ol-link.active,
 html.theme-xmas .ol-sidebar .ol-link.active:hover { color: #fff; }
 
 #ol-snow { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+
+.ol-sidebar { transition: width 0.28s cubic-bezier(0.32, 0.72, 0, 1); }
+.ol-stage { transition: margin-left 0.28s cubic-bezier(0.32, 0.72, 0, 1); }
+.ol-label { transition: opacity 0.2s ease, max-width 0.28s cubic-bezier(0.32, 0.72, 0, 1); }
+.ol-toggle svg { transition: transform 0.28s cubic-bezier(0.32, 0.72, 0, 1); }
+@media (min-width: 821px) {
+  html body .ol-sidebar .ol-link,
+  html body .ol-sidebar .ol-toggle {
+    justify-content: flex-start;
+    width: 100%;
+    min-height: var(--rail-w);
+    padding: 0 calc((var(--rail-w) - 20px) / 2);
+    gap: 12px;
+    border-radius: calc(var(--rail-w) / 2) !important;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  html body .ol-sidebar .ol-link svg,
+  html body .ol-sidebar .ol-toggle svg { flex-shrink: 0; width: 20px; height: 20px; }
+  html body:not(.rail-open) .ol-rail { align-items: stretch; }
+}
