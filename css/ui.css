@@ -782,3 +782,22 @@ html body .af-otp.af-invalid input {
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 html body .af-error:not(:empty) { color: #ff6b6b; }
+
+html body .af-otp .af-otp-box {
+  border-radius: 12px !important;
+  background: #f4f4f5;
+  border: 1px solid #e4e4e7;
+  color: #111114;
+  font-weight: 700;
+  font-size: 22px;
+  text-align: center;
+  box-shadow: none;
+  caret-color: #111114;
+}
+html body .af-otp .af-otp-box:focus {
+  outline: none;
+  background: #ffffff;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+html body .af-otp.af-invalid .af-otp-box { border-color: #ff4d4f !important; box-shadow: 0 0 0 1px #ff4d4f; background: #fff5f5; }
