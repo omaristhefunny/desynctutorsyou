@@ -309,3 +309,12 @@ html.theme-vice .hero-tagline-caret { background: #ffd36b; }
 .search-bar::after { display: none; }
 .search-bar { background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 255, 255, 0.14); }
 .search-bar:focus-within { border-color: rgba(255, 255, 255, 0.3); box-shadow: none; }
+.hero .hero-tagline, .hero-tagline { margin: 14px 0 10px; }
+.hero::before { display: none; }
+.home-quick-btn:hover .home-quick-ic, .home-quick-btn:focus-visible .home-quick-ic {
+  transform: none; color: var(--acc-ink, #000); background: var(--accent); border-color: transparent; box-shadow: none;
+}
+.home-app:hover .home-quick-ic, .home-app:focus-visible .home-quick-ic {
+  color: #fff; background: var(--brand); border-color: transparent; box-shadow: none;
+}
+html.theme-vice body .home-quick-btn:hover .home-quick-ic { background: var(--accent); border-color: transparent; }

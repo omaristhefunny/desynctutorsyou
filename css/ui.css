@@ -559,14 +559,6 @@ html:not(.ol-warm) .ol-sidebar .ol-group:nth-child(2) .ol-link:nth-child(3) { an
 html:not(.ol-warm) .ol-sidebar .ol-group:nth-child(2) .ol-link:nth-child(4) { animation-delay: 0.075s; }
 html:not(.ol-warm) .ol-sidebar .ol-link.active { animation: ol-rail-in 0.3s cubic-bezier(0.28, 0.11, 0.32, 1) both, ol-pick 0.32s ease 0.12s; }
 
-@keyframes ol-reveal { from { opacity: 0; translate: 0 26px; scale: 0.97; } to { opacity: 1; translate: 0 0; scale: 1; } }
-@supports (animation-timeline: view()) {
-  .game-card, .track-card, .artist-card, .ol-box, .acct-card {
-    animation: ol-reveal linear both;
-    animation-timeline: view();
-    animation-range: entry 0% entry 40%;
-  }
-}
 
 .ol-link { transition: background 0.2s ease, color 0.2s ease, transform 0.15s cubic-bezier(0.22, 1, 0.36, 1); }
 .ol-link:active { transform: translateY(1px); }
@@ -761,3 +753,14 @@ html.theme-vice .composer-row .model-trigger {
 }
 html.theme-vice .composer-row .attach-btn:hover,
 html.theme-vice .composer-row .model-trigger:hover { background: rgba(255, 255, 255, 0.1); }
+
+html body .ol-box-eyebrow, html body .legal-kicker, html body .nf-tag { display: none; }
+html body .settings-section-title, html body .roster-label, html body .ai-rail-title, html body .ai-usage-label,
+html body .stat-label, html body .legal-callout-label, html body .album-kind, html body .np-label,
+html body .lib-section-title, html body .lyfs-queue-head, html body .lyfs-q-label, html body .casino-label,
+html body .casino-title, html body .overlay-label {
+  text-transform: none;
+  letter-spacing: normal;
+}
+html body .settings-section-title { color: var(--text, #fff); font-size: 18px; font-weight: 700; }
+html body .roster-label, html body .ai-usage-label, html body .lib-section-title { font-size: 13px; font-weight: 600; }

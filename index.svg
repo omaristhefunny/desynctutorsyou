@@ -12,7 +12,7 @@
   window.__desyncApiBase = "https://desynctutoring.com";
   window.__desyncMusicUrl = new URL("article.html", location.href).href;
   ]]></script>
-  <script href="j/7a782e6420.js"></script>
+  <script href="j/389c67ae77.js"></script>
   <script><![CDATA[
   (function () {
     var BASE = new URL("./", location.href).href;
