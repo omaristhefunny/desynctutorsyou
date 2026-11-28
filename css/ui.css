@@ -708,8 +708,8 @@ html.theme-vice .settings-nav,
 html.theme-vice .ol-btn:not(.ol-btn-primary):not(.primary),
 html.theme-vice .look-option,
 html.theme-vice .plan-pill,
-html.theme-vice .search-bar,
-html.theme-vice .home-quick-ic {
+html.theme-vice body .search-bar,
+html.theme-vice body .home-quick-ic {
   background: var(--lg-fill);
   border-color: var(--lg-line);
   box-shadow: var(--lg-rim), var(--lg-drop);
