@@ -318,3 +318,4 @@ html.theme-vice .hero-tagline-caret { background: #ffd36b; }
   color: #fff; background: var(--brand); border-color: transparent; box-shadow: none;
 }
 html.theme-vice body .home-quick-btn:hover .home-quick-ic { background: var(--accent); border-color: transparent; }
+html body .hero-wordmark { filter: none !important; }
