@@ -211,9 +211,9 @@ html.theme-xmas .hero-wordmark {
 }
 html.theme-xmas .hero-wordmark { position: relative; width: fit-content; margin-inline: auto; }
 html.theme-xmas .hero-wordmark::before {
-  content: ""; position: absolute; left: 0.18em; top: -0.36em; width: 0.66em; height: 0.53em;
+  content: ""; position: absolute; left: 0.14em; top: -0.5em; width: 0.95em; height: 0.76em;
   background: url("../images/xmas-hat.svg") center / contain no-repeat;
-  transform: rotate(-12deg); transform-origin: 40% 85%; pointer-events: none;
+  transform: rotate(-10deg); transform-origin: 40% 85%; pointer-events: none;
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.35));
 }
 
@@ -306,3 +306,6 @@ html.theme-vice .hero-tagline-caret { background: #ffd36b; }
   .home-quick-btn { min-width: 0; }
   .home-quick-label { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 }
+.search-bar::after { display: none; }
+.search-bar { background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 255, 255, 0.14); }
+.search-bar:focus-within { border-color: rgba(255, 255, 255, 0.3); box-shadow: none; }
