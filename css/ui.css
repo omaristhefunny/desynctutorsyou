@@ -741,15 +741,6 @@ html.theme-vice .chat-header {
   -webkit-backdrop-filter: blur(14px) saturate(170%);
   backdrop-filter: blur(14px) saturate(170%);
 }
-html.theme-vice.lg-refract .ol-sidebar .ol-link,
-html.theme-vice.lg-refract .ol-sidebar .ol-toggle,
-html.theme-vice.lg-refract .lib-create,
-html.theme-vice.lg-refract .music-gear,
-html.theme-vice.lg-refract .shelf-arrow,
-html.theme-vice.lg-refract .composer-row .attach-btn,
-html.theme-vice.lg-refract .composer-row .model-trigger,
-html.theme-vice.lg-refract .ol-btn:not(.ol-btn-primary):not(.primary),
-html.theme-vice.lg-refract .look-option,
-html.theme-vice.lg-refract .home-quick-ic {
-  backdrop-filter: url(#ol-lg) blur(4px) saturate(180%) brightness(1.06);
+html.theme-vice.lg-refract .lg-on.lg-on:not(.active):not(.ol-box):not(.acct-app):not(.acct-card):not(.chat-header) {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 45%, rgba(255, 255, 255, 0.06) 100%);
 }
