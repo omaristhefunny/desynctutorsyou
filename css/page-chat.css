@@ -30,7 +30,7 @@
       border-radius: 50%;
       background: var(--text-faint);
     }
-    .dot.on::before { background: #fff; box-shadow: 0 0 8px rgba(255,255,255,0.7); }
+    .dot::before, .dot.on::before { display: none; }
 
     .roster-scroll { flex: 1; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; }
     .roster-section { display: flex; flex-direction: column; }
@@ -108,7 +108,6 @@
       height: 8px;
       border-radius: 50%;
       background: var(--teal);
-      box-shadow: 0 0 8px var(--teal);
     }
 
     .badge {
@@ -358,7 +357,7 @@
 
     .unread-dot {
       flex-shrink: 0; width: 8px; height: 8px; border-radius: 50%;
-      background: #fff; box-shadow: 0 0 8px rgba(255,255,255,0.7); margin-left: auto;
+      background: #fff; margin-left: auto;
     }
     .member-name .unread-dot, .friend-open .unread-dot { margin-left: 0; }
 
@@ -391,7 +390,7 @@
     }
     .friend-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .presence { flex-shrink: 0; width: 8px; height: 8px; border-radius: 50%; background: var(--text-faint); }
-    .presence.on { background: #fff; box-shadow: 0 0 7px rgba(255,255,255,0.7); }
+    .presence.on { background: #fff; }
     .friend-remove {
       flex-shrink: 0; width: 24px; height: 24px; margin-right: 4px;
       background: none; border: 0; border-radius: var(--radius-sm); color: var(--text-faint);

@@ -185,6 +185,7 @@
   color: var(--text);
 }
 .chat-title::before {
+  display: none;
   content: "";
   flex-shrink: 0;
   width: 8px;
